@@ -17,7 +17,7 @@ consciousness &mdash; is a result of training. When it comes to artificial intel
 some prominent voices in the field believe that we can generate general intelligence through
 training. Training for machine learning is not that different from training for people, or for
 animals. In all cases, the trainee is basically asked to do the same things over and over,
-improving from feedback on each attempt, until he/she/they/it is compotent.
+improving from feedback on each attempt, until he/she/they/it is competent.
 
 A lot of people have pointed out that it's a bit strange to think that general intelligence will
 arise from training a model on a handful, or even a few score of tasks. In the cases of recent
@@ -27,7 +27,7 @@ process, but so is the task itself. Given the same training data, it's possible 
 very different tasks, with very different outcomes.
 
 Advocates for training-based approaches think that there's enough information about the process of
-_thinking_ in the data, specfically in the context of the relevant tasks, that in mastering the
+_thinking_ in the data, specifically in the context of the relevant tasks, that in mastering the
 tasks, an artificial intelligence can also learn to "think". Skeptics of this idea point out that
 there are kinds of reasoning fundamental to intelligence that _cannot_ be captured by this kind of
 training. Two examples are _causal_ reasoning &mdash; leading thinkers on causality sometimes
@@ -41,7 +41,7 @@ would allow a model to develop its own symbolic taxonomies, or its own strategie
 causal relationships. My belief is that it will be difficult to develop such methods without
 reorienting our thinking about what it means to develop artificial intelligence.
 
-I'm curious about what it would mean to approach artifical intelligence from the perspective of
+I'm curious about what it would mean to approach artificial intelligence from the perspective of
 "raising" a model, instead of "training" it. What kinds of models are amenable to being "raised"?
 What kind of simulated environment can we use to raise them? How much of it can we automate? As
 implied by Ted Chiang's story (and actually, by [another of his
