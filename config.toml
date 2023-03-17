@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://nsfinkelstein.github.io/blog"
+base_url = "http://noamf.ink"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
