@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-Noam's site.
+<h4>Noam Finkelstein's website.</h4>
+I'm a data scientist and engineer, working on causality, machine learning, and healthcare
+technology. I use this website to share writing.
+<br><br>
+Please get in touch with questions or comments:
+<p id='email'>
+<!-- <button type='button' onclick='(() => document.getElementByID("abc").innerHTML = document.location.host)'> -->
+<button type='button'
+    onclick="document.getElementById('email').innerHTML = document.location.host + ' at proton dot me'">
+address
+</button>
+</p>.
 <br><br>
 <a href="{{ get_url(path='@/posts/_index.md') }}">Posts</a>
 {% endblock content %}

@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-{{ section.title }}
-<br>
+<h4>{{ section.title }}</h4>
   {% for page in section.pages %}
   <br>
   {{ page.date }} <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
