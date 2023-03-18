@@ -4,20 +4,8 @@
     <link href="https://noamf.ink/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://noamf.ink"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2023-03-18T00:00:00+00:00</updated>
+    <updated>2023-03-17T00:00:00+00:00</updated>
     <id>https://noamf.ink/atom.xml</id>
-    <entry xml:lang="en">
-        <title>Intrinsic rewards in reinforcement learning</title>
-        <published>2023-03-18T00:00:00+00:00</published>
-        <updated>2023-03-18T00:00:00+00:00</updated>
-        <author>
-          <name>Unknown</name>
-        </author>
-        <link rel="alternate" href="https://noamf.ink/intrinsic-reinforcement-learning/" type="text/html"/>
-        <id>https://noamf.ink/intrinsic-reinforcement-learning/</id>
-        <content type="html">&lt;p&gt;The basic idea behind&lt;&#x2F;p&gt;
-</content>
-    </entry>
     <entry xml:lang="en">
         <title>Thoughts on raising intelligent software</title>
         <published>2023-03-17T00:00:00+00:00</published>
