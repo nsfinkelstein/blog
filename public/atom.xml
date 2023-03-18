@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title></title>
+    <link href="https://noamf.ink/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://noamf.ink"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-18T00:00:00+00:00</updated>
+    <id>https://noamf.ink/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Intrinsic rewards in reinforcement learning</title>
+        <published>2023-03-18T00:00:00+00:00</published>
+        <updated>2023-03-18T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://noamf.ink/intrinsic-reinforcement-learning/" type="text/html"/>
+        <id>https://noamf.ink/intrinsic-reinforcement-learning/</id>
+        <content type="html">&lt;p&gt;The basic idea behind&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Thoughts on raising intelligent software</title>
+        <published>2023-03-17T00:00:00+00:00</published>
+        <updated>2023-03-17T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://noamf.ink/posts/raising-software/" type="text/html"/>
+        <id>https://noamf.ink/posts/raising-software/</id>
+        <content type="html">&lt;p&gt;Ted Chiang&#x27;s story &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Lifecycle_of_Software_Objects&quot;&gt;&lt;em&gt;The Lifecycle of Software
+Objects&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; is a literary exploration
+of what might happen if artificially intelligent beings were raised, instead of &amp;quot;trained&amp;quot;. In the
+story, digital entities are given a virtual environment to explore, and interact with humans and
+with each other. Over the years, they develop similarly to how people or animals develop over time.&lt;&#x2F;p&gt;
+&lt;p&gt;The dominant paradigm for training artificial intelligences is, of course, based on a very different
+idea. Even the terminology is different, in important ways. When we talk about &lt;em&gt;natural&lt;&#x2F;em&gt;
+intelligences, i.e. about people or about animals, &lt;em&gt;training&lt;&#x2F;em&gt; has to with attaining a specific
+ability. But we would never say that that general intelligence — or sentience, or
+consciousness — is a result of training. When it comes to artificial intelligence, though,
+some prominent voices in the field believe that we can generate general intelligence through
+training. Training for machine learning is not that different from training for people, or for
+animals. In all cases, the trainee is basically asked to do the same things over and over,
+improving from feedback on each attempt, until he&#x2F;she&#x2F;they&#x2F;it is competent.&lt;&#x2F;p&gt;
+&lt;p&gt;A lot of people have pointed out that it&#x27;s a bit strange to think that general intelligence will
+arise from training a model on a handful, or even a few score of tasks. In the cases of recent
+large-scale models, those tasks are things like predicting the most likely next word, given context,
+or predicting a textual description of an image. The training data is important to the training
+process, but so is the task itself. Given the same training data, it&#x27;s possible to train models on
+very different tasks, with very different outcomes.&lt;&#x2F;p&gt;
+&lt;p&gt;Advocates for training-based approaches think that there&#x27;s enough information about the process of
+&lt;em&gt;thinking&lt;&#x2F;em&gt; in the data, specifically in the context of the relevant tasks, that in mastering the
+tasks, an artificial intelligence can also learn to &amp;quot;think&amp;quot;. Skeptics of this idea point out that
+there are kinds of reasoning fundamental to intelligence that &lt;em&gt;cannot&lt;&#x2F;em&gt; be captured by this kind of
+training. Two examples are &lt;em&gt;causal&lt;&#x2F;em&gt; reasoning — leading thinkers on causality sometimes
+disparagingly call this kind of machine learning &amp;quot;curve fitting&amp;quot; — and symbolic reasoning.&lt;&#x2F;p&gt;
+&lt;p&gt;I think these skeptics are right, and that it will be important to find ways to integrate these
+kinds of reasoning. But I also think that to some degree they&#x27;re missing the point. Integrating
+causal or symbolic reasoning into the training process will just expand the number of skills the
+artificial intelligence is capable of learning. I don&#x27;t know of any methods in these fields that
+would allow a model to develop its own symbolic taxonomies, or its own strategies for learning
+causal relationships. My belief is that it will be difficult to develop such methods without
+reorienting our thinking about what it means to develop artificial intelligence.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;m curious about what it would mean to approach artificial intelligence from the perspective of
+&amp;quot;raising&amp;quot; a model, instead of &amp;quot;training&amp;quot; it. What kinds of models are amenable to being &amp;quot;raised&amp;quot;?
+What kind of simulated environment can we use to raise them? How much of it can we automate? As
+implied by Ted Chiang&#x27;s story (and actually, by &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Dacey%27s_Patent_Automatic_Nanny&quot;&gt;another of his
+stories&lt;&#x2F;a&gt; as well), I suspect it&#x27;s
+less than we might think.&lt;&#x2F;p&gt;
+</content>
+    </entry>
+</feed>
