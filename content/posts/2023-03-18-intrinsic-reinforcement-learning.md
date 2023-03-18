@@ -1,7 +1,6 @@
 +++
-title = "Generating curiousity: Intrinsic rewards in reinforcement learning"
+title = "Generating curiosity: Intrinsic rewards in reinforcement learning"
 date = 2023-03-18
-draft = true
 +++
 
 In the reinforcement learning paradigm, an agent exists in an environment, and can take actions that
@@ -14,7 +13,7 @@ incremental positive rewards if it makes good moves. Nothing about the reward de
 internal state.
 
 In other cases, the reward function looks only at the agent's state. A reinforcement learning
-benchmark called [Avalon](https://generallyintelligent.com/avalon/) takes the approach. In this
+benchmark called [Avalon](https://generallyintelligent.com/avalon/) takes this approach. In this
 case, the agent exists in an adversarial environment and has to survive by eating. In essence, the
 agent gets a positive reward whenever it eats. The state of the environment itself is irrelevant.
 
@@ -41,13 +40,13 @@ sitting outside and watching the trees sway in the wind. After we eat, there's a
 physiological change, mimicked by the reward function in Avalon. But what happens after we think?
 
 One way to think about unsupervised learning is as the process of searching for patterns in the
-data. It's a proces of synthesizing, interpretting, and assimilating information. In my view,
-there's a strong analogy to be made between that process, and the process of thinking, or of
-sleeping for that matter. There's plenty of evidence that the more we pay attention to something
-&mdash; i.e. the more thought we devote to it &mdash; the more firmly it will establish itself in
-our minds. There's also evidence that good sleep is essential to the formation of long-term
-memories. And, I'd argue, the process of turning things over in your mind until you find a better
-way to understand them is both rewarding and an essential part of learning.
+data. It's a process of synthesizing, interpreting, and assimilating information. In my view,
+there's a strong analogy to be made between that process and the process of thinking, or of sleeping
+for that matter. There's plenty of evidence that the more we pay attention to something &mdash; i.e.
+    the more thought we devote to it &mdash; the more firmly it will establish itself in our minds.
+    There's also evidence that good sleep is essential to the formation of long-term memories. And,
+    I'd argue, the process of turning things over in your mind until you find a better way to
+    understand them is both rewarding and an essential part of learning.
 
 As agents move through their environments, they collect information. It's conceivable that there's
 order in that information that they may not pick up on when they're purely trying to optimize for an
@@ -63,20 +62,20 @@ Rewarding the agent for the quality of the patterns it finds its environment wil
 it to find more compelling patterns. But there's a more interesting effect of this kind of intrinsic
 reward as well. Suppose the agent has developed an unsupervised representation of its environment
 that aligns well with _most_ of the data. But there's a small set of data that, according to
-whatever metric, is not well-represented. That small set of data will drive down the reward for
-the quality of the agent's unsupervised learning. The agent will have an incentive to explore its
+whatever metric, is not well-represented. That small set of data will drive down the reward for the
+quality of the agent's unsupervised learning. The agent will have an incentive to explore its
 environment and action spaces in such a way that it acquires the kind of information that lets it
 make sense of the troubling data.
 
-To me, this looks and functions a lot like curiousity in people. We get curious when we come across
+To me, this looks and functions a lot like curiosity in people. We get curious when we come across
 something that doesn't fit our mental model of the world, or that's simply so far outside of our
-realm of experience that we don't really know what to make of it. That curiousity drives us to try
+realm of experience that we don't really know what to make of it. That curiosity drives us to try
 new things and see what happens, or to learn more about what's around us.
 
 There will undoubtedly be technical challenges to integrate this kind of unsupervised learning
-approach to the reinforcement learning paradigm, but I think it'll be worth trying. Curiousity is
+approach to the reinforcement learning paradigm, but I think it'll be worth trying. Curiosity is
 arguably the main driver of human learning; if the goal is to have machines that learn like we do,
 we'll need some way to make them curious.
 
-Of course, the process of learning &mdash; the process of satisfying curiousity &mdash; is rewarding
+Of course, the process of learning &mdash; the process of satisfying curiosity &mdash; is rewarding
 in its own right as well. That might be a topic for another time.

@@ -4,8 +4,84 @@
     <link href="https://noamf.ink/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://noamf.ink"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2023-03-17T00:00:00+00:00</updated>
+    <updated>2023-03-18T00:00:00+00:00</updated>
     <id>https://noamf.ink/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Generating curiosity: Intrinsic rewards in reinforcement learning</title>
+        <published>2023-03-18T00:00:00+00:00</published>
+        <updated>2023-03-18T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://noamf.ink/posts/intrinsic-reinforcement-learning/" type="text/html"/>
+        <id>https://noamf.ink/posts/intrinsic-reinforcement-learning/</id>
+        <content type="html">&lt;p&gt;In the reinforcement learning paradigm, an agent exists in an environment, and can take actions that
+alter the environment&#x27;s state. Every so often, the agent gets feedback about whether its actions
+have made its situation better or worse, as evaluated by the so-called &lt;em&gt;reward function&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In some cases, the reward function looks &lt;em&gt;only&lt;&#x2F;em&gt; at the environment. For example, a reinforcement
+learning approach to chess might give the agent a positive reward if it wins the game, or
+incremental positive rewards if it makes good moves. Nothing about the reward depends on the agent&#x27;s
+internal state.&lt;&#x2F;p&gt;
+&lt;p&gt;In other cases, the reward function looks only at the agent&#x27;s state. A reinforcement learning
+benchmark called &lt;a href=&quot;https:&#x2F;&#x2F;generallyintelligent.com&#x2F;avalon&#x2F;&quot;&gt;Avalon&lt;&#x2F;a&gt; takes this approach. In this
+case, the agent exists in an adversarial environment and has to survive by eating. In essence, the
+agent gets a positive reward whenever it eats. The state of the environment itself is irrelevant.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s sometimes argued that reinforcement learning is more reflective of how people learn than
+supervised or unsupervised learning. &lt;a href=&quot;https:&#x2F;&#x2F;generallyintelligent.com&#x2F;&quot;&gt;Generally Intelligent&lt;&#x2F;a&gt;, the
+company behind Avalon, have a tagline that reflects this idea:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;We want machines that learn the way humans do.&amp;quot; – Generally Intelligent&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;People do learn through something like reinforcement learning, which we usually call trial and
+error. We also learn through something like supervised learning, though there the analogy isn&#x27;t as
+good. Even in cases when we&#x27;re being explicitly taught, we&#x27;re usually taught with reference to
+&lt;em&gt;general&lt;&#x2F;em&gt; rules and principles, rather than only being fed examples. In other words, the
+&amp;quot;supervision&amp;quot; for humans isn&#x27;t just labels for the data, as it is for machines. It&#x27;s &lt;em&gt;also&lt;&#x2F;em&gt; a
+conceptual framework for how to derive labels or perform an action. I don&#x27;t think we have great
+tools yet for using a similar approach with machines, but we&#x27;ll need them if we want machines to
+learn like people.&lt;&#x2F;p&gt;
+&lt;p&gt;In this post, though, I&#x27;m more interested in the role of unsupervised learning in how people learn,
+and in how that might be reflected in a reinforcement learning environment. There are important,
+rewarding things people can do, that seem to alter neither the environment nor their internal state
+in any obvious ways. There are things like meditating, going for a walk to think after a long day,
+sitting outside and watching the trees sway in the wind. After we eat, there&#x27;s an objective
+physiological change, mimicked by the reward function in Avalon. But what happens after we think?&lt;&#x2F;p&gt;
+&lt;p&gt;One way to think about unsupervised learning is as the process of searching for patterns in the
+data. It&#x27;s a process of synthesizing, interpreting, and assimilating information. In my view,
+there&#x27;s a strong analogy to be made between that process and the process of thinking, or of sleeping
+for that matter. There&#x27;s plenty of evidence that the more we pay attention to something — i.e.
+the more thought we devote to it — the more firmly it will establish itself in our minds.
+There&#x27;s also evidence that good sleep is essential to the formation of long-term memories. And,
+I&#x27;d argue, the process of turning things over in your mind until you find a better way to
+understand them is both rewarding and an essential part of learning.&lt;&#x2F;p&gt;
+&lt;p&gt;As agents move through their environments, they collect information. It&#x27;s conceivable that there&#x27;s
+order in that information that they may not pick up on when they&#x27;re purely trying to optimize for an
+extrinsic — or in the case of Avalon, &lt;em&gt;objective&lt;&#x2F;em&gt; intrinsic — reward.&lt;&#x2F;p&gt;
+&lt;p&gt;What if part of the agent&#x27;s reward was a more &lt;em&gt;subjective&lt;&#x2F;em&gt; intrinsic reward? In particular, what if
+the agent was rewarded for finding compelling and explanatory patterns in the data? Assuming that
+computing resources are not an issue, artificial agents wouldn&#x27;t need to take time out to think, as
+we do. They can multi-task. So they can do unsupervised learning on data as a background process,
+and potentially use the results to help decide on actions.&lt;&#x2F;p&gt;
+&lt;p&gt;Rewarding the agent for the quality of the patterns it finds its environment will, hopefully, induce
+it to find more compelling patterns. But there&#x27;s a more interesting effect of this kind of intrinsic
+reward as well. Suppose the agent has developed an unsupervised representation of its environment
+that aligns well with &lt;em&gt;most&lt;&#x2F;em&gt; of the data. But there&#x27;s a small set of data that, according to
+whatever metric, is not well-represented. That small set of data will drive down the reward for the
+quality of the agent&#x27;s unsupervised learning. The agent will have an incentive to explore its
+environment and action spaces in such a way that it acquires the kind of information that lets it
+make sense of the troubling data.&lt;&#x2F;p&gt;
+&lt;p&gt;To me, this looks and functions a lot like curiosity in people. We get curious when we come across
+something that doesn&#x27;t fit our mental model of the world, or that&#x27;s simply so far outside of our
+realm of experience that we don&#x27;t really know what to make of it. That curiosity drives us to try
+new things and see what happens, or to learn more about what&#x27;s around us.&lt;&#x2F;p&gt;
+&lt;p&gt;There will undoubtedly be technical challenges to integrate this kind of unsupervised learning
+approach to the reinforcement learning paradigm, but I think it&#x27;ll be worth trying. Curiosity is
+arguably the main driver of human learning; if the goal is to have machines that learn like we do,
+we&#x27;ll need some way to make them curious.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, the process of learning — the process of satisfying curiosity — is rewarding
+in its own right as well. That might be a topic for another time.&lt;&#x2F;p&gt;
+</content>
+    </entry>
     <entry xml:lang="en">
         <title>Thoughts on raising intelligent software</title>
         <published>2023-03-17T00:00:00+00:00</published>
