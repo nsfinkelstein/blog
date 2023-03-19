@@ -1,6 +1,5 @@
 +++
 title = "Thoughts on raising intelligent software"
-date = 2023-03-17
 +++
 
 Ted Chiang's story [_The Lifecycle of Software
@@ -16,8 +15,8 @@ ability. But we would never say that that general intelligence &mdash; or sentie
 consciousness &mdash; is a result of training. When it comes to artificial intelligence, though,
 some prominent voices in the field believe that we can generate general intelligence through
 training. Training for machine learning is not that different from training for people, or for
-animals. In all cases, the trainee is basically asked to do the same things over and over,
-improving from feedback on each attempt, until he/she/they/it is competent.
+animals. In all cases, the trainee is basically asked to do the same things over and over, improving
+from feedback on each attempt, until he/she/they/it is competent.
 
 A lot of people have pointed out that it's a bit strange to think that general intelligence will
 arise from training a model on a handful, or even a few score of tasks. In the cases of recent

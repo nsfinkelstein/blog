@@ -1,6 +1,5 @@
 +++
 title = "Generating curiosity: Intrinsic rewards in reinforcement learning"
-date = 2023-03-18
 +++
 
 In the reinforcement learning paradigm, an agent exists in an environment, and can take actions that
@@ -43,10 +42,10 @@ One way to think about unsupervised learning is as the process of searching for 
 data. It's a process of synthesizing, interpreting, and assimilating information. In my view,
 there's a strong analogy to be made between that process and the process of thinking, or of sleeping
 for that matter. There's plenty of evidence that the more we pay attention to something &mdash; i.e.
-    the more thought we devote to it &mdash; the more firmly it will establish itself in our minds.
-    There's also evidence that good sleep is essential to the formation of long-term memories. And,
-    I'd argue, the process of turning things over in your mind until you find a better way to
-    understand them is both rewarding and an essential part of learning.
+the more thought we devote to it &mdash; the more firmly it will establish itself in our minds.
+There's also evidence that good sleep is essential to the formation of long-term memories. And,
+I'd argue, the process of turning things over in your mind until you find a better way to
+understand them is both rewarding and an essential part of learning.
 
 As agents move through their environments, they collect information. It's conceivable that there's
 order in that information that they may not pick up on when they're purely trying to optimize for an
