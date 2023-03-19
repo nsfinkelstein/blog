@@ -67,4 +67,4 @@ term, without hurting our own abilities. Proper coding assistants will take time
 to develop. I suspect that using the current generation of models &mdash; trained on a different
 task, without consideration of this use &mdash; will hurt our relationship to our work, in the same
 way Google maps has shallowed our relationship to navigating and understanding our surroundings.
-Until these tools get better, and more targeted, it's worth being cautious.
+Until these tools get better, it's worth being cautious.
