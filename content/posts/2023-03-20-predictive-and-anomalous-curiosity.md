@@ -12,12 +12,11 @@ about the effects of its actions. The more incorrect the agent is about its pred
 it's penalized. It has an incentive to learn more about the kinds of situations that leave it least
 about to predict the future.
 
-The kind of curiosity I was writing about is different. The idea there would be to simulate the
-agent's "mental model" of the world by using a model trained by an unsupervised approach. The agent
-might contain, in part, an auto-encoder element that encodes the full state of the environment or
-distinct objects in the environment. When the agent comes across input that the auto-encoder encodes
-poorly, it gets a poor reward, indicating that input is _anomalous_ in what the agent has seen so
-far.
+The idea I wrote about was to simulate the agent's "mental model" of the world by using a model
+trained using an unsupervised approach. The agent might contain, in part, an auto-encoder element
+that encodes the full state of the environment or distinct objects in the environment. When the
+agent comes across input that the auto-encoder encodes poorly, it gets a poor reward, indicating
+that input is unlike what the agent has seen so far.
 
 I think human curiosity involves elements of both of these paradigms (and probably many others).
 It's true that we're constantly making predictions about what we think will happen as a result of
@@ -27,10 +26,11 @@ get curious about why we were wrong, and try to figure out how to be less wrong 
 But curiosity doesn't require this kind of prediction. When we encounter something that's totally
 new to us &mdash; something we don't quite know how to make sense of &mdash; we can get curious
 about it, even without making predictions. This kind of curiosity is better simulated by an
-unsupervised loss, which is evaluated on how well its "mental model" accords with reality. Just as
-we're driven to find out more about _anomalies_ in our lives, the agent would be driven to refine
-its "mental model" to account for the input that strikes it as strange. I think of this as a more
-_reflective_ kind of curiosity. As we try to synthesize and assimilate information about the world,
-we notice and wonder about pieces that don't quite fit.
+unsupervised loss, which reflects how well a model captures patterns in the data. Just as we're
+driven to find out more about _anomalies_ in our lives, the agent would be driven to refine its
+"mental model" to account for the input that strikes it as strange, i.e. that does not match the
+patterns it has identified. I think of this as a more _reflective_ kind of curiosity. As we try to
+synthesize and assimilate information about the world, we notice and wonder about pieces that don't
+quite fit in.
 
 What would happen if we created an agent with both predictive and anomalous curiosity? I wonder.
