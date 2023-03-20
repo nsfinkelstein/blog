@@ -15,7 +15,7 @@ about to predict the future.
 The kind of curiosity I was writing about is different. The idea there would be to simulate the
 agent's "mental model" of the world by using a model trained by an unsupervised approach. The agent
 might contain, in part, an auto-encoder element that encodes the full state of the environment or
-distinct objects in the environment. When the agent came across input that the auto-encoder encodes
+distinct objects in the environment. When the agent comes across input that the auto-encoder encodes
 poorly, it gets a poor reward, indicating that input is _anomalous_ in what the agent has seen so
 far.
 

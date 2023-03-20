@@ -26,7 +26,7 @@ about to predict the future.&lt;&#x2F;p&gt;
 &lt;p&gt;The kind of curiosity I was writing about is different. The idea there would be to simulate the
 agent&#x27;s &amp;quot;mental model&amp;quot; of the world by using a model trained by an unsupervised approach. The agent
 might contain, in part, an auto-encoder element that encodes the full state of the environment or
-distinct objects in the environment. When the agent came across input that the auto-encoder encodes
+distinct objects in the environment. When the agent comes across input that the auto-encoder encodes
 poorly, it gets a poor reward, indicating that input is &lt;em&gt;anomalous&lt;&#x2F;em&gt; in what the agent has seen so
 far.&lt;&#x2F;p&gt;
 &lt;p&gt;I think human curiosity involves elements of both of these paradigms (and probably many others).
