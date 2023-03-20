@@ -4,12 +4,12 @@ title = "Types of curiosity: predictive and anomalous"
 
 A couple days ago I wrote about an idea for [curiosity in reinforcement
 learning](@/posts/2023-03-18-intrinsic-reinforcement-learning.md). Since then I was reminded that
-there's already a class of methods in reinforcement learning that go by the same name, summarized
-in [this paper](https://arxiv.org/pdf/1808.04355.pdf).
+there's already a class of methods in reinforcement learning that go by the same name, summarized in
+[this paper](https://arxiv.org/pdf/1808.04355.pdf).
 
 These methods use a different idea to generate "curiosity." They allow an agent to make predictions
 about the effects of its actions. The more incorrect the agent is about its predictions, the more
-its penalized. It has an incentive to learn more about the kinds of situations that leave it least
+it's penalized. It has an incentive to learn more about the kinds of situations that leave it least
 about to predict the future.
 
 The kind of curiosity I was writing about is different. The idea there would be to simulate the
