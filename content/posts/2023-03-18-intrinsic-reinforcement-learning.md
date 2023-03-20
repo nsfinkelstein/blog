@@ -78,3 +78,5 @@ we'll need some way to make them curious.
 
 Of course, the process of learning &mdash; the process of satisfying curiosity &mdash; is rewarding
 in its own right as well. That might be a topic for another time.
+
+[Addendum](@/posts/2023-03-20-predictive-and-anomalous-curiosity.md)

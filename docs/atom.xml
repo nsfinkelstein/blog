@@ -4,8 +4,46 @@
     <link href="https://noamf.ink/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://noamf.ink"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2023-03-19T00:00:00+00:00</updated>
+    <updated>2023-03-20T00:00:00+00:00</updated>
     <id>https://noamf.ink/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Types of curiosity: predictive and anomalous</title>
+        <published>2023-03-20T00:00:00+00:00</published>
+        <updated>2023-03-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://noamf.ink/posts/predictive-and-anomalous-curiosity/" type="text/html"/>
+        <id>https://noamf.ink/posts/predictive-and-anomalous-curiosity/</id>
+        <content type="html">&lt;p&gt;A couple days ago I wrote about an idea for &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;intrinsic-reinforcement-learning&#x2F;&quot;&gt;curiosity in reinforcement
+learning&lt;&#x2F;a&gt;. Since then I was reminded that
+there&#x27;s already a class of methods in reinforcement learning that go by the same name, summarized
+in &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1808.04355.pdf&quot;&gt;this paper&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;These methods use a different idea to generate &amp;quot;curiosity.&amp;quot; They allow an agent to make predictions
+about the effects of its actions. The more incorrect the agent is about its predictions, the more
+its penalized. It has an incentive to learn more about the kinds of situations that leave it least
+about to predict the future.&lt;&#x2F;p&gt;
+&lt;p&gt;The kind of curiosity I was writing about is different. The idea there would be to simulate the
+agent&#x27;s &amp;quot;mental model&amp;quot; of the world by using a model trained by an unsupervised approach. The agent
+might contain, in part, an auto-encoder element that encodes the full state of the environment or
+distinct objects in the environment. When the agent came across input that the auto-encoder encodes
+poorly, it gets a poor reward, indicating that input is &lt;em&gt;anomalous&lt;&#x2F;em&gt; in what the agent has seen so
+far.&lt;&#x2F;p&gt;
+&lt;p&gt;I think human curiosity involves elements of both of these paradigms (and probably many others).
+It&#x27;s true that we&#x27;re constantly making predictions about what we think will happen as a result of
+our actions, and that when those predictions are wrong, that&#x27;s an opportunity for learning. We can
+get curious about why we were wrong, and try to figure out how to be less wrong in the future.&lt;&#x2F;p&gt;
+&lt;p&gt;But curiosity doesn&#x27;t require this kind of prediction. When we encounter something that&#x27;s totally
+new to us — something we don&#x27;t quite know how to make sense of — we can get curious
+about it, even without making predictions. This kind of curiosity is better simulated by an
+unsupervised loss, which is evaluated on how well its &amp;quot;mental model&amp;quot; accords with reality. Just as
+we&#x27;re driven to find out more about &lt;em&gt;anomalies&lt;&#x2F;em&gt; in our lives, the agent would be driven to refine
+its &amp;quot;mental model&amp;quot; to account for the input that strikes it as strange. I think of this as a more
+&lt;em&gt;reflective&lt;&#x2F;em&gt; kind of curiosity. As we try to synthesize and assimilate information about the world,
+we notice and wonder about pieces that don&#x27;t quite fit.&lt;&#x2F;p&gt;
+&lt;p&gt;What would happen if we created an agent with both predictive and anomalous curiosity? I wonder.&lt;&#x2F;p&gt;
+</content>
+    </entry>
     <entry xml:lang="en">
         <title>The Google maps effect: A reason to be cautious about using AI coding assistants</title>
         <published>2023-03-19T00:00:00+00:00</published>
@@ -148,6 +186,7 @@ arguably the main driver of human learning; if the goal is to have machines that
 we&#x27;ll need some way to make them curious.&lt;&#x2F;p&gt;
 &lt;p&gt;Of course, the process of learning — the process of satisfying curiosity — is rewarding
 in its own right as well. That might be a topic for another time.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;predictive-and-anomalous-curiosity&#x2F;&quot;&gt;Addendum&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
     </entry>
     <entry xml:lang="en">
