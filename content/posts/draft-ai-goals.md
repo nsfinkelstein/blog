@@ -28,3 +28,10 @@ of the goal increases with the size of the species.
 
 Does AI, trained on next-token prediction, have anything remotely like that? What if we add
 reinforcement of different kinds?
+
+Another important point - neural networks don't have a sense of "time". When they're given an input,
+that triggers one or more discrete, predetermined series of computations. When they're not given an
+input, they're not thinking, or analyzing the world, or evaluating how they're measuring up to their
+goals. It's a bit unclear what it would mean to have goals in this context. Where would the goals
+get stored?? Not in the weights of the network. Maybe, in the very short term, they could somehow be
+represented in the state vectors of the network.
