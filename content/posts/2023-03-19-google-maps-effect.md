@@ -1,5 +1,6 @@
 +++
 title = "The Google maps effect: A reason to be cautious about using AI coding assistants"
+draft = true
 +++
 
 There are plenty of upsides to using Google maps. The first few times you go somewhere new, it's

@@ -1,5 +1,6 @@
 +++
 title = "Types of curiosity: predictive and anomalous"
+draft = true
 +++
 
 A couple days ago I wrote about an idea for [curiosity in reinforcement

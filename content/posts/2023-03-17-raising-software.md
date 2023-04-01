@@ -1,5 +1,6 @@
 +++
 title = "Thoughts on raising intelligent software"
+draft = true
 +++
 
 Ted Chiang's story [_The Lifecycle of Software
