@@ -75,8 +75,8 @@ always be fragile. First, medical forms are notorious for the variety of their s
 Second, because the OCR engine is not connected to any medical knowledge, it doesn't know to correct
 for character- or token-level mistakes that are obvious in context. Making these corrections
 post-hoc is possible, but it adds substantial engineering and computational complexity. I'm
-especially curious about whether and how newer methods are integrating the linguistic context into
-the character recognition process.
+especially curious about whether and how newer methods are integrating the linguistic and clinical
+context into the character recognition process.
 
 My hope is that it will be possible to build on modern approaches and open-source models for PDF
 parsing to avoid rules-based systems, and hopefully to expand the kinds of information it's possible
