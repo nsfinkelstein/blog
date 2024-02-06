@@ -67,7 +67,7 @@ There are also simpler tasks that might still be useful, such as extracting spec
 or clinical information, or all clinical notes, from a document if available.
 
 In the past, I've had some success running scanned documents through OCR, and then writing
-rules-based engines to pull clinical and labs values on the basis of spatial orientation and a few
+rules-based engines to pull vitals and labs values on the basis of spatial orientation and a few
 other factors. 
 
 It's possible to write these rules in a relatively robust way, but a rules-based approach will
@@ -79,8 +79,8 @@ especially curious about whether and how newer methods are integrating the lingu
 context into the character recognition process.
 
 My hope is that it will be possible to build on modern approaches and open-source models for PDF
-parsing to avoid rules-based systems, and hopefully to expand the kinds of information it's possible
-to extract beyond just simple labs and vitals. 
+parsing to avoid rules-based systems, and to expand the kinds of information it's possible to
+extract beyond just simple labs and vitals. 
 
 #### Post ordering
 

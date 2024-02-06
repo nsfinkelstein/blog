@@ -75,7 +75,7 @@ few of these challenges are listed below.&lt;&#x2F;p&gt;
 &lt;p&gt;There are also simpler tasks that might still be useful, such as extracting specific demographic
 or clinical information, or all clinical notes, from a document if available.&lt;&#x2F;p&gt;
 &lt;p&gt;In the past, I&#x27;ve had some success running scanned documents through OCR, and then writing
-rules-based engines to pull clinical and labs values on the basis of spatial orientation and a few
+rules-based engines to pull vitals and labs values on the basis of spatial orientation and a few
 other factors. &lt;&#x2F;p&gt;
 &lt;p&gt;It&#x27;s possible to write these rules in a relatively robust way, but a rules-based approach will
 always be fragile. First, medical forms are notorious for the variety of their spatial patterns.
@@ -85,8 +85,8 @@ post-hoc is possible, but it adds substantial engineering and computational comp
 especially curious about whether and how newer methods are integrating the linguistic and clinical
 context into the character recognition process.&lt;&#x2F;p&gt;
 &lt;p&gt;My hope is that it will be possible to build on modern approaches and open-source models for PDF
-parsing to avoid rules-based systems, and hopefully to expand the kinds of information it&#x27;s possible
-to extract beyond just simple labs and vitals. &lt;&#x2F;p&gt;
+parsing to avoid rules-based systems, and to expand the kinds of information it&#x27;s possible to
+extract beyond just simple labs and vitals. &lt;&#x2F;p&gt;
 &lt;h4 id=&quot;post-ordering&quot;&gt;Post ordering&lt;&#x2F;h4&gt;
 &lt;p&gt;In my experience, machine-learning methods often optimize for recongized and established
 benchmarking tasks in their sub-field. Understanding these tasks in detail from the start can help
