@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title></title>
+    <link rel="self" type="application/atom+xml" href="https://noamf.ink/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://noamf.ink"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-02-06T00:00:00+00:00</updated>
+    <id>https://noamf.ink/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Intro: A Series of Posts on AI for PDF Parsing</title>
+        <published>2024-02-06T00:00:00+00:00</published>
+        <updated>2024-02-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://noamf.ink/posts/pdf-parsing-series-intro/"/>
+        <id>https://noamf.ink/posts/pdf-parsing-series-intro/</id>
+        
+        <content type="html" xml:base="https://noamf.ink/posts/pdf-parsing-series-intro/">&lt;p&gt;This is an introductory post for a series on AI for analyzing PDFs. The posts in the series are 
+listed below. &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tasks — On established benchmarking tasks in the literature&lt;&#x2F;li&gt;
+&lt;li&gt;Datasets — On available labeled and unlabeld PDF datasets&lt;&#x2F;li&gt;
+&lt;li&gt;Models — On published model architectures and weights&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This list will be updated as the posts are written.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;m not an expert in document modeling, and I might make obvious or silly mistakes along the way. If
+you spot any, or have other questions or comments, please 
+&lt;a href=&quot;mailto:noamf.ink@proton.me&quot;&gt;let me know&lt;&#x2F;a&gt;! &lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;m writing this series as a way of documenting and organizing my preliminary explorations of this
+field; I hope it will useful to others as well.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;motivation-for-catching-up-on-state-of-the-art-ai-for-pdfs&quot;&gt;Motivation for catching up on state-of-the-art AI for PDFs&lt;&#x2F;h4&gt;
+&lt;p&gt;There&#x27;s a lot of medical information that only exists in PDF documents. Much of this information is
+old, from the days before the 
+&lt;a href=&quot;https:&#x2F;&#x2F;www.hhs.gov&#x2F;hipaa&#x2F;for-professionals&#x2F;special-topics&#x2F;hitech-act-enforcement-interim-final-rule&#x2F;index.html&quot;&gt;HITECH&lt;&#x2F;a&gt;
+act kicked off the EHR revolution. While most newer clinical information is stored digitally
+&lt;em&gt;somewhere&lt;&#x2F;em&gt;, patients and even healthcare providers can often access it only in PDF form.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve long been interested in pulling medical data out of scanned PDF documents. Part of this is a 
+personal interest — I have a stack of physical documents representing decades of my family&#x27;s
+medical histories. &lt;&#x2F;p&gt;
+&lt;p&gt;But I also have a professional interest in this problem. In nearly a decade of working on EHR-based
+precision medicine, I&#x27;ve seen many situations in which critically important information is only
+accessible in PDF form.&lt;&#x2F;p&gt;
+&lt;p&gt;Historically, extracting data from PDFs — especially scanned PDFs — has been tedious and
+error-prone. The biggest reason for this is that the PDF format is a visual rather than semantic
+encoding, and the spatial elements of PDF forms are rarely consistent between hospitals or clinics,
+or even within a single clinic over time.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s been about two years since I looked seriously at the state-of-the-art in PDF parsing, and a lot
+has changed in the world of AI in that time. I&#x27;m curious at how much closer we are to solving this
+problem in the era of massive open-source models.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;challenges-in-extracting-medical-data-from-pdfs&quot;&gt;Challenges in extracting medical data from PDFs&lt;&#x2F;h4&gt;
+&lt;p&gt;The most general formulation of the task I&#x27;m interested is this:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Given a digital or scanned PDF, produce a structured
+&lt;a href=&quot;https:&#x2F;&#x2F;www.hl7.org&#x2F;fhir&#x2F;documentation.html&quot;&gt;FHIR&lt;&#x2F;a&gt; document that contains all clinical information
+present in the original PDF, including clinical notes text.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;The FHIR format is the industry standard format for storing and transfering clinical information.&lt;&#x2F;p&gt;
+&lt;p&gt;There are a few challenges involved in this task that may be somewhat non-standard. It&#x27;s not
+necessary to solve all of these challenges for automated PDF parsing to be useful, but it will be
+interesting to see whether and how they&#x27;re addressed in existing models and benchmarking tasks. A
+few of these challenges are listed below.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;We don&#x27;t know what information will be present in any given PDF.&lt;&#x2F;li&gt;
+&lt;li&gt;Each PDF may contain print and handwritten text.&lt;&#x2F;li&gt;
+&lt;li&gt;Some PDFs contain information on multiple procedures or tests across many distinct dates.&lt;&#x2F;li&gt;
+&lt;li&gt;The same medical concept may have many different names.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There are also simpler tasks that might still be useful, such as extracting specific demographic
+or clinical information, or all clinical notes, from a document if available.&lt;&#x2F;p&gt;
+&lt;p&gt;In the past, I&#x27;ve had some success running scanned documents through OCR, and then writing
+rules-based engines to pull clinical and labs values on the basis of spatial orientation and a few
+other factors. &lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s possible to write these rules in a relatively robust way, but a rules-based approach will
+always be fragile. First, medical forms are notorious for the variety of their spatial patterns.
+Second, because the OCR engine is not connected to any medical knowledge, it doesn&#x27;t know to correct
+for character- or token-level mistakes that are obvious in context. Making these corrections
+post-hoc is possible, but it adds substantial engineering and computational complexity. I&#x27;m
+especially curious about whether and how newer methods are integrating the linguistic context into
+the character recognition process.&lt;&#x2F;p&gt;
+&lt;p&gt;My hope is that it will be possible to build on modern approaches and open-source models for PDF
+parsing to avoid rules-based systems, and hopefully to expand the kinds of information it&#x27;s possible
+to extract beyond just simple labs and vitals. &lt;&#x2F;p&gt;
+&lt;h4 id=&quot;post-ordering&quot;&gt;Post ordering&lt;&#x2F;h4&gt;
+&lt;p&gt;In my experience, machine-learning methods often optimize for recongized and established
+benchmarking tasks in their sub-field. Understanding these tasks in detail from the start can help
+get sense for how the field is orienting itself. The next post in the series will be about relevant
+benchmarking tasks.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, I&#x27;ll take a look at available datasets, as well as the feasibility of generating realistic
+data for training purposes. I find this is also helpful to do before reading about specific models,
+as it provides context for which objectives models are trained against, and when it&#x27;s possible to
+use self-supervised objectives.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, I&#x27;ll take a closer look at existing model architectures and open-source models. This part
+of the series may expand into several posts about testing out, fine-tuning or altering existing
+models.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
