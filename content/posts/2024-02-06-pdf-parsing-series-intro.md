@@ -82,7 +82,7 @@ My hope is that it will be possible to build on modern approaches and open-sourc
 parsing to avoid rules-based systems, and to expand the kinds of information it's possible to
 extract beyond just simple labs and vitals. 
 
-#### Post ordering
+#### Order of posts in the series
 
 In my experience, machine-learning methods often optimize for recongized and established
 benchmarking tasks in their sub-field. Understanding these tasks in detail from the start can help
