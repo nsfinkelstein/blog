@@ -50,7 +50,7 @@ groups documents into a &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x
 collection can be used to answer the question.&lt;&#x2F;p&gt;
 &lt;p&gt;The datasets can be downloaded &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=17&amp;amp;com=downloads&quot;&gt;here&lt;&#x2F;a&gt;, after creation
 of an account.&lt;&#x2F;p&gt;
-&lt;p&gt;The related &lt;a href=&quot;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&#x2F;?ch=2&amp;amp;com=downloads&quot;&gt;PFL-DocVQA&lt;&#x2F;a&gt; datasets, which has
+&lt;p&gt;The related &lt;a href=&quot;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&#x2F;?ch=2&amp;amp;com=downloads&quot;&gt;PFL-DocVQA&lt;&#x2F;a&gt; dataset, which has
 ~1,000,000 question-answer pairs on ~110,000 documents in total. At the moment, it seems only
 ~250,000 are public, but the remainder should be published soon.&lt;&#x2F;p&gt;
 &lt;p&gt;Both &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&quot;&gt;https:&#x2F;&#x2F;rrc.cvc.uab.es&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&quot;&gt;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&lt;&#x2F;a&gt;, which host the DocVQA and
@@ -112,15 +112,15 @@ These kinds of notes often disrupt table recognition, as the same column headers
 below the note. I&#x27;ve had trouble in the past where table identifiers either considered the parts of
 a table separated by a note to be distinct tables, or else only recognized the part of the table
 that precedes the note, as the remaining parts do not have identifiable column headers. &lt;&#x2F;p&gt;
-&lt;p&gt;Because the FinTabNet does not contain as semantic information about table structure, models trained
+&lt;p&gt;Because the FinTabNet does not contain semantic information about table structure, models trained
 on it might be better able to recognize the notes as distinct cells; this will be interesting to
 explore.&lt;&#x2F;p&gt;
 &lt;h5 id=&quot;receipts-parsing&quot;&gt;Receipts Parsing&lt;&#x2F;h5&gt;
 &lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=13&amp;amp;com=introduction&quot;&gt;SROIE dataset&lt;&#x2F;a&gt; has ~1,000 receipt images. Each
-receipt is annotated with standard word &#x2F; bbox information, as well as a number of key-value pairs
-(the example keys given are &lt;em&gt;company&lt;&#x2F;em&gt;, &lt;em&gt;date&lt;&#x2F;em&gt;, &lt;em&gt;address&lt;&#x2F;em&gt;, and &lt;em&gt;total&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+receipt is annotated with standard word &#x2F; bounding box information, as well as a number of key-value
+pairs (the example keys given are &lt;em&gt;company&lt;&#x2F;em&gt;, &lt;em&gt;date&lt;&#x2F;em&gt;, &lt;em&gt;address&lt;&#x2F;em&gt;, and &lt;em&gt;total&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;clovaai&#x2F;cord&quot;&gt;CORD&lt;&#x2F;a&gt; dataset has ~1,0000 receipts. Each receipt is annotated
-with word &#x2F; bbox information, as well as line-level and receipt-level classifications.&lt;&#x2F;p&gt;
+with word &#x2F; bounding box information, as well as line-level and receipt-level classifications.&lt;&#x2F;p&gt;
 &lt;h5 id=&quot;datasets-in-other-languages&quot;&gt;Datasets in other languages&lt;&#x2F;h5&gt;
 &lt;p&gt;I&#x27;ll focus on English datasets for now, both because I can read English and because the documents
 I&#x27;m interested in working with are in English. There are interesting datasets in other languages,

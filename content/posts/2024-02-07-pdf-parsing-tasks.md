@@ -40,7 +40,7 @@ collection can be used to answer the question.
 The datasets can be downloaded [here](https://rrc.cvc.uab.es/?ch=17&com=downloads), after creation
 of an account.
 
-The related [PFL-DocVQA](https://benchmarks.elsa-ai.eu/?ch=2&com=downloads) datasets, which has
+The related [PFL-DocVQA](https://benchmarks.elsa-ai.eu/?ch=2&com=downloads) dataset, which has
 \~1,000,000 question-answer pairs on \~110,000 documents in total. At the moment, it seems only
 \~250,000 are public, but the remainder should be published soon.
 
@@ -124,18 +124,18 @@ below the note. I've had trouble in the past where table identifiers either cons
 a table separated by a note to be distinct tables, or else only recognized the part of the table
 that precedes the note, as the remaining parts do not have identifiable column headers. 
 
-Because the FinTabNet does not contain as semantic information about table structure, models trained
+Because the FinTabNet does not contain semantic information about table structure, models trained
 on it might be better able to recognize the notes as distinct cells; this will be interesting to
 explore.
 
 ##### Receipts Parsing
 
 The [SROIE dataset](https://rrc.cvc.uab.es/?ch=13&com=introduction) has \~1,000 receipt images. Each
-receipt is annotated with standard word / bbox information, as well as a number of key-value pairs
-(the example keys given are _company_, _date_, _address_, and _total_).
+receipt is annotated with standard word / bounding box information, as well as a number of key-value
+pairs (the example keys given are _company_, _date_, _address_, and _total_).
 
 The [CORD](https://github.com/clovaai/cord) dataset has \~1,0000 receipts. Each receipt is annotated
-with word / bbox information, as well as line-level and receipt-level classifications.
+with word / bounding box information, as well as line-level and receipt-level classifications.
 
 
 ##### Datasets in other languages

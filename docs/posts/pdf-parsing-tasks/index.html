@@ -50,7 +50,7 @@ groups documents into a <a href="https://arxiv.org/abs/2104.14336">collection</a
 collection can be used to answer the question.</p>
 <p>The datasets can be downloaded <a href="https://rrc.cvc.uab.es/?ch=17&amp;com=downloads">here</a>, after creation
 of an account.</p>
-<p>The related <a href="https://benchmarks.elsa-ai.eu/?ch=2&amp;com=downloads">PFL-DocVQA</a> datasets, which has
+<p>The related <a href="https://benchmarks.elsa-ai.eu/?ch=2&amp;com=downloads">PFL-DocVQA</a> dataset, which has
 ~1,000,000 question-answer pairs on ~110,000 documents in total. At the moment, it seems only
 ~250,000 are public, but the remainder should be published soon.</p>
 <p>Both <a href="https://rrc.cvc.uab.es">https://rrc.cvc.uab.es</a> and <a href="https://benchmarks.elsa-ai.eu">https://benchmarks.elsa-ai.eu</a>, which host the DocVQA and
@@ -112,15 +112,15 @@ These kinds of notes often disrupt table recognition, as the same column headers
 below the note. I've had trouble in the past where table identifiers either considered the parts of
 a table separated by a note to be distinct tables, or else only recognized the part of the table
 that precedes the note, as the remaining parts do not have identifiable column headers. </p>
-<p>Because the FinTabNet does not contain as semantic information about table structure, models trained
+<p>Because the FinTabNet does not contain semantic information about table structure, models trained
 on it might be better able to recognize the notes as distinct cells; this will be interesting to
 explore.</p>
 <h5 id="receipts-parsing">Receipts Parsing</h5>
 <p>The <a href="https://rrc.cvc.uab.es/?ch=13&amp;com=introduction">SROIE dataset</a> has ~1,000 receipt images. Each
-receipt is annotated with standard word / bbox information, as well as a number of key-value pairs
-(the example keys given are <em>company</em>, <em>date</em>, <em>address</em>, and <em>total</em>).</p>
+receipt is annotated with standard word / bounding box information, as well as a number of key-value
+pairs (the example keys given are <em>company</em>, <em>date</em>, <em>address</em>, and <em>total</em>).</p>
 <p>The <a href="https://github.com/clovaai/cord">CORD</a> dataset has ~1,0000 receipts. Each receipt is annotated
-with word / bbox information, as well as line-level and receipt-level classifications.</p>
+with word / bounding box information, as well as line-level and receipt-level classifications.</p>
 <h5 id="datasets-in-other-languages">Datasets in other languages</h5>
 <p>I'll focus on English datasets for now, both because I can read English and because the documents
 I'm interested in working with are in English. There are interesting datasets in other languages,
