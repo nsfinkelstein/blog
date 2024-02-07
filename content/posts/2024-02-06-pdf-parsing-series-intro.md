@@ -1,5 +1,5 @@
 +++
-title = "Intro: A Series of Posts on AI for PDF Parsing"
+title = "Intro: A Series of Posts on AI for Document Parsing"
 +++
 
 This is an introductory post for a series on AI for analyzing PDFs. The posts in the series are 
