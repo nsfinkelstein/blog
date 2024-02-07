@@ -9,7 +9,7 @@ what the field is orienting itself around, and how they relate to the challenges
 [extracting data from medical Documents](@/posts/2024-02-06-pdf-parsing-series-intro.md#challenges-in-extracting-medical-data-from-pdfs).
 
 The [Accelerating Document AI](https://huggingface.co/blog/document-ai) post by Hugging Face covers
-some of the same ground, and was helpful context in writing this post, and is worth a read.
+some of the same ground. It was helpful context in writing this post and is worth a read.
 
 I'll update this post as I come across new relevant tasks.
 
