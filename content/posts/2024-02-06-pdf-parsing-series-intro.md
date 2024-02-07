@@ -1,11 +1,12 @@
 +++
-title = "Intro: A Series of Posts on AI for Document Parsing"
+title = "A Series of posts about Document AI"
+updated = "2024-02-07"
 +++
 
 This is an introductory post for a series on AI for analyzing PDFs. The posts in the series are 
 listed below. 
 
-- Tasks &mdash; On established benchmarking tasks in the literature
+- [Tasks](@/posts/2024-02-07-pdf-parsing-tasks.md) &mdash; On established benchmarking tasks in the literature
 - Datasets &mdash; On available labeled and unlabeld PDF datasets
 - Models &mdash; On published model architectures and weights
 

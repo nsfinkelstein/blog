@@ -4,12 +4,146 @@
     <link rel="self" type="application/atom+xml" href="https://noamf.ink/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://noamf.ink"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2024-02-06T00:00:00+00:00</updated>
+    <updated>2024-02-08T00:00:00+00:00</updated>
     <id>https://noamf.ink/atom.xml</id>
     <entry xml:lang="en">
-        <title>Intro: A Series of Posts on AI for PDF Parsing</title>
+        <title>Benchmarking Tasks for Document Analysis</title>
+        <published>2024-02-07T00:00:00+00:00</published>
+        <updated>2024-02-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://noamf.ink/posts/pdf-parsing-tasks/"/>
+        <id>https://noamf.ink/posts/pdf-parsing-tasks/</id>
+        
+        <content type="html" xml:base="https://noamf.ink/posts/pdf-parsing-tasks/">&lt;p&gt;This is the first post in a &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-series-intro&#x2F;&quot;&gt;series&lt;&#x2F;a&gt; on document
+parsing. I&#x27;m starting with a review of the benchmarking tasks because I want to understand problems
+what the field is orienting itself around, and how they relate to the challenges of 
+&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-series-intro&#x2F;#challenges-in-extracting-medical-data-from-pdfs&quot;&gt;extracting data from medical Documents&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;huggingface.co&#x2F;blog&#x2F;document-ai&quot;&gt;Accelerating Document AI&lt;&#x2F;a&gt; post by Hugging Face covers
+some of the same ground, and was helpful context in writing this post, and is worth a read.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll update this post as I come across new relevant tasks.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;document-question-answering&quot;&gt;Document Question Answering&lt;&#x2F;h4&gt;
+&lt;p&gt;The document question answer task takes a document (PDF, image, or text) and a natural language
+question about the document as inputs, and produces a natural language answer to that question as an
+output.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;rajpurkar.github.io&#x2F;SQuAD-explorer&#x2F;&quot;&gt;SQuAD2.0&lt;&#x2F;a&gt; dataset is a dataset in which the
+documents are text (extracted from wikipedia articles), the questions are English, and each question
+is paired with one or more related substrings of the corresponding document, or a special token
+indicating that the question is not answered in the document. There are ~500 documents, with
+~100,000 question-answer pairs, and an additional ~50,000 adversarial questions that seem like they
+might be answered in the document but are not. &lt;&#x2F;p&gt;
+&lt;p&gt;These documents are not PDFs, but might be used to train the language part of a PDF parsing model.
+In the worst case, they can be automatically converted to either scanned or digital PDF format with
+simulated visual artifacts.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;www.docvqa.org&#x2F;&quot;&gt;DocVQA&lt;&#x2F;a&gt; collection has 4 distinct data sets. The 
+&lt;a href=&quot;https:&#x2F;&#x2F;www.docvqa.org&#x2F;datasets&#x2F;docvqa&quot;&gt;DocVQA&lt;&#x2F;a&gt; dataset has ~12,000 images with ~50,000 questions.
+Answers are also text extracted from the given document image. There are also similar, smaller
+datasets for Infographics (rather than documents) and handwritten documents. The final dataset
+groups documents into a &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2104.14336&quot;&gt;collection&lt;&#x2F;a&gt;, and any document in the
+collection can be used to answer the question.&lt;&#x2F;p&gt;
+&lt;p&gt;The datasets can be downloaded &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=17&amp;amp;com=downloads&quot;&gt;here&lt;&#x2F;a&gt;, after creation
+of an account.&lt;&#x2F;p&gt;
+&lt;p&gt;The related &lt;a href=&quot;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&#x2F;?ch=2&amp;amp;com=downloads&quot;&gt;PFL-DocVQA&lt;&#x2F;a&gt; datasets, which has
+~1,000,000 question-answer pairs on ~110,000 documents in total. At the moment, it seems only
+~250,000 are public, but the remainder should be published soon.&lt;&#x2F;p&gt;
+&lt;p&gt;Both &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&quot;&gt;https:&#x2F;&#x2F;rrc.cvc.uab.es&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&quot;&gt;https:&#x2F;&#x2F;benchmarks.elsa-ai.eu&lt;&#x2F;a&gt;, which host the DocVQA and
+PFL-DocVQA datasets respectively also have other interesting image-to-text datasets that might be
+useful for pre-training parts of a document model.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=23&amp;amp;com=introduction&quot;&gt;DUDE&lt;&#x2F;a&gt; data set contains ~5,000 PDF documents,
+with ~20,000 question-answer pairs. Questions can be &lt;em&gt;extractive&lt;&#x2F;em&gt;, in which case the answer must
+appear in the document, as for the datasets above, or &lt;em&gt;abstractive&lt;&#x2F;em&gt;, in which case the answer does
+not appear in the document.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;document-classification&quot;&gt;Document Classification&lt;&#x2F;h4&gt;
+&lt;p&gt;Document classification is what it sounds like.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;paperswithcode.com&#x2F;dataset&#x2F;rvl-cdip&quot;&gt;RVL-CDIP&lt;&#x2F;a&gt; dataset contains 400,000 images of
+documents, each of which is assigned to one of 16 classes. The leaderboard is 
+&lt;a href=&quot;https:&#x2F;&#x2F;paperswithcode.com&#x2F;sota&#x2F;document-image-classification-on-rvl-cdip&quot;&gt;here&lt;&#x2F;a&gt;, and can be
+downloaded &lt;a href=&quot;https:&#x2F;&#x2F;adamharley.com&#x2F;rvl-cdip&#x2F;&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;document-layout-analysis&quot;&gt;Document Layout Analysis&lt;&#x2F;h4&gt;
+&lt;p&gt;The layout analysis task aims to segment the documents into blocks, and classify each block. Common
+block labels are things like &lt;em&gt;text&lt;&#x2F;em&gt;, &lt;em&gt;title&lt;&#x2F;em&gt;, &lt;em&gt;figure&lt;&#x2F;em&gt;, &lt;em&gt;table&lt;&#x2F;em&gt;, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ibm-aur-nlp&#x2F;PubLayNet#getting-data&quot;&gt;PubLayNet&lt;&#x2F;a&gt; contains ~360,000 scientific
+papers drawn from PubMed. The dataset was constructed by &amp;quot;automatically matching XML representations
+and the contents&amp;quot; of the papers.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;document-parsing&quot;&gt;Document Parsing&lt;&#x2F;h4&gt;
+&lt;p&gt;The document parsing task aims to extract specific kinds of information from a document. In the case
+of forms, the goal is to extract key-value pairs, where each key is the name of a form-field, and
+the value is the user-entered text for that field. This is also sometimes called Key Information
+Extraction (KIE). Form and table parsing may be especially relevant to pulling information from
+medical records. &lt;&#x2F;p&gt;
+&lt;h5 id=&quot;forms-parsing&quot;&gt;Forms Parsing&lt;&#x2F;h5&gt;
+&lt;p&gt;The Form Understanding from Noisy Scanned Documents 
+(&lt;a href=&quot;https:&#x2F;&#x2F;guillaumejaume.github.io&#x2F;FUNSD&#x2F;download&#x2F;&quot;&gt;FUNDS&lt;&#x2F;a&gt;) dataset has ~200 forms, with
+information about words and their locations, &lt;em&gt;semantic entities&lt;&#x2F;em&gt; — collections of related
+words —, and relations links between key-value pairs. 
+&lt;a href=&quot;https:&#x2F;&#x2F;guillaumejaume.github.io&#x2F;FUNSD&#x2F;description&#x2F;&quot;&gt;Here&lt;&#x2F;a&gt; is a nice summary-by-example of the data
+available on each form.&lt;&#x2F;p&gt;
+&lt;p&gt;The related &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;doc-analysis&#x2F;XFUND&quot;&gt;XFUND&lt;&#x2F;a&gt; dataset extends this idea to documents in
+other languages. The dataset repository doesn&#x27;t have much information, but it&#x27;s described in the
+&lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2104.08836v3&quot;&gt;LayoutXLM&lt;&#x2F;a&gt; paper. XFUND contains ~1,400 annotated forms, at
+~200 per language. The dataset contains standard OCR data (i.e. words with bounding boxes), as well
+as semantically significant sets of words, each of which is called a &lt;em&gt;semantic entity&lt;&#x2F;em&gt;. It also
+contains annotated key-value pairs; a major goal is identifying the value associated with a given
+key.&lt;&#x2F;p&gt;
+&lt;h5 id=&quot;table-parsing&quot;&gt;Table parsing&lt;&#x2F;h5&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;huggingface.co&#x2F;datasets&#x2F;bsmock&#x2F;pubtables-1m&quot;&gt;PubTables-1M&lt;&#x2F;a&gt; dataset contains ~575,000
+pages, with a total of ~950,000 fully annotated tables. 
+&lt;a href=&quot;https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;10793386&#x2F;139559159-cd23c972-8731-48ed-91df-f3f27e9f4d79.jpg&quot;&gt;Table annotations&lt;&#x2F;a&gt;
+include column headers and &lt;em&gt;projected row headers&lt;&#x2F;em&gt;, which are used to subdivide the table into
+vertical sections (see the linked image for an example). The dataset can also be used to learn to
+identify tables in documents. &lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;developer.ibm.com&#x2F;exchanges&#x2F;data&#x2F;all&#x2F;fintabnet&#x2F;&quot;&gt;FinTabNet&lt;&#x2F;a&gt; dataset &amp;quot;contains complex
+tables from the annual reports of S&amp;amp;P 500 companies with detailed table structure annotations&amp;quot;. It
+has ~90,000 pages with ~110,000 tables. The annotations here seem to just indicate a bounding box
+for each &lt;em&gt;table&lt;&#x2F;em&gt;, and a bounding box for each &lt;em&gt;cell&lt;&#x2F;em&gt; in the table. See the bottom of 
+&lt;a href=&quot;https:&#x2F;&#x2F;dataplatform.cloud.ibm.com&#x2F;analytics&#x2F;notebooks&#x2F;v2&#x2F;f57cf3f6-e972-48ff-ab7b-3771ba7b9683&#x2F;view?access_token=317644327d84f5d75b4782f97499146c78d029651a7c7ace050f4a7656033c30&quot;&gt;this notebook&lt;&#x2F;a&gt; for examples.&lt;&#x2F;p&gt;
+&lt;p&gt;On first look, it doesn&#x27;t seem that either dataset includes a class for the kinds of notes that 
+often appear in lab test reports 
+(&lt;a href=&quot;https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;John-Flach&#x2F;publication&#x2F;267494297&#x2F;figure&#x2F;fig1&#x2F;AS:392037380706311@1470480403318&#x2F;An-example-of-a-typical-format-used-to-report-results-of-blood-analysis-to-the-physician.png&quot;&gt;example 1&lt;&#x2F;a&gt;,
+&lt;a href=&quot;https:&#x2F;&#x2F;i.pinimg.com&#x2F;736x&#x2F;8e&#x2F;a6&#x2F;ef&#x2F;8ea6efe0d12a1a580e8d1b3390a3e066.jpg&quot;&gt;example 2&lt;&#x2F;a&gt;).
+These kinds of notes often disrupt table recognition, as the same column headers apply above and
+below the note. I&#x27;ve had trouble in the past where table identifiers either considered the parts of
+a table separated by a note to be distinct tables, or else only recognized the part of the table
+that precedes the note, as the remaining parts do not have identifiable column headers. &lt;&#x2F;p&gt;
+&lt;p&gt;Because the FinTabNet does not contain as semantic information about table structure, models trained
+on it might be better able to recognize the notes as distinct cells; this will be interesting to
+explore.&lt;&#x2F;p&gt;
+&lt;h5 id=&quot;receipts-parsing&quot;&gt;Receipts Parsing&lt;&#x2F;h5&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=13&amp;amp;com=introduction&quot;&gt;SROIE dataset&lt;&#x2F;a&gt; has ~1,000 receipt images. Each
+receipt is annotated with standard word &#x2F; bbox information, as well as a number of key-value pairs
+(the example keys given are &lt;em&gt;company&lt;&#x2F;em&gt;, &lt;em&gt;date&lt;&#x2F;em&gt;, &lt;em&gt;address&lt;&#x2F;em&gt;, and &lt;em&gt;total&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;clovaai&#x2F;cord&quot;&gt;CORD&lt;&#x2F;a&gt; dataset has ~1,0000 receipts. Each receipt is annotated
+with word &#x2F; bbox information, as well as line-level and receipt-level classifications.&lt;&#x2F;p&gt;
+&lt;h5 id=&quot;datasets-in-other-languages&quot;&gt;Datasets in other languages&lt;&#x2F;h5&gt;
+&lt;p&gt;I&#x27;ll focus on English datasets for now, both because I can read English and because the documents
+I&#x27;m interested in working with are in English. There are interesting datasets in other languages,
+especially in Chinese. In particular, the &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=21&quot;&gt;HUSTL-CELL&lt;&#x2F;a&gt; dataset looks
+relevant to key information extraction, and is primarily in Chinese.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h4&gt;
+&lt;p&gt;This post is meant to provide an overview of the kinds of tasks that are currently used to evaluate
+methods for Document AI. The corresponding datasets can be used for training or fine-tuning as well.&lt;&#x2F;p&gt;
+&lt;p&gt;My overall impression is that there is low availability of large, high-quality annotated datasets,
+especially for the &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;#document-parsing&quot;&gt;parsing&lt;&#x2F;a&gt;-based tasks. This seems to be a bottleneck for
+training, though perhaps less so for evaluation.&lt;&#x2F;p&gt;
+&lt;p&gt;In the next post in the series, we&#x27;ll look at unlabeled datasets that can be used for
+self-supervised pre-training. I will be especially interested in methods for generating synthetic
+labeled data. For medical document information extraction, it may be relevant to see if plausible
+documents of varied structures can be created using synthetic FHIR data from 
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;synthetichealth&#x2F;synthea&quot;&gt;Synthea&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A Series of posts about Document AI</title>
         <published>2024-02-06T00:00:00+00:00</published>
-        <updated>2024-02-06T00:00:00+00:00</updated>
+        <updated>2024-02-07T00:00:00+00:00</updated>
         
         <author>
           <name>
@@ -25,7 +159,7 @@
         <content type="html" xml:base="https://noamf.ink/posts/pdf-parsing-series-intro/">&lt;p&gt;This is an introductory post for a series on AI for analyzing PDFs. The posts in the series are 
 listed below. &lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;Tasks — On established benchmarking tasks in the literature&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;&quot;&gt;Tasks&lt;&#x2F;a&gt; — On established benchmarking tasks in the literature&lt;&#x2F;li&gt;
 &lt;li&gt;Datasets — On available labeled and unlabeld PDF datasets&lt;&#x2F;li&gt;
 &lt;li&gt;Models — On published model architectures and weights&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;

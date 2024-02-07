@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 style="margin-left:30px">
-  {{ page.title }}
-</h2>
-<div style="max-width: 600px;margin-left:30px">
-{{ page.date }}
-<br><br>
-{{ page.content | safe }}
+<h2>{{ page.title }}</h2>
+<div style="opacity: 0.7">
+Published: {{ page.date }}
+<br>
+{% if page.updated %}
+Last updated: {{ page.updated }}
+{% endif %}
 </div>
+<br>
+{{ page.content | safe }}
 {% endblock content %}
