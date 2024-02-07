@@ -23,8 +23,8 @@
         <id>https://noamf.ink/posts/pdf-parsing-tasks/</id>
         
         <content type="html" xml:base="https://noamf.ink/posts/pdf-parsing-tasks/">&lt;p&gt;This is the first post in a &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-series-intro&#x2F;&quot;&gt;series&lt;&#x2F;a&gt; on document
-parsing. I&#x27;m starting with a review of the benchmarking tasks because I want to understand problems
-what the field is orienting itself around, and how they relate to the challenges of 
+parsing. I&#x27;m starting with a review of the benchmarking tasks because I want to understand which 
+problems the field is orienting itself around, and how they relate to the challenges of 
 &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-series-intro&#x2F;#challenges-in-extracting-medical-data-from-pdfs&quot;&gt;extracting data from medical Documents&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;huggingface.co&#x2F;blog&#x2F;document-ai&quot;&gt;Accelerating Document AI&lt;&#x2F;a&gt; post by Hugging Face covers
 some of the same ground. It was helpful context in writing this post and is worth a read.&lt;&#x2F;p&gt;

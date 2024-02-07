@@ -4,8 +4,8 @@ updated = "2024-02-08"
 +++
 
 This is the first post in a [series](@/posts/2024-02-06-pdf-parsing-series-intro.md) on document
-parsing. I'm starting with a review of the benchmarking tasks because I want to understand problems
-what the field is orienting itself around, and how they relate to the challenges of 
+parsing. I'm starting with a review of the benchmarking tasks because I want to understand which 
+problems the field is orienting itself around, and how they relate to the challenges of 
 [extracting data from medical Documents](@/posts/2024-02-06-pdf-parsing-series-intro.md#challenges-in-extracting-medical-data-from-pdfs).
 
 The [Accelerating Document AI](https://huggingface.co/blog/document-ai) post by Hugging Face covers
