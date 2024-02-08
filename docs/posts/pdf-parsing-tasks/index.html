@@ -123,6 +123,13 @@ that precedes the note, as the remaining parts do not have identifiable column h
 <p>Because the FinTabNet does not contain semantic information about table structure, models trained
 on it might be better able to recognize the notes as distinct cells; this will be interesting to
 explore.</p>
+<p>There is also the 
+<a href="https://huggingface.co/datasets/bsmock/ICDAR-2013-Table-Competition-Corrected">ICDAR2013 table competition dataset</a>, 
+which is available in corrected form on hugging face. The dataset is described in 
+<a href="https://corpora.tika.apache.org/base/docs/bug_trackers/tabula/tabula-java-LINK-49-1.pdf">this paper</a>. 
+It contains table location and structure information.</p>
+<p>A summary of these three datasets, as well as interesting commenatry about using them together, can
+be found <a href="https://arxiv.org/pdf/2303.00716.pdf">here</a>.</p>
 <h5 id="receipts-parsing">Receipts Parsing</h5>
 <p>The <a href="https://rrc.cvc.uab.es/?ch=13&amp;com=introduction">SROIE dataset</a> has ~1,000 receipt images. Each
 receipt is annotated with standard word / bounding box information, as well as a number of key-value

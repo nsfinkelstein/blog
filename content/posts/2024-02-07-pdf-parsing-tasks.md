@@ -138,6 +138,15 @@ Because the FinTabNet does not contain semantic information about table structur
 on it might be better able to recognize the notes as distinct cells; this will be interesting to
 explore.
 
+There is also the 
+[ICDAR2013 table competition dataset](https://huggingface.co/datasets/bsmock/ICDAR-2013-Table-Competition-Corrected), 
+which is available in corrected form on hugging face. The dataset is described in 
+[this paper](https://corpora.tika.apache.org/base/docs/bug_trackers/tabula/tabula-java-LINK-49-1.pdf). 
+It contains table location and structure information.
+
+A summary of these three datasets, as well as interesting commenatry about using them together, can
+be found [here](https://arxiv.org/pdf/2303.00716.pdf).
+
 ##### Receipts Parsing
 
 The [SROIE dataset](https://rrc.cvc.uab.es/?ch=13&com=introduction) has \~1,000 receipt images. Each

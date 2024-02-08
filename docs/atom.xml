@@ -4,8 +4,36 @@
     <link rel="self" type="application/atom+xml" href="https://noamf.ink/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://noamf.ink"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2024-02-08T00:00:00+00:00</updated>
+    <updated>2024-02-09T00:00:00+00:00</updated>
     <id>https://noamf.ink/atom.xml</id>
+    <entry xml:lang="en">
+        <title></title>
+        <published>2024-02-09T00:00:00+00:00</published>
+        <updated>2024-02-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://noamf.ink/posts/lab-test-results-parsing/"/>
+        <id>https://noamf.ink/posts/lab-test-results-parsing/</id>
+        
+        <content type="html" xml:base="https://noamf.ink/posts/lab-test-results-parsing/">&lt;h4 id=&quot;overview&quot;&gt;Overview&lt;&#x2F;h4&gt;
+&lt;h5 id=&quot;tasks&quot;&gt;Tasks&lt;&#x2F;h5&gt;
+&lt;p&gt;Questio&lt;&#x2F;p&gt;
+&lt;p&gt;Model Taxonomy &amp;amp; Specific Models&lt;&#x2F;p&gt;
+&lt;h6 id=&quot;docllm-https-arxiv-org-abs-2401-00908&quot;&gt;DocLLM: &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2401.00908&quot;&gt;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2401.00908&lt;&#x2F;a&gt;&lt;&#x2F;h6&gt;
+&lt;p&gt;Takes OCR outputs as inputs. Operates on words, blocks and bounding boxes. Attention heads attend to
+spatial and textual context.&lt;&#x2F;p&gt;
+&lt;h6 id=&quot;rationale-distillation-https-arxiv-org-abs-2311-09612&quot;&gt;Rationale Distillation: &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2311.09612&quot;&gt;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2311.09612&lt;&#x2F;a&gt;&lt;&#x2F;h6&gt;
+&lt;p&gt;Datasets&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Datasets for Document AI</title>
         <published>2024-02-08T00:00:00+00:00</published>
@@ -229,6 +257,13 @@ that precedes the note, as the remaining parts do not have identifiable column h
 &lt;p&gt;Because the FinTabNet does not contain semantic information about table structure, models trained
 on it might be better able to recognize the notes as distinct cells; this will be interesting to
 explore.&lt;&#x2F;p&gt;
+&lt;p&gt;There is also the 
+&lt;a href=&quot;https:&#x2F;&#x2F;huggingface.co&#x2F;datasets&#x2F;bsmock&#x2F;ICDAR-2013-Table-Competition-Corrected&quot;&gt;ICDAR2013 table competition dataset&lt;&#x2F;a&gt;, 
+which is available in corrected form on hugging face. The dataset is described in 
+&lt;a href=&quot;https:&#x2F;&#x2F;corpora.tika.apache.org&#x2F;base&#x2F;docs&#x2F;bug_trackers&#x2F;tabula&#x2F;tabula-java-LINK-49-1.pdf&quot;&gt;this paper&lt;&#x2F;a&gt;. 
+It contains table location and structure information.&lt;&#x2F;p&gt;
+&lt;p&gt;A summary of these three datasets, as well as interesting commenatry about using them together, can
+be found &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2303.00716.pdf&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;h5 id=&quot;receipts-parsing&quot;&gt;Receipts Parsing&lt;&#x2F;h5&gt;
 &lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;rrc.cvc.uab.es&#x2F;?ch=13&amp;amp;com=introduction&quot;&gt;SROIE dataset&lt;&#x2F;a&gt; has ~1,000 receipt images. Each
 receipt is annotated with standard word &#x2F; bounding box information, as well as a number of key-value
