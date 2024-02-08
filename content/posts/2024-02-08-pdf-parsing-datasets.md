@@ -5,9 +5,9 @@ title = "Datasets for Document AI"
 This post will aim to provide an overview of real and synthetic datasets available for training
 Document AI models, with a focus on PDF documents. This is the second post in a
 [series](@/posts/2024-02-06-pdf-parsing-series-intro.md) on document parsing. The [previous
-post](@/posts/2024-02-07-pdf-parsing-tasks.md) about explored a number of datasets used in
-benchmarking tasks. This post will focus on datasets used to train foundation models, which requires
-more data than can exist in annotated datasets used in benchmarking.
+post](@/posts/2024-02-07-pdf-parsing-tasks.md) explored a number of datasets used in benchmarking
+tasks. This post will focus on datasets used to train foundation models, which requires more data
+than can exist in annotated datasets used in benchmarking.
 
 #### PDF datasets
 
@@ -70,7 +70,7 @@ As mentioned above, [Augraphy](https://github.com/sparkfish/augraphy) can synthe
 [OCR-free Document Understanding Transformer](https://arxiv.org/pdf/2111.15664.pdf) paper. It
 produces synthetic documents by taking the following steps:
 
-- randomly select background images randomly from imagenet
+- randomly select background images from imagenet
 - randomly select "paper texture" from photos of paper
 - apply random distortion to paper texture
 - generate a random grid-based layout of text boxes of differing sizes and locations

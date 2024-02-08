@@ -1,7 +1,19 @@
 +++
+title = "Parsing lab test results"
+draft = true
 +++
 
 #### Overview
+
+### Table parsing
+
+Microsoft has a "table transformer" that they trained on each of the two table parsing datasets, and
+then also on the combination of the two.
+
+<https://github.com/microsoft/table-transformer#news>
+
+Try these both on a lab test report. In particular, see how they account for "notes".
+
 
 ##### Tasks
 

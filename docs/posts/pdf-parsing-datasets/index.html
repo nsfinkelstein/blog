@@ -23,9 +23,9 @@ Published: 2024-02-08
 <p>This post will aim to provide an overview of real and synthetic datasets available for training
 Document AI models, with a focus on PDF documents. This is the second post in a
 <a href="https://noamf.ink/posts/pdf-parsing-series-intro/">series</a> on document parsing. The <a href="https://noamf.ink/posts/pdf-parsing-tasks/">previous
-post</a> about explored a number of datasets used in
-benchmarking tasks. This post will focus on datasets used to train foundation models, which requires
-more data than can exist in annotated datasets used in benchmarking.</p>
+post</a> explored a number of datasets used in benchmarking
+tasks. This post will focus on datasets used to train foundation models, which requires more data
+than can exist in annotated datasets used in benchmarking.</p>
 <h4 id="pdf-datasets">PDF datasets</h4>
 <p>There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is
 that someone else has gone through the effort of collecting them in one place. Some PDF datasets are
@@ -73,7 +73,7 @@ smaller side. Unlike the other two, papers with code does not host the datasets 
 <a href="https://arxiv.org/pdf/2111.15664.pdf">OCR-free Document Understanding Transformer</a> paper. It
 produces synthetic documents by taking the following steps:</p>
 <ul>
-<li>randomly select background images randomly from imagenet</li>
+<li>randomly select background images from imagenet</li>
 <li>randomly select &quot;paper texture&quot; from photos of paper</li>
 <li>apply random distortion to paper texture</li>
 <li>generate a random grid-based layout of text boxes of differing sizes and locations</li>
