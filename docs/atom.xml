@@ -7,6 +7,112 @@
     <updated>2024-02-08T00:00:00+00:00</updated>
     <id>https://noamf.ink/atom.xml</id>
     <entry xml:lang="en">
+        <title>Datasets for Document AI</title>
+        <published>2024-02-08T00:00:00+00:00</published>
+        <updated>2024-02-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://noamf.ink/posts/pdf-parsing-datasets/"/>
+        <id>https://noamf.ink/posts/pdf-parsing-datasets/</id>
+        
+        <content type="html" xml:base="https://noamf.ink/posts/pdf-parsing-datasets/">&lt;p&gt;This post will aim to provide an overview of real and synthetic datasets available for training
+Document AI models, with a focus on PDF documents. This is the second post in a
+&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-series-intro&#x2F;&quot;&gt;series&lt;&#x2F;a&gt; on document parsing. The &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;&quot;&gt;previous
+post&lt;&#x2F;a&gt; about explored a number of datasets used in
+benchmarking tasks. This post will focus on datasets used to train foundation models, which requires
+more data than can exist in annotated datasets used in benchmarking.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;pdf-datasets&quot;&gt;PDF datasets&lt;&#x2F;h4&gt;
+&lt;p&gt;There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is
+that someone else has gone through the effort of collecting them in one place. Some PDF datasets are
+grouped by type.&lt;&#x2F;p&gt;
+&lt;p&gt;PDFs can be either scanned or native. Native PDFs contain digital information about characters and
+other visual markings. Scanned PDFs can be thought of as images, in the sense that they encode
+pixel-level data, but no higher-level information about the contents of the document. Native PDFs
+can easily be converted into &amp;quot;scanned&amp;quot; PDFs by applying visual filters that replicate artifacts from
+the scanning process. &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sparkfish&#x2F;augraphy&quot;&gt;Augraphy&lt;&#x2F;a&gt; is a great tool for this.&lt;&#x2F;p&gt;
+&lt;p&gt;This idea is illustrated by the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sparkfish&#x2F;shabby-pages&quot;&gt;shabby pages&lt;&#x2F;a&gt; dataset,
+which contains about ~6,000 native documents that have been artificially altered to simulate
+scanning or faxing. The advantage of this kind of manipulation is that the ground truth is
+available. The manipulations were done with Augraphy, linked above.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;machine-intelligence-laboratory&#x2F;DDI-100&quot;&gt;DDI-100&lt;&#x2F;a&gt; dataset began with ~6,500
+real document pages, and constructed various altered versions to arrive at ~100,000 page images.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;www.nist.gov&#x2F;srd&#x2F;nist-special-database-2&quot;&gt;SFRS&lt;&#x2F;a&gt; dataset has ~5,500 document images of
+tax forms from 1988. &amp;quot;The document images in this database appear to be real forms prepared by
+individuals, but the images have been automatically derived and synthesized using a computer.&amp;quot; In
+other words, the real original filled-in values seem to have been overwritten by synthetically
+generated values. This dataset can be thought of as a synthetic
+&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;#forms-parsing&quot;&gt;form parsing&lt;&#x2F;a&gt; dataset. I haven&#x27;t been able
+to find a direct download link; I&#x27;ll update here when I hear back from the NIST &amp;quot;scientific contact&amp;quot;
+for the database.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;tpn&#x2F;pdfs&#x2F;&quot;&gt;pdfs&lt;&#x2F;a&gt; repository on github is a collection of ~1,700
+&amp;quot;technically-oriented&amp;quot; PDFs. They seem to be mostly native PDFs, which could similarly be digitally
+altered.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;data.nist.gov&#x2F;od&#x2F;id&#x2F;mds2-2531&quot;&gt;IIT CDIP&lt;&#x2F;a&gt; dataset has a large number of legal documents
+from the state of Illinois&#x27; &amp;quot;lawsuits against tobacco companies in the 1990s&amp;quot;. The website says
+there are ~7,000,000 documents, but other sources (such as the
+&lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2111.15664.pdf&quot;&gt;DONUT paper&lt;&#x2F;a&gt;) put the number at ~11,000,000.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;www.kaggle.com&#x2F;search?q=PDF+data+datasetFileTypes%3Apdf+datasetSize%3Amedium+datasetSize%3Alarge&quot;&gt;kaggle dataset collection&lt;&#x2F;a&gt; 
+has a number of PDF datasets, most have in the hundreds of files. Note that the preceding link
+filters to datasets that have at least one PDF, but that PDF is sometimes a user agreement or a data
+dictionary. There is no way to filter to datasets that contain only PDF files.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;huggingface.co&#x2F;datasets?sort=downloads&amp;amp;search=PDF&quot;&gt;hugging face dataset collection&lt;&#x2F;a&gt;
+allows for search by dataset name but not dataset type.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, the &lt;a href=&quot;https:&#x2F;&#x2F;paperswithcode.com&#x2F;datasets?q=PDF+Document&amp;amp;v=lst&amp;amp;o=match&quot;&gt;papers with code&lt;&#x2F;a&gt;
+dataset list has similar functionality.&lt;&#x2F;p&gt;
+&lt;p&gt;All three of those dataset collections seem to have relevant datasets, though they are mostly on the
+smaller side. Unlike the other two, papers with code does not host the datasets it lists.&lt;&#x2F;p&gt;
+&lt;h5 id=&quot;synthetic-pdf-pipelines&quot;&gt;Synthetic PDF pipelines&lt;&#x2F;h5&gt;
+&lt;p&gt;As mentioned above, &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sparkfish&#x2F;augraphy&quot;&gt;Augraphy&lt;&#x2F;a&gt; can synthetically generate
+&amp;quot;scanned&amp;quot; or otherwise distorted PDFs from existing PDFs.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;clovaai&#x2F;donut&#x2F;tree&#x2F;master&#x2F;synthdog&quot;&gt;SynthDoG&lt;&#x2F;a&gt; was developed as part of the
+&lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2111.15664.pdf&quot;&gt;OCR-free Document Understanding Transformer&lt;&#x2F;a&gt; paper. It
+produces synthetic documents by taking the following steps:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;randomly select background images randomly from imagenet&lt;&#x2F;li&gt;
+&lt;li&gt;randomly select &amp;quot;paper texture&amp;quot; from photos of paper&lt;&#x2F;li&gt;
+&lt;li&gt;apply random distortion to paper texture&lt;&#x2F;li&gt;
+&lt;li&gt;generate a random grid-based layout of text boxes of differing sizes and locations&lt;&#x2F;li&gt;
+&lt;li&gt;randomly select font, style, and size of text&lt;&#x2F;li&gt;
+&lt;li&gt;fill the text boxes with text from wikipedia&lt;&#x2F;li&gt;
+&lt;li&gt;post-process the image&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;See appendix A.2 of the linked paper for more details. This seems like a neat pipeline.&lt;&#x2F;p&gt;
+&lt;p&gt;SynthDoG seems to be a more advanced version of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;clovaai&#x2F;synthtiger&quot;&gt;synthtiger&lt;&#x2F;a&gt;,
+which takes many of the same steps.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;ideas-for-generating-pdf-documents-for-medical-data-extraction&quot;&gt;Ideas for generating PDF documents for medical data extraction&lt;&#x2F;h4&gt;
+&lt;p&gt;At this point, I&#x27;m thinking about extracting medical data from PDFs as a mix of two kinds of tasks.
+The first is &lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;#forms-parsing&quot;&gt;form parsing&lt;&#x2F;a&gt;, which will be
+relevant when the PDF has distinct entry fields for specific pieces of information. This is often
+the case with demographic information, lab test results, vital signs, prescriptions, etc. The second
+is closer to 
+&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;#document-question-answering&quot;&gt;question answering&lt;&#x2F;a&gt;, which will
+be relevant when the information is contained in free-text clinical notes. This often happens when
+we&#x27;re interested in medical histories, the specifics of a procedure or radiology diagnosis, or
+patient symptoms.&lt;&#x2F;p&gt;
+&lt;p&gt;Regardless of how or whence we extract the information, the task is variation of Key Information
+Extraction (KIE). For each potential FHIR field, we would like to know if the field is present in
+the document, and if so what its value is.&lt;&#x2F;p&gt;
+&lt;p&gt;Generating realistic medical PDFs will involve creating randomly generated plausible layouts for
+structured medical information of the type that can be generated by 
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;synthetichealth&#x2F;synthea&quot;&gt;Synthea&lt;&#x2F;a&gt;, and using LLMs to to generate plausible
+clinical notes that encode known pieces of information. Combining these elements with the synthetic
+data generation pipelines linked above, I think it might be possible to train a Document AI model for
+medical KIE.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;next-steps&quot;&gt;Next steps&lt;&#x2F;h4&gt;
+&lt;p&gt;In the next post, we&#x27;ll take a look at evaluating some pre-trained OCR and Document AI models on
+medical information extraction tasks. Depending on the results, we might explore creating realistic
+synthetic medical documents for improved medical KIE training.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
         <title>Benchmarking Tasks for Document Analysis</title>
         <published>2024-02-07T00:00:00+00:00</published>
         <updated>2024-02-08T00:00:00+00:00</updated>
@@ -60,12 +166,20 @@ useful for pre-training parts of a document model.&lt;&#x2F;p&gt;
 with ~20,000 question-answer pairs. Questions can be &lt;em&gt;extractive&lt;&#x2F;em&gt;, in which case the answer must
 appear in the document, as for the datasets above, or &lt;em&gt;abstractive&lt;&#x2F;em&gt;, in which case the answer does
 not appear in the document.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;adlnlp&#x2F;pdfvqa#document-image-and-layout-structure-pickle-files&quot;&gt;PDF-VQA&lt;&#x2F;a&gt; is
+also a visual question answer dataset. The authors point to the multi-page documents as the main
+differentiator from DocVQA. It contains ~12,000 single-page documents, and ~1,100 multi-page
+documents. It also contains ~140,000 question-answer pairs, and information about the logical and
+spatial relation of words in the document. The &amp;quot;relational graphs&amp;quot; that encode these relationships
+are described in section 3.2 of the the &lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2304.06447.pdf&quot;&gt;accompanying paper&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;document-classification&quot;&gt;Document Classification&lt;&#x2F;h4&gt;
 &lt;p&gt;Document classification is what it sounds like.&lt;&#x2F;p&gt;
-&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;paperswithcode.com&#x2F;dataset&#x2F;rvl-cdip&quot;&gt;RVL-CDIP&lt;&#x2F;a&gt; dataset contains 400,000 images of
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;paperswithcode.com&#x2F;dataset&#x2F;rvl-cdip&quot;&gt;RVL-CDIP&lt;&#x2F;a&gt; dataset contains ~400,000 images of
 documents, each of which is assigned to one of 16 classes. The leaderboard is 
 &lt;a href=&quot;https:&#x2F;&#x2F;paperswithcode.com&#x2F;sota&#x2F;document-image-classification-on-rvl-cdip&quot;&gt;here&lt;&#x2F;a&gt;, and can be
 downloaded &lt;a href=&quot;https:&#x2F;&#x2F;adamharley.com&#x2F;rvl-cdip&#x2F;&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;www.kaggle.com&#x2F;datasets&#x2F;patrickaudriaz&#x2F;tobacco3482jpg&quot;&gt;Tobacco3482&lt;&#x2F;a&gt; dataset contains a
+~3,492 images classified into 10 categories.&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;document-layout-analysis&quot;&gt;Document Layout Analysis&lt;&#x2F;h4&gt;
 &lt;p&gt;The layout analysis task aims to segment the documents into blocks, and classify each block. Common
 block labels are things like &lt;em&gt;text&lt;&#x2F;em&gt;, &lt;em&gt;title&lt;&#x2F;em&gt;, &lt;em&gt;figure&lt;&#x2F;em&gt;, &lt;em&gt;table&lt;&#x2F;em&gt;, etc.&lt;&#x2F;p&gt;
@@ -143,7 +257,7 @@ documents of varied structures can be created using synthetic FHIR data from
     <entry xml:lang="en">
         <title>A Series of posts about Document AI</title>
         <published>2024-02-06T00:00:00+00:00</published>
-        <updated>2024-02-07T00:00:00+00:00</updated>
+        <updated>2024-02-08T00:00:00+00:00</updated>
         
         <author>
           <name>
@@ -159,8 +273,10 @@ documents of varied structures can be created using synthetic FHIR data from
         <content type="html" xml:base="https://noamf.ink/posts/pdf-parsing-series-intro/">&lt;p&gt;This is an introductory post for a series on AI for analyzing PDFs. The posts in the series are 
 listed below. &lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;&quot;&gt;Tasks&lt;&#x2F;a&gt; — On established benchmarking tasks in the literature&lt;&#x2F;li&gt;
-&lt;li&gt;Datasets — On available labeled and unlabeld PDF datasets&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-tasks&#x2F;&quot;&gt;Tasks&lt;&#x2F;a&gt; — On established benchmarking tasks in the
+literature&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;noamf.ink&#x2F;posts&#x2F;pdf-parsing-datasets&#x2F;&quot;&gt;Datasets&lt;&#x2F;a&gt; — On available labeled and unlabeld
+PDF datasets&lt;&#x2F;li&gt;
 &lt;li&gt;Models — On published model architectures and weights&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;This list will be updated as the posts are written.&lt;&#x2F;p&gt;

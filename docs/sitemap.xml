@@ -7,14 +7,15 @@
         <loc>https://noamf.ink/posts/</loc>
     </url>
     <url>
-        <loc>https://noamf.ink/posts/draft-pdf-parsing-datasets/</loc>
-    </url>
-    <url>
         <loc>https://noamf.ink/posts/draft-pdf-parsing-models/</loc>
     </url>
     <url>
+        <loc>https://noamf.ink/posts/pdf-parsing-datasets/</loc>
+        <lastmod>2024-02-08</lastmod>
+    </url>
+    <url>
         <loc>https://noamf.ink/posts/pdf-parsing-series-intro/</loc>
-        <lastmod>2024-02-07</lastmod>
+        <lastmod>2024-02-08</lastmod>
     </url>
     <url>
         <loc>https://noamf.ink/posts/pdf-parsing-tasks/</loc>

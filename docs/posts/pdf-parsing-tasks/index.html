@@ -6,7 +6,7 @@
     <link rel="alternate" type="application/atom+xml" title="atom" href="https://noamf.ink/atom.xml">
   
   <meta charset="utf-8">
-  <title>Clinical AI Consulting</title>
+  <title>Noam's site</title>
 </head>
 
 <body>
@@ -60,12 +60,20 @@ useful for pre-training parts of a document model.</p>
 with ~20,000 question-answer pairs. Questions can be <em>extractive</em>, in which case the answer must
 appear in the document, as for the datasets above, or <em>abstractive</em>, in which case the answer does
 not appear in the document.</p>
+<p>The <a href="https://github.com/adlnlp/pdfvqa#document-image-and-layout-structure-pickle-files">PDF-VQA</a> is
+also a visual question answer dataset. The authors point to the multi-page documents as the main
+differentiator from DocVQA. It contains ~12,000 single-page documents, and ~1,100 multi-page
+documents. It also contains ~140,000 question-answer pairs, and information about the logical and
+spatial relation of words in the document. The &quot;relational graphs&quot; that encode these relationships
+are described in section 3.2 of the the <a href="https://arxiv.org/pdf/2304.06447.pdf">accompanying paper</a>.</p>
 <h4 id="document-classification">Document Classification</h4>
 <p>Document classification is what it sounds like.</p>
-<p>The <a href="https://paperswithcode.com/dataset/rvl-cdip">RVL-CDIP</a> dataset contains 400,000 images of
+<p>The <a href="https://paperswithcode.com/dataset/rvl-cdip">RVL-CDIP</a> dataset contains ~400,000 images of
 documents, each of which is assigned to one of 16 classes. The leaderboard is 
 <a href="https://paperswithcode.com/sota/document-image-classification-on-rvl-cdip">here</a>, and can be
 downloaded <a href="https://adamharley.com/rvl-cdip/">here</a>.</p>
+<p>The <a href="https://www.kaggle.com/datasets/patrickaudriaz/tobacco3482jpg">Tobacco3482</a> dataset contains a
+~3,492 images classified into 10 categories.</p>
 <h4 id="document-layout-analysis">Document Layout Analysis</h4>
 <p>The layout analysis task aims to segment the documents into blocks, and classify each block. Common
 block labels are things like <em>text</em>, <em>title</em>, <em>figure</em>, <em>table</em>, etc.</p>

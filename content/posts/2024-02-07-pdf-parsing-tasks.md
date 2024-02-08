@@ -53,14 +53,24 @@ with \~20,000 question-answer pairs. Questions can be _extractive_, in which cas
 appear in the document, as for the datasets above, or _abstractive_, in which case the answer does
 not appear in the document.
 
+The [PDF-VQA](https://github.com/adlnlp/pdfvqa#document-image-and-layout-structure-pickle-files) is
+also a visual question answer dataset. The authors point to the multi-page documents as the main
+differentiator from DocVQA. It contains \~12,000 single-page documents, and \~1,100 multi-page
+documents. It also contains \~140,000 question-answer pairs, and information about the logical and
+spatial relation of words in the document. The "relational graphs" that encode these relationships
+are described in section 3.2 of the the [accompanying paper](https://arxiv.org/pdf/2304.06447.pdf).
+
 #### Document Classification
 
 Document classification is what it sounds like.
 
-The [RVL-CDIP](https://paperswithcode.com/dataset/rvl-cdip) dataset contains 400,000 images of
+The [RVL-CDIP](https://paperswithcode.com/dataset/rvl-cdip) dataset contains \~400,000 images of
 documents, each of which is assigned to one of 16 classes. The leaderboard is 
 [here](https://paperswithcode.com/sota/document-image-classification-on-rvl-cdip), and can be
 downloaded [here](https://adamharley.com/rvl-cdip/).
+
+The [Tobacco3482](https://www.kaggle.com/datasets/patrickaudriaz/tobacco3482jpg) dataset contains a
+\~3,492 images classified into 10 categories.
 
 #### Document Layout Analysis
 
