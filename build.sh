@@ -1,2 +1,2 @@
-zola build
-cp -r public/* docs/
+quarto render quarto-site
+cp -r quarto-site/_site/* docs/

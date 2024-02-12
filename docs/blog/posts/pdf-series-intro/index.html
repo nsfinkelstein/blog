@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-06">
 
-<title>Noam Finkelstein -</title>
+<title>Noam Finkelstein - A Series of posts about PDF Parsing with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../icon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,17 +70,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Noam Finkelstein</span>
     </a>
   </div>
@@ -89,11 +91,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -104,45 +106,101 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A Series of posts about PDF Parsing with AI</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 6, 2024</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">February 8, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#motivation-for-catching-up-on-state-of-the-art-ai-for-pdfs" id="toc-motivation-for-catching-up-on-state-of-the-art-ai-for-pdfs" class="nav-link active" data-scroll-target="#motivation-for-catching-up-on-state-of-the-art-ai-for-pdfs">Motivation for catching up on state-of-the-art AI for PDFs</a></li>
+  <li><a href="#challenges-in-extracting-medical-data-from-pdfs" id="toc-challenges-in-extracting-medical-data-from-pdfs" class="nav-link" data-scroll-target="#challenges-in-extracting-medical-data-from-pdfs">Challenges in extracting medical data from PDFs</a></li>
+  <li><a href="#order-of-posts-in-the-series" id="toc-order-of-posts-in-the-series" class="nav-link" data-scroll-target="#order-of-posts-in-the-series">Order of posts in the series</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content">
-  <div class="about-entity">
-    <img src="profile.jpg" class="about-image
-  rounded " style="width: 20em;">
-    <div class="about-links">
-  <a href="https://linkedin.com/in/noam-finkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/nsfinkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://gitlab.com/nsfinkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-gitlab"></i>
-     <span class="about-link-text">Gitlab</span>
-  </a>
-  <a href="mailto:noamf.ink@proton.me" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Welcome to my website!</p>
-<p>I’ve spent the past decade working as a research scientist and engineer, primarily with clinical and biological data. Most recently, I was Head of Machine Learning at <a href="https://www.delfina.com">Delfina</a>.</p>
-<p>I have a PhD in Computer Science and an ScM in Biostatistics from Johns Hopkins University, a Bachelor’s degree in Politics, Philosophy and Economics from the University of Oxford, and an Associates degree from Deep Springs College.</p>
-<p>I currently consult on AI research and applications, with a focus on clincal text and multi-modal EHR data.</p>
-<p>Please feel free to get in touch.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main></div>
-</div>
- <!-- /main -->
+
+
+
+<p>This is an introductory post for a series on AI for analyzing PDFs. The posts in the series are listed below.</p>
+<ul>
+<li><a href="../../../blog/posts/pdf-parsing-tasks">Tasks</a> — On established benchmarking tasks in the literature</li>
+<li><a href="../../../blog/posts/pdf-parsing-datasets">Datasets</a> — On available labeled and unlabeld PDF datasets</li>
+<li>Models — On published model architectures and weights</li>
+</ul>
+<p>This list will be updated as the posts are written.</p>
+<p>I’m not an expert in document modeling, and I might make obvious or silly mistakes along the way. If you spot any, or have other questions or comments, please <a href="mailto:noamf.ink@proton.me">let me know</a>!</p>
+<p>I’m writing this series as a way of documenting and organizing my preliminary explorations of this field; I hope it will useful to others as well.</p>
+<section id="motivation-for-catching-up-on-state-of-the-art-ai-for-pdfs" class="level3">
+<h3 class="anchored" data-anchor-id="motivation-for-catching-up-on-state-of-the-art-ai-for-pdfs">Motivation for catching up on state-of-the-art AI for PDFs</h3>
+<p>There’s a lot of medical information that only exists in PDF documents. Much of this information is old, from the days before the <a href="https://www.hhs.gov/hipaa/for-professionals/special-topics/hitech-act-enforcement-interim-final-rule/index.html">HITECH</a> act kicked off the EHR revolution. While most newer clinical information is stored digitally <em>somewhere</em>, patients and even healthcare providers can often access it only in PDF form.</p>
+<p>I’ve long been interested in pulling medical data out of scanned PDF documents. Part of this is a personal interest — I have a stack of physical documents representing decades of my family’s medical histories.</p>
+<p>But I also have a professional interest in this problem. In nearly a decade of working on EHR-based precision medicine, I’ve seen many situations in which critically important information is only accessible in PDF form.</p>
+<p>Historically, extracting data from PDFs — especially scanned PDFs — has been tedious and error-prone. The biggest reason for this is that the PDF format is a visual rather than semantic encoding, and the spatial elements of PDF forms are rarely consistent between hospitals or clinics, or even within a single clinic over time.</p>
+<p>It’s been about two years since I looked seriously at the state-of-the-art in PDF parsing, and a lot has changed in the world of AI in that time. I’m curious at how much closer we are to solving this problem in the era of massive open-source models.</p>
+</section>
+<section id="challenges-in-extracting-medical-data-from-pdfs" class="level3">
+<h3 class="anchored" data-anchor-id="challenges-in-extracting-medical-data-from-pdfs">Challenges in extracting medical data from PDFs</h3>
+<p>The most general formulation of the task I’m interested is this:</p>
+<blockquote class="blockquote">
+<p><em>Given a digital or scanned PDF, produce a structured <a href="https://www.hl7.org/fhir/documentation.html">FHIR</a> document that contains all clinical information present in the original PDF, including clinical notes text.</em></p>
+</blockquote>
+<p>The FHIR format is the industry standard format for storing and transfering clinical information.</p>
+<p>There are a few challenges involved in this task that may be somewhat non-standard. It’s not necessary to solve all of these challenges for automated PDF parsing to be useful, but it will be interesting to see whether and how they’re addressed in existing models and benchmarking tasks. A few of these challenges are listed below.</p>
+<ul>
+<li>We don’t know what information will be present in any given PDF.</li>
+<li>Each PDF may contain print and handwritten text.</li>
+<li>Some PDFs contain information on multiple procedures or tests across many distinct dates.</li>
+<li>The same medical concept may have many different names.</li>
+</ul>
+<p>There are also simpler tasks that might still be useful, such as extracting specific demographic or clinical information, or all clinical notes, from a document if available.</p>
+<p>In the past, I’ve had some success running scanned documents through OCR, and then writing rules-based engines to pull vitals and labs values on the basis of spatial orientation and a few other factors.</p>
+<p>It’s possible to write these rules in a relatively robust way, but a rules-based approach will always be fragile. First, medical forms are notorious for the variety of their spatial patterns. Second, because the OCR engine is not connected to any medical knowledge, it doesn’t know to correct for character- or token-level mistakes that are obvious in context. Making these corrections post-hoc is possible, but it adds substantial engineering and computational complexity. I’m especially curious about whether and how newer methods are integrating the linguistic and clinical context into the character recognition process.</p>
+<p>My hope is that it will be possible to build on modern approaches and open-source models for PDF parsing to avoid rules-based systems, and to expand the kinds of information it’s possible to extract beyond just simple labs and vitals.</p>
+</section>
+<section id="order-of-posts-in-the-series" class="level3">
+<h3 class="anchored" data-anchor-id="order-of-posts-in-the-series">Order of posts in the series</h3>
+<p>In my experience, machine-learning methods often optimize for recongized and established benchmarking tasks in their sub-field. Understanding these tasks in detail from the start can help get sense for how the field is orienting itself. The next post in the series will be about relevant benchmarking tasks.</p>
+<p>Next, I’ll take a look at available datasets, as well as the feasibility of generating realistic data for training purposes. I find this is also helpful to do before reading about specific models, as it provides context for which objectives models are trained against, and when it’s possible to use self-supervised objectives.</p>
+<p>Finally, I’ll take a closer look at existing model architectures and open-source models. This part of the series may expand into several posts about testing out, fine-tuning or altering existing models.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -163,6 +221,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "Noam Finkelstein"
+  site-url: https://noamf.ink/blog
+  favicon: icon.png
+  navbar:
+    left:
+      - href: index.qmd
+        text: About
+      - href: blog/index.qmd
+        text: Blog
+
+
+format:
+  html:
+    theme: litera
+    css: styles.css
+    toc: true
+
+
+

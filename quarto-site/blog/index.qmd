@@ -1,0 +1,15 @@
+---
+title: "Posts"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  feed: true
+  image-height: "0"
+  date-format: iso
+page-layout: full
+title-block-banner: false
+---

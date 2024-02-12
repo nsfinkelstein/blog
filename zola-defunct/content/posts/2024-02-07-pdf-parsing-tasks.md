@@ -1,6 +1,6 @@
 +++
 title = "Benchmarking Tasks for Document Analysis"
-updated = "2024-02-08"
+updated = "2024-02-09"
 +++
 
 This is the first post in a [series](@/posts/2024-02-06-pdf-parsing-series-intro.md) on document
@@ -123,7 +123,9 @@ has \~90,000 pages with \~110,000 tables. The annotations here seem to just indi
 for each _table_, and a bounding box for each _cell_ in the table. See the bottom of 
 [this notebook](
 https://dataplatform.cloud.ibm.com/analytics/notebooks/v2/f57cf3f6-e972-48ff-ab7b-3771ba7b9683/view?access_token=317644327d84f5d75b4782f97499146c78d029651a7c7ace050f4a7656033c30
-) for examples.
+) for examples. There is also an improved version called 
+[FinTabNet.c](https://huggingface.co/datasets/bsmock/FinTabNet.c)
+available on hugging face.
 
 On first look, it doesn't seem that either dataset includes a class for the kinds of notes that 
 often appear in lab test reports 

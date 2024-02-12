@@ -1,6 +1,5 @@
 +++
 title = "Parsing lab test results"
-draft = true
 +++
 
 #### Overview
@@ -13,6 +12,8 @@ then also on the combination of the two.
 <https://github.com/microsoft/table-transformer#news>
 
 Try these both on a lab test report. In particular, see how they account for "notes".
+
+![Clean lab report](content/static/lab-report-images/clean-example.png)
 
 
 ##### Tasks

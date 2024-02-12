@@ -1,0 +1,34 @@
+---
+title: ""
+image: profile.jpg
+about:
+  template: trestles
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/noam-finkelstein
+    - icon: github
+      text: Github
+      href: https://github.com/nsfinkelstein
+    - icon: gitlab
+      text: Gitlab
+      href: https://gitlab.com/nsfinkelstein
+    - icon: envelope
+      text: Email
+      href: mailto:noamf.ink@proton.me
+---
+
+Welcome to my website!
+
+I've spent the past decade working as a research scientist and engineer, primarily with clinical and
+biological data. Most recently, I was Head of Machine Learning at
+[Delfina](https://www.delfina.com).
+
+I have a PhD in Computer Science and an ScM in Biostatistics from Johns Hopkins University, a
+Bachelor's degree in Politics, Philosophy and Economics from the University of Oxford, and an
+Associates degree from Deep Springs College.
+
+I currently consult on AI research and applications, with a focus on clincal text and multi-modal
+EHR data.
+
+Please feel free to get in touch.
