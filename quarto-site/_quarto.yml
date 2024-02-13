@@ -12,7 +12,6 @@ website:
       - href: blog/index.qmd
         text: Blog
 
-
 format:
   html:
     theme: litera
