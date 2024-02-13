@@ -1,0 +1,84 @@
+---
+title: "Isolated Python Environments for Quarto Blogs"
+date: "2024-02-13"
+date-modified: ""
+categories: []
+description: " "
+---
+
+I recently moved this blog over to [Quarto](https://quarto.org/), mostly to make it easier to
+integrate relevant pieces of code into a few upcoming posts. Quarto files integrate markdown with
+executable code. The resulting documents are a bit like Jupyter notebooks in the sense that they
+interleave code and commentary. Unlike Jupyter notebooks, they can be edited in any text editor,
+which is an important feature for me as a long time Vim user. Quarto also has native support for
+blogging and better support for compilation to multiple formats. So far, I've had a good experience
+
+The one issue I've come across has to do with Quarto's handling of Python environments.
+Quarto provides some documentation about using it alongside 
+[virtual environments](https://quarto.org/docs/projects/virtual-environments.html),
+but the documentation seems to assume one virtual environment per project. For the purposes of a
+blog, I'd like one virtual environment per post; otherwise changing the environment can break
+rendering of an earlier post.
+
+Helpfully, Quarto documents support 
+[specifying a Jupyter kernel](https://quarto.org/docs/computations/python.html#kernel-selection)
+to use for rendering. Without a bit more structure, though, this option can lead to loose ends.
+Kernels dependencies can be altered iteratively, which can make them very difficult to reproduce.
+Even if they are created programmatically from environment specifications, manually recreating
+environments and kernels can be tedious.
+
+In Quarto blogs, each post lives in 
+[its own directory](https://quarto.org/docs/websites/website-blog.html#posts-directory)
+For my purposes, I wanted it to be clear exactly what's needed for each post's code. I also wanted
+to be able to trivially reconstruct all the relevant kernels from their corresponding
+`requirements.txt` files. This is primarily because I believe in the principle of reproducibility
+and want others to be able to run the code easily. A secondary reason is that I edit this blog on
+two computers, and don't want to have to worry about keeping environments up-to-date between them.
+
+The result I landed on has two steps. The first is two include a `requirements.txt` file in the
+directory of each post that has executable python code. This puts the environment spec close to the
+relevant code, and makes it clear how to construct an environment that can run the code in that
+specific post. On its own, though, this leaves the problem of having to manually register and update
+kernels with Jupyter.
+
+This leads to the second step, which is a bash script, copied below. The script searches for
+`requirements.txt` files in the posts directory, automatically creates a corresponding venv from
+each one, and registers that venv as a Jupyter kernel under the same name as the blog post's
+directory. This reduces the setup for isolated python environments to running a single script. Now,
+we just need to specify the Jupyter kernel for the post, as linked above, in each post.
+
+```bash
+# Install jupyter into the current enviornment if not already present
+pip install jupyter
+
+# Create directory for virtualenvs
+mkdir "${HOME}/venvs"
+
+# For each post that has a requirements.txt file, create the corresponding kernel
+find "quarto-site/blog/posts" -type f -name "requirements.txt" | while read requirements_file; do
+    # Get the directory of the found requirements.txt file
+    dir_path=$(dirname "${requirements_file}")
+
+    # Extract the name of the directory where requirements.txt is located
+    dir_name=$(basename "${dir_path}")
+
+    # Create a new directory for the venv with the name of the found directory
+    venv_path="${HOME}/venvs/${dir_name}"
+    
+    # Create the virtual environment
+    python -m venv "${venv_path}" --clear 
+    
+    # Activate the virtual environment
+    source "${venv_path}/bin/activate"
+    
+    # Install requirements from the requirements.txt file
+    pip install -r "${requirements_file}"
+
+    # register a corresponding kernel
+    pip install ipykernel
+    python -m ipykernel install --user --name "${dir_name}" --display-name "${dir_name}"
+    
+    # Deactivate the virtual environment
+    deactivate
+done
+```

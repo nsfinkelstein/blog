@@ -5,13 +5,8 @@ date-modified: "2024-02-09"
 categories: []
 description: " "
 draft: true
-jupyter: pdf-lab-report
+jupyter: pdf-lab-reports
 ---
-```{python}
-#| echo: false
-from pathlib import Path
-python_path = Path(__file__).parent / 'venv' / 'bin' / 'path'
-```
 
 #### Overview
 
@@ -57,9 +52,10 @@ spatial and textual context.
 ###### Rationale Distillation: <https://arxiv.org/abs/2311.09612>
 
 
-Datasets
-<!---->
-<!-- ```{python} -->
-<!-- import labs -->
-<!-- labs.test() -->
-<!-- ``` -->
+Datasets g b
+
+```{python}
+import labs
+labs.test()
+print('ablc')
+```

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-09">
+<meta name="dcterms.date" content="2024-02-13">
 
-<title>Noam Finkelstein - Datasets for Document AI</title>
+<title>Noam Finkelstein - Isolated Python Environments for Quarto Blogs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -109,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Datasets for Document AI</h1>
+      <h1 class="title">Isolated Python Environments for Quarto Blogs</h1>
                       </div>
   </div>
     
@@ -120,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 9, 2024</p>
+        <p class="date">February 13, 2024</p>
       </div>
     </div>
     
@@ -132,15 +166,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#pdf-datasets" id="toc-pdf-datasets" class="nav-link active" data-scroll-target="#pdf-datasets">PDF datasets</a></li>
-  <li><a href="#ideas-for-generating-pdf-documents-for-medical-data-extraction" id="toc-ideas-for-generating-pdf-documents-for-medical-data-extraction" class="nav-link" data-scroll-target="#ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -149,49 +175,47 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This post will aim to provide an overview of real and synthetic datasets available for training Document AI models, with a focus on PDF documents. This is the second post in a <a href="../../../blog/posts/pdf-series-intro">series</a> on document parsing. The <a href="../../../blog/posts/pdf-parsing-tasks">previous post</a> explored a number of datasets used in benchmarking tasks. This post will focus on datasets used to train foundation models, which requires more data than can exist in annotated datasets used in benchmarking.</p>
-<section id="pdf-datasets" class="level3">
-<h3 class="anchored" data-anchor-id="pdf-datasets">PDF datasets</h3>
-<p>There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is that someone else has gone through the effort of collecting them in one place. Some PDF datasets are grouped by type.</p>
-<p>PDFs can be either scanned or native. Native PDFs contain digital information about characters and other visual markings. Scanned PDFs can be thought of as images, in the sense that they encode pixel-level data, but no higher-level information about the contents of the document. Native PDFs can easily be converted into “scanned” PDFs by applying visual filters that replicate artifacts from the scanning process. <a href="https://github.com/sparkfish/augraphy">Augraphy</a> is a great tool for this.</p>
-<p>This idea is illustrated by the <a href="https://github.com/sparkfish/shabby-pages">shabby pages</a> dataset, which contains about ~6,000 native documents that have been artificially altered to simulate scanning or faxing. The advantage of this kind of manipulation is that the ground truth is available. The manipulations were done with Augraphy, linked above.</p>
-<p>The <a href="https://github.com/machine-intelligence-laboratory/DDI-100">DDI-100</a> dataset began with ~6,500 real document pages, and constructed various altered versions to arrive at ~100,000 page images.</p>
-<p>The <a href="https://www.nist.gov/srd/nist-special-database-2">SFRS</a> dataset has ~5,500 document images of tax forms from 1988. “The document images in this database appear to be real forms prepared by individuals, but the images have been automatically derived and synthesized using a computer.” In other words, the real original filled-in values seem to have been overwritten by synthetically generated values. This dataset can be thought of as a synthetic <a href="../../../blog/posts/pdf-parsing-tasks#forms-parsing">form parsing</a> dataset. I haven’t been able to find a direct download link; I’ll update here when I hear back from the NIST “scientific contact” for the database.</p>
-<p>The <a href="https://github.com/tpn/pdfs/">pdfs</a> repository on github is a collection of ~1,700 “technically-oriented” PDFs. They seem to be mostly native PDFs, which could similarly be digitally altered.</p>
-<p>The <a href="https://data.nist.gov/od/id/mds2-2531">IIT CDIP</a> dataset has a large number of legal documents from the state of Illinois’ “lawsuits against tobacco companies in the 1990s”. The website says there are ~7,000,000 documents, but other sources (such as the <a href="https://arxiv.org/pdf/2111.15664.pdf">DONUT paper</a>) put the number at ~11,000,000.</p>
-<p>The <a href="https://www.kaggle.com/search?q=PDF+data+datasetFileTypes%3Apdf+datasetSize%3Amedium+datasetSize%3Alarge">kaggle dataset collection</a> has a number of PDF datasets, most have in the hundreds of files. Note that the preceding link filters to datasets that have at least one PDF, but that PDF is sometimes a user agreement or a data dictionary. There is no way to filter to datasets that contain only PDF files.</p>
-<p>The <a href="https://huggingface.co/datasets?sort=downloads&amp;search=PDF">hugging face dataset collection</a> allows for search by dataset name but not dataset type.</p>
-<p>Finally, the <a href="https://paperswithcode.com/datasets?q=PDF+Document&amp;v=lst&amp;o=match">papers with code</a> dataset list has similar functionality.</p>
-<p>All three of those dataset collections seem to have relevant datasets, though they are mostly on the smaller side. Unlike the other two, papers with code does not host the datasets it lists.</p>
-<section id="synthetic-pdf-pipelines" class="level4">
-<h4 class="anchored" data-anchor-id="synthetic-pdf-pipelines">Synthetic PDF pipelines</h4>
-<p>As mentioned above, <a href="https://github.com/sparkfish/augraphy">Augraphy</a> can synthetically generate “scanned” or otherwise distorted PDFs from existing PDFs.</p>
-<p><a href="https://github.com/clovaai/donut/tree/master/synthdog">SynthDoG</a> was developed as part of the <a href="https://arxiv.org/pdf/2111.15664.pdf">OCR-free Document Understanding Transformer</a> paper. It produces synthetic documents by taking the following steps:</p>
-<ul>
-<li>randomly select background images from imagenet</li>
-<li>randomly select “paper texture” from photos of paper</li>
-<li>apply random distortion to paper texture</li>
-<li>generate a random grid-based layout of text boxes of differing sizes and locations</li>
-<li>randomly select font, style, and size of text</li>
-<li>fill the text boxes with text from wikipedia</li>
-<li>post-process the image</li>
-</ul>
-<p>See appendix A.2 of the linked paper for more details. This seems like a neat pipeline.</p>
-<p>SynthDoG seems to be a more advanced version of <a href="https://github.com/clovaai/synthtiger">synthtiger</a>, which takes many of the same steps.</p>
-</section>
-</section>
-<section id="ideas-for-generating-pdf-documents-for-medical-data-extraction" class="level3">
-<h3 class="anchored" data-anchor-id="ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</h3>
-<p>At this point, I’m thinking about extracting medical data from PDFs as a mix of two kinds of tasks. The first is <a href="../../../blog/posts/pdf-parsing-tasksd#forms-parsing">form parsing</a>, which will be relevant when the PDF has distinct entry fields for specific pieces of information. This is often the case with demographic information, lab test results, vital signs, prescriptions, etc. The second is closer to <a href="../../../blog/posts/pdf-parsing-tasks#document-question-answering">question answering</a>, which will be relevant when the information is contained in free-text clinical notes. This often happens when we’re interested in medical histories, the specifics of a procedure or radiology diagnosis, or patient symptoms.</p>
-<p>Regardless of how or whence we extract the information, the task is variation of Key Information Extraction (KIE). For each potential FHIR field, we would like to know if the field is present in the document, and if so what its value is.</p>
-<p>Generating realistic medical PDFs will involve creating randomly generated plausible layouts for structured medical information of the type that can be generated by <a href="https://github.com/synthetichealth/synthea">Synthea</a>, and using LLMs to to generate plausible clinical notes that encode known pieces of information. Combining these elements with the synthetic data generation pipelines linked above, I think it might be possible to train a Document AI model for medical KIE.</p>
-</section>
-<section id="next-steps" class="level3">
-<h3 class="anchored" data-anchor-id="next-steps">Next steps</h3>
-<p>In the next post, we’ll take a look at evaluating some pre-trained OCR and Document AI models on medical information extraction tasks. Depending on the results, we might explore creating realistic synthetic medical documents for improved medical KIE training.</p>
+<p>I recently moved this blog over to <a href="https://quarto.org/">Quarto</a>, mostly to make it easier to integrate relevant pieces of code into a few upcoming posts. Quarto files integrate markdown with executable code. The resulting documents are a bit like Jupyter notebooks in the sense that they interleave code and commentary. Unlike Jupyter notebooks, they can be edited in any text editor, which is an important feature for me as a long time Vim user. Quarto also has native support for blogging and better support for compilation to multiple formats. So far, I’ve had a good experience</p>
+<p>The one issue I’ve come across has to do with Quarto’s handling of Python environments. Quarto provides some documentation about using it alongside <a href="https://quarto.org/docs/projects/virtual-environments.html">virtual environments</a>, but the documentation seems to assume one virtual environment per project. For the purposes of a blog, I’d like one virtual environment per post; otherwise changing the environment can break rendering of an earlier post.</p>
+<p>Helpfully, Quarto documents support <a href="https://quarto.org/docs/computations/python.html#kernel-selection">specifying a Jupyter kernel</a> to use for rendering. Without a bit more structure, though, this option can lead to loose ends. Kernels dependencies can be altered iteratively, which can make them very difficult to reproduce. Even if they are created programmatically from environment specifications, manually recreating environments and kernels can be tedious.</p>
+<p>In Quarto blogs, each post lives in <a href="https://quarto.org/docs/websites/website-blog.html#posts-directory">its own directory</a> For my purposes, I wanted it to be clear exactly what’s needed for each post’s code. I also wanted to be able to trivially reconstruct all the relevant kernels from their corresponding <code>requirements.txt</code> files. This is primarily because I believe in the principle of reproducibility and want others to be able to run the code easily. A secondary reason is that I edit this blog on two computers, and don’t want to have to worry about keeping environments up-to-date between them.</p>
+<p>The result I landed on has two steps. The first is two include a <code>requirements.txt</code> file in the directory of each post that has executable python code. This puts the environment spec close to the relevant code, and makes it clear how to construct an environment that can run the code in that specific post. On its own, though, this leaves the problem of having to manually register and update kernels with Jupyter.</p>
+<p>This leads to the second step, which is a bash script, copied below. The script searches for <code>requirements.txt</code> files in the posts directory, automatically creates a corresponding venv from each one, and registers that venv as a Jupyter kernel under the same name as the blog post’s directory. This reduces the setup for isolated python environments to running a single script. Now, we just need to specify the Jupyter kernel for the post, as linked above, in each post.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install jupyter into the current enviornment if not already present</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyter</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create directory for virtualenvs</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="st">"</span><span class="va">${HOME}</span><span class="st">/venvs"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For each post that has a requirements.txt file, create the corresponding kernel</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="st">"quarto-site/blog/posts"</span> <span class="at">-type</span> f <span class="at">-name</span> <span class="st">"requirements.txt"</span> <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">requirements_file</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the directory of the found requirements.txt file</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">dir_path</span><span class="op">=</span><span class="va">$(</span><span class="fu">dirname</span> <span class="st">"</span><span class="va">${requirements_file}</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the name of the directory where requirements.txt is located</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="va">dir_name</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">${dir_path}</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a new directory for the venv with the name of the found directory</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="va">venv_path</span><span class="op">=</span><span class="st">"</span><span class="va">${HOME}</span><span class="st">/venvs/</span><span class="va">${dir_name}</span><span class="st">"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the virtual environment</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python</span> <span class="at">-m</span> venv <span class="st">"</span><span class="va">${venv_path}</span><span class="st">"</span> <span class="at">--clear</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Activate the virtual environment</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">source</span> <span class="st">"</span><span class="va">${venv_path}</span><span class="st">/bin/activate"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Install requirements from the requirements.txt file</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pip</span> install <span class="at">-r</span> <span class="st">"</span><span class="va">${requirements_file}</span><span class="st">"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># register a corresponding kernel</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pip</span> install ipykernel</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> <span class="st">"</span><span class="va">${dir_name}</span><span class="st">"</span> <span class="at">--display-name</span> <span class="st">"</span><span class="va">${dir_name}</span><span class="st">"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Deactivate the virtual environment</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">deactivate</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
