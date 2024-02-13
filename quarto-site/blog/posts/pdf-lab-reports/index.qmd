@@ -5,6 +5,7 @@ date-modified: "2024-02-09"
 categories: []
 description: " "
 draft: true
+jupyter: pdf-lab-report
 ---
 ```{python}
 #| echo: false
