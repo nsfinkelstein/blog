@@ -16,7 +16,7 @@ some of the same ground. It was helpful context in writing this post and is wort
 
 I'll update this post as I come across new relevant tasks.
 
-#### Document Question Answering
+### Document Question Answering
 
 The document question answer task takes a document (PDF, image, or text) and a natural language
 question about the document as inputs, and produces a natural language answer to that question as an
@@ -63,7 +63,7 @@ documents. It also contains \~140,000 question-answer pairs, and information abo
 spatial relation of words in the document. The "relational graphs" that encode these relationships
 are described in section 3.2 of the the [accompanying paper](https://arxiv.org/pdf/2304.06447.pdf).
 
-#### Document Classification
+### Document Classification
 
 Document classification is what it sounds like.
 
@@ -75,7 +75,7 @@ downloaded [here](https://adamharley.com/rvl-cdip/).
 The [Tobacco3482](https://www.kaggle.com/datasets/patrickaudriaz/tobacco3482jpg) dataset contains a
 \~3,492 images classified into 10 categories.
 
-#### Document Layout Analysis
+### Document Layout Analysis
 
 The layout analysis task aims to segment the documents into blocks, and classify each block. Common
 block labels are things like _text_, _title_, _figure_, _table_, etc.
@@ -84,7 +84,7 @@ block labels are things like _text_, _title_, _figure_, _table_, etc.
 papers drawn from PubMed. The dataset was constructed by "automatically matching XML representations
 and the contents" of the papers.
 
-#### Document Parsing
+### Document Parsing
 
 The document parsing task aims to extract specific kinds of information from a document. In the case
 of forms, the goal is to extract key-value pairs, where each key is the name of a form-field, and
@@ -92,7 +92,7 @@ the value is the user-entered text for that field. This is also sometimes called
 Extraction (KIE). Form and table parsing may be especially relevant to pulling information from
 medical records. 
 
-##### Forms Parsing
+#### Forms Parsing
 
 The Form Understanding from Noisy Scanned Documents 
 ([FUNDS](https://guillaumejaume.github.io/FUNSD/download/)) dataset has \~200 forms, with
@@ -109,7 +109,7 @@ as semantically significant sets of words, each of which is called a _semantic e
 contains annotated key-value pairs; a major goal is identifying the value associated with a given
 key.
 
-##### Table parsing
+#### Table parsing
 
 The [PubTables-1M](https://huggingface.co/datasets/bsmock/pubtables-1m) dataset contains \~575,000
 pages, with a total of \~950,000 fully annotated tables. 
@@ -152,7 +152,7 @@ It contains table location and structure information.
 A summary of these three datasets, as well as interesting commenatry about using them together, can
 be found [here](https://arxiv.org/pdf/2303.00716.pdf).
 
-##### Receipts Parsing
+#### Receipts Parsing
 
 The [SROIE dataset](https://rrc.cvc.uab.es/?ch=13&com=introduction) has \~1,000 receipt images. Each
 receipt is annotated with standard word / bounding box information, as well as a number of key-value
@@ -162,14 +162,14 @@ The [CORD](https://github.com/clovaai/cord) dataset has \~1,0000 receipts. Each 
 with word / bounding box information, as well as line-level and receipt-level classifications.
 
 
-##### Datasets in other languages
+#### Datasets in other languages
 
 I'll focus on English datasets for now, both because I can read English and because the documents
 I'm interested in working with are in English. There are interesting datasets in other languages,
 especially in Chinese. In particular, the [HUSTL-CELL](https://rrc.cvc.uab.es/?ch=21) dataset looks
 relevant to key information extraction, and is primarily in Chinese.
 
-#### Conclusion
+### Conclusion
 
 This post is meant to provide an overview of the kinds of tasks that are currently used to evaluate
 methods for Document AI. The corresponding datasets can be used for training or fine-tuning as well.

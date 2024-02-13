@@ -1,0 +1,12 @@
+{
+  "hash": "567d4774e6ea975ae57bfb828b109c21",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Benchmarking Tasks for Document Analysis\"\ndate: \"2024-02-07\"\ndate-modified: \"2024-02-09\"\ncategories: []\ndescription: \" \"\ndraft: true\n---\n\n\n#### Overview\n\n### Table parsing\n\nMicrosoft has a \"table transformer\" that they trained on each of the two table parsing datasets, and\nthen also on the combination of the two.\n\n<https://github.com/microsoft/table-transformer#news>\n\nTry these both on a lab test report. In particular, see how they account for \"notes\".\n\n![](report-images/accesa-000.png){.lightbox width=100px group=\"unmarked\"}\n![](report-images/labcorp-000.png){.lightbox width=100px group=\"unmarked\"}\n![](report-images/labcorp-001.png){.lightbox width=100px group=\"unmarked\"}\n![](report-images/labcorp-002.png){.lightbox width=100px group=\"unmarked\"}\n![](report-images/meditech-000.png){.lightbox width=100px group=\"unmarked\"}\n![](report-images/quest-000.png){.lightbox width=100px group=\"unmarked\"}\n![](report-images/quest-001.png){.lightbox width=100px group=\"unmarked\"}\n\n##### Tasks\n\n![](nanonets-report-images/accesa-000.png){.lightbox width=100px group=\"nanonets\"}\n![](nanonets-report-images/labcorp-000.png){.lightbox width=100px group=\"nanonets\"}\n![](nanonets-report-images/labcorp-001.png){.lightbox width=100px group=\"nanonets\"}\n![](nanonets-report-images/labcorp-002.png){.lightbox width=100px group=\"nanonets\"}\n![](nanonets-report-images/meditech-000.png){.lightbox width=100px group=\"nanonets\"}\n![](nanonets-report-images/quest-000.png){.lightbox width=100px group=\"nanonets\"}\n![](nanonets-report-images/quest-001.png){.lightbox width=100px group=\"nanonets\"}\n\n\n\nQuestio\n\nModel Taxonomy & Specific Models\n\n###### DocLLM: <https://arxiv.org/abs/2401.00908>\n\nTakes OCR outputs as inputs. Operates on words, blocks and bounding boxes. Attention heads attend to\nspatial and textual context.\n abc\n\n###### Rationale Distillation: <https://arxiv.org/abs/2311.09612>\n\n\nDatasets\n<!---->\n<!-- ```{python} -->\n<!-- import labs -->\n<!-- labs.test() -->\n<!-- ``` -->\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

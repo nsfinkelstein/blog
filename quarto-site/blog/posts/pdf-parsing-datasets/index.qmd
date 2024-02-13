@@ -13,7 +13,7 @@ post](/blog/posts/pdf-parsing-tasks) explored a number of datasets used in bench
 tasks. This post will focus on datasets used to train foundation models, which requires more data
 than can exist in annotated datasets used in benchmarking.
 
-#### PDF datasets
+### PDF datasets
 
 There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is
 that someone else has gone through the effort of collecting them in one place. Some PDF datasets are
@@ -65,7 +65,7 @@ dataset list has similar functionality.
 All three of those dataset collections seem to have relevant datasets, though they are mostly on the
 smaller side. Unlike the other two, papers with code does not host the datasets it lists.
 
-##### Synthetic PDF pipelines
+#### Synthetic PDF pipelines
 
 As mentioned above, [Augraphy](https://github.com/sparkfish/augraphy) can synthetically generate
 "scanned" or otherwise distorted PDFs from existing PDFs.
@@ -87,7 +87,7 @@ See appendix A.2 of the linked paper for more details. This seems like a neat pi
 SynthDoG seems to be a more advanced version of [synthtiger](https://github.com/clovaai/synthtiger),
 which takes many of the same steps.
 
-#### Ideas for generating PDF documents for medical data extraction
+### Ideas for generating PDF documents for medical data extraction
 
 At this point, I'm thinking about extracting medical data from PDFs as a mix of two kinds of tasks.
 The first is [form parsing](/blog/posts/pdf-parsing-tasksd#forms-parsing), which will be
@@ -110,7 +110,7 @@ clinical notes that encode known pieces of information. Combining these elements
 data generation pipelines linked above, I think it might be possible to train a Document AI model for
 medical KIE.
 
-#### Next steps
+### Next steps
 
 In the next post, we'll take a look at evaluating some pre-trained OCR and Document AI models on
 medical information extraction tasks. Depending on the results, we might explore creating realistic

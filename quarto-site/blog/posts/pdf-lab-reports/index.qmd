@@ -6,6 +6,11 @@ categories: []
 description: " "
 draft: true
 ---
+```{python}
+#| echo: false
+from pathlib import Path
+python_path = Path(__file__).parent / 'venv' / 'bin' / 'path'
+```
 
 #### Overview
 
@@ -18,10 +23,25 @@ then also on the combination of the two.
 
 Try these both on a lab test report. In particular, see how they account for "notes".
 
-![Clean lab report](content/static/lab-report-images/clean-example.png)
-
+![](report-images/accesa-000.png){.lightbox width=100px group="unmarked"}
+![](report-images/labcorp-000.png){.lightbox width=100px group="unmarked"}
+![](report-images/labcorp-001.png){.lightbox width=100px group="unmarked"}
+![](report-images/labcorp-002.png){.lightbox width=100px group="unmarked"}
+![](report-images/meditech-000.png){.lightbox width=100px group="unmarked"}
+![](report-images/quest-000.png){.lightbox width=100px group="unmarked"}
+![](report-images/quest-001.png){.lightbox width=100px group="unmarked"}
 
 ##### Tasks
+
+![](nanonets-report-images/accesa-000.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/labcorp-000.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/labcorp-001.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/labcorp-002.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/meditech-000.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/quest-000.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/quest-001.png){.lightbox width=100px group="nanonets"}
+
+
 
 Questio
 
@@ -31,8 +51,14 @@ Model Taxonomy & Specific Models
 
 Takes OCR outputs as inputs. Operates on words, blocks and bounding boxes. Attention heads attend to
 spatial and textual context.
+ abc
 
 ###### Rationale Distillation: <https://arxiv.org/abs/2311.09612>
 
 
 Datasets
+<!---->
+<!-- ```{python} -->
+<!-- import labs -->
+<!-- labs.test() -->
+<!-- ``` -->

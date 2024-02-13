@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -161,23 +164,19 @@ ul.task-list li input[type="checkbox"] {
 <p>Microsoft has a “table transformer” that they trained on each of the two table parsing datasets, and then also on the combination of the two.</p>
 <p><a href="https://github.com/microsoft/table-transformer#news" class="uri">https://github.com/microsoft/table-transformer#news</a></p>
 <p>Try these both on a lab test report. In particular, see how they account for “notes”.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="content/static/lab-report-images/clean-example.png" class="img-fluid figure-img"></p>
-<figcaption>Clean lab report</figcaption>
-</figure>
-</div>
+<p><a href="report-images/accesa-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-000.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-001.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-001.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-002.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="report-images/meditech-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/meditech-000.png" class="img-fluid" width="100"></a> <a href="report-images/quest-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/quest-000.png" class="img-fluid" width="100"></a> <a href="report-images/quest-001.png" class="lightbox" data-gallery="unmarked"><img src="report-images/quest-001.png" class="img-fluid" width="100"></a></p>
 <section id="tasks" class="level5">
 <h5 class="anchored" data-anchor-id="tasks">Tasks</h5>
+<p><a href="nanonets-report-images/accesa-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-001.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-001.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-002.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/meditech-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/meditech-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/quest-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/quest-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/quest-001.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/quest-001.png" class="img-fluid" width="100"></a></p>
 <p>Questio</p>
 <p>Model Taxonomy &amp; Specific Models</p>
 <section id="docllm-httpsarxiv.orgabs2401.00908" class="level6">
 <h6 class="anchored" data-anchor-id="docllm-httpsarxiv.orgabs2401.00908">DocLLM: <a href="https://arxiv.org/abs/2401.00908" class="uri">https://arxiv.org/abs/2401.00908</a></h6>
-<p>Takes OCR outputs as inputs. Operates on words, blocks and bounding boxes. Attention heads attend to spatial and textual context.</p>
+<p>Takes OCR outputs as inputs. Operates on words, blocks and bounding boxes. Attention heads attend to spatial and textual context. abc</p>
 </section>
 <section id="rationale-distillation-httpsarxiv.orgabs2311.09612" class="level6">
 <h6 class="anchored" data-anchor-id="rationale-distillation-httpsarxiv.orgabs2311.09612">Rationale Distillation: <a href="https://arxiv.org/abs/2311.09612" class="uri">https://arxiv.org/abs/2311.09612</a></h6>
-<p>Datasets</p>
+<p>Datasets <!----> <!-- ```{python} --> <!-- import labs --> <!-- labs.test() --> <!-- ``` --></p>
 
 
 </section>
@@ -573,6 +572,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

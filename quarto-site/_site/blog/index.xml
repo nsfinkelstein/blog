@@ -21,8 +21,8 @@
 
 
 <p>This post will aim to provide an overview of real and synthetic datasets available for training Document AI models, with a focus on PDF documents. This is the second post in a <a href="../../../blog/posts/pdf-series-intro">series</a> on document parsing. The <a href="../../../blog/posts/pdf-parsing-tasks">previous post</a> explored a number of datasets used in benchmarking tasks. This post will focus on datasets used to train foundation models, which requires more data than can exist in annotated datasets used in benchmarking.</p>
-<section id="pdf-datasets" class="level4">
-<h4 class="anchored" data-anchor-id="pdf-datasets">PDF datasets</h4>
+<section id="pdf-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="pdf-datasets">PDF datasets</h3>
 <p>There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is that someone else has gone through the effort of collecting them in one place. Some PDF datasets are grouped by type.</p>
 <p>PDFs can be either scanned or native. Native PDFs contain digital information about characters and other visual markings. Scanned PDFs can be thought of as images, in the sense that they encode pixel-level data, but no higher-level information about the contents of the document. Native PDFs can easily be converted into “scanned” PDFs by applying visual filters that replicate artifacts from the scanning process. <a href="https://github.com/sparkfish/augraphy">Augraphy</a> is a great tool for this.</p>
 <p>This idea is illustrated by the <a href="https://github.com/sparkfish/shabby-pages">shabby pages</a> dataset, which contains about ~6,000 native documents that have been artificially altered to simulate scanning or faxing. The advantage of this kind of manipulation is that the ground truth is available. The manipulations were done with Augraphy, linked above.</p>
@@ -34,8 +34,8 @@
 <p>The <a href="https://huggingface.co/datasets?sort=downloads&amp;search=PDF">hugging face dataset collection</a> allows for search by dataset name but not dataset type.</p>
 <p>Finally, the <a href="https://paperswithcode.com/datasets?q=PDF+Document&amp;v=lst&amp;o=match">papers with code</a> dataset list has similar functionality.</p>
 <p>All three of those dataset collections seem to have relevant datasets, though they are mostly on the smaller side. Unlike the other two, papers with code does not host the datasets it lists.</p>
-<section id="synthetic-pdf-pipelines" class="level5">
-<h5 class="anchored" data-anchor-id="synthetic-pdf-pipelines">Synthetic PDF pipelines</h5>
+<section id="synthetic-pdf-pipelines" class="level4">
+<h4 class="anchored" data-anchor-id="synthetic-pdf-pipelines">Synthetic PDF pipelines</h4>
 <p>As mentioned above, <a href="https://github.com/sparkfish/augraphy">Augraphy</a> can synthetically generate “scanned” or otherwise distorted PDFs from existing PDFs.</p>
 <p><a href="https://github.com/clovaai/donut/tree/master/synthdog">SynthDoG</a> was developed as part of the <a href="https://arxiv.org/pdf/2111.15664.pdf">OCR-free Document Understanding Transformer</a> paper. It produces synthetic documents by taking the following steps:</p>
 <ul>
@@ -51,14 +51,14 @@
 <p>SynthDoG seems to be a more advanced version of <a href="https://github.com/clovaai/synthtiger">synthtiger</a>, which takes many of the same steps.</p>
 </section>
 </section>
-<section id="ideas-for-generating-pdf-documents-for-medical-data-extraction" class="level4">
-<h4 class="anchored" data-anchor-id="ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</h4>
+<section id="ideas-for-generating-pdf-documents-for-medical-data-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</h3>
 <p>At this point, I’m thinking about extracting medical data from PDFs as a mix of two kinds of tasks. The first is <a href="../../../blog/posts/pdf-parsing-tasksd#forms-parsing">form parsing</a>, which will be relevant when the PDF has distinct entry fields for specific pieces of information. This is often the case with demographic information, lab test results, vital signs, prescriptions, etc. The second is closer to <a href="../../../blog/posts/pdf-parsing-tasks#document-question-answering">question answering</a>, which will be relevant when the information is contained in free-text clinical notes. This often happens when we’re interested in medical histories, the specifics of a procedure or radiology diagnosis, or patient symptoms.</p>
 <p>Regardless of how or whence we extract the information, the task is variation of Key Information Extraction (KIE). For each potential FHIR field, we would like to know if the field is present in the document, and if so what its value is.</p>
 <p>Generating realistic medical PDFs will involve creating randomly generated plausible layouts for structured medical information of the type that can be generated by <a href="https://github.com/synthetichealth/synthea">Synthea</a>, and using LLMs to to generate plausible clinical notes that encode known pieces of information. Combining these elements with the synthetic data generation pipelines linked above, I think it might be possible to train a Document AI model for medical KIE.</p>
 </section>
-<section id="next-steps" class="level4">
-<h4 class="anchored" data-anchor-id="next-steps">Next steps</h4>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next steps</h3>
 <p>In the next post, we’ll take a look at evaluating some pre-trained OCR and Document AI models on medical information extraction tasks. Depending on the results, we might explore creating realistic synthetic medical documents for improved medical KIE training.</p>
 
 
@@ -80,8 +80,8 @@
 <p>This is the first post in a <a href="../../../blog/posts/pdf-series-intro">series</a> on document parsing. I’m starting with a review of the benchmarking tasks because I want to understand which problems the field is orienting itself around, and how they relate to the challenges of <a href="../../../blog/posts/pdf-series-intro#challenges-in-extracting-medical-data-from-pdfs">extracting data from medical Documents</a>.</p>
 <p>The <a href="https://huggingface.co/blog/document-ai">Accelerating Document AI</a> post by Hugging Face covers some of the same ground. It was helpful context in writing this post and is worth a read.</p>
 <p>I’ll update this post as I come across new relevant tasks.</p>
-<section id="document-question-answering" class="level4">
-<h4 class="anchored" data-anchor-id="document-question-answering">Document Question Answering</h4>
+<section id="document-question-answering" class="level3">
+<h3 class="anchored" data-anchor-id="document-question-answering">Document Question Answering</h3>
 <p>The document question answer task takes a document (PDF, image, or text) and a natural language question about the document as inputs, and produces a natural language answer to that question as an output.</p>
 <p>The <a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD2.0</a> dataset is a dataset in which the documents are text (extracted from wikipedia articles), the questions are English, and each question is paired with one or more related substrings of the corresponding document, or a special token indicating that the question is not answered in the document. There are ~500 documents, with ~100,000 question-answer pairs, and an additional ~50,000 adversarial questions that seem like they might be answered in the document but are not.</p>
 <p>These documents are not PDFs, but might be used to train the language part of a PDF parsing model. In the worst case, they can be automatically converted to either scanned or digital PDF format with simulated visual artifacts.</p>
@@ -92,27 +92,27 @@
 <p>The <a href="https://rrc.cvc.uab.es/?ch=23&amp;com=introduction">DUDE</a> data set contains ~5,000 PDF documents, with ~20,000 question-answer pairs. Questions can be <em>extractive</em>, in which case the answer must appear in the document, as for the datasets above, or <em>abstractive</em>, in which case the answer does not appear in the document.</p>
 <p>The <a href="https://github.com/adlnlp/pdfvqa#document-image-and-layout-structure-pickle-files">PDF-VQA</a> is also a visual question answer dataset. The authors point to the multi-page documents as the main differentiator from DocVQA. It contains ~12,000 single-page documents, and ~1,100 multi-page documents. It also contains ~140,000 question-answer pairs, and information about the logical and spatial relation of words in the document. The “relational graphs” that encode these relationships are described in section 3.2 of the the <a href="https://arxiv.org/pdf/2304.06447.pdf">accompanying paper</a>.</p>
 </section>
-<section id="document-classification" class="level4">
-<h4 class="anchored" data-anchor-id="document-classification">Document Classification</h4>
+<section id="document-classification" class="level3">
+<h3 class="anchored" data-anchor-id="document-classification">Document Classification</h3>
 <p>Document classification is what it sounds like.</p>
 <p>The <a href="https://paperswithcode.com/dataset/rvl-cdip">RVL-CDIP</a> dataset contains ~400,000 images of documents, each of which is assigned to one of 16 classes. The leaderboard is <a href="https://paperswithcode.com/sota/document-image-classification-on-rvl-cdip">here</a>, and can be downloaded <a href="https://adamharley.com/rvl-cdip/">here</a>.</p>
 <p>The <a href="https://www.kaggle.com/datasets/patrickaudriaz/tobacco3482jpg">Tobacco3482</a> dataset contains a ~3,492 images classified into 10 categories.</p>
 </section>
-<section id="document-layout-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="document-layout-analysis">Document Layout Analysis</h4>
+<section id="document-layout-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="document-layout-analysis">Document Layout Analysis</h3>
 <p>The layout analysis task aims to segment the documents into blocks, and classify each block. Common block labels are things like <em>text</em>, <em>title</em>, <em>figure</em>, <em>table</em>, etc.</p>
 <p><a href="https://github.com/ibm-aur-nlp/PubLayNet#getting-data">PubLayNet</a> contains ~360,000 scientific papers drawn from PubMed. The dataset was constructed by “automatically matching XML representations and the contents” of the papers.</p>
 </section>
-<section id="document-parsing" class="level4">
-<h4 class="anchored" data-anchor-id="document-parsing">Document Parsing</h4>
+<section id="document-parsing" class="level3">
+<h3 class="anchored" data-anchor-id="document-parsing">Document Parsing</h3>
 <p>The document parsing task aims to extract specific kinds of information from a document. In the case of forms, the goal is to extract key-value pairs, where each key is the name of a form-field, and the value is the user-entered text for that field. This is also sometimes called Key Information Extraction (KIE). Form and table parsing may be especially relevant to pulling information from medical records.</p>
-<section id="forms-parsing" class="level5">
-<h5 class="anchored" data-anchor-id="forms-parsing">Forms Parsing</h5>
+<section id="forms-parsing" class="level4">
+<h4 class="anchored" data-anchor-id="forms-parsing">Forms Parsing</h4>
 <p>The Form Understanding from Noisy Scanned Documents (<a href="https://guillaumejaume.github.io/FUNSD/download/">FUNDS</a>) dataset has ~200 forms, with information about words and their locations, <em>semantic entities</em> — collections of related words —, and relations links between key-value pairs. <a href="https://guillaumejaume.github.io/FUNSD/description/">Here</a> is a nice summary-by-example of the data available on each form.</p>
 <p>The related <a href="https://github.com/doc-analysis/XFUND">XFUND</a> dataset extends this idea to documents in other languages. The dataset repository doesn’t have much information, but it’s described in the <a href="https://arxiv.org/abs/2104.08836v3">LayoutXLM</a> paper. XFUND contains ~1,400 annotated forms, at ~200 per language. The dataset contains standard OCR data (i.e.&nbsp;words with bounding boxes), as well as semantically significant sets of words, each of which is called a <em>semantic entity</em>. It also contains annotated key-value pairs; a major goal is identifying the value associated with a given key.</p>
 </section>
-<section id="table-parsing" class="level5">
-<h5 class="anchored" data-anchor-id="table-parsing">Table parsing</h5>
+<section id="table-parsing" class="level4">
+<h4 class="anchored" data-anchor-id="table-parsing">Table parsing</h4>
 <p>The <a href="https://huggingface.co/datasets/bsmock/pubtables-1m">PubTables-1M</a> dataset contains ~575,000 pages, with a total of ~950,000 fully annotated tables. <a href="https://user-images.githubusercontent.com/10793386/139559159-cd23c972-8731-48ed-91df-f3f27e9f4d79.jpg">Table annotations</a> include column headers and <em>projected row headers</em>, which are used to subdivide the table into vertical sections (see the linked image for an example). The dataset can also be used to learn to identify tables in documents.</p>
 <p>The <a href="https://developer.ibm.com/exchanges/data/all/fintabnet/">FinTabNet</a> dataset “contains complex tables from the annual reports of S&amp;P 500 companies with detailed table structure annotations”. It has ~90,000 pages with ~110,000 tables. The annotations here seem to just indicate a bounding box for each <em>table</em>, and a bounding box for each <em>cell</em> in the table. See the bottom of <a href="https://dataplatform.cloud.ibm.com/analytics/notebooks/v2/f57cf3f6-e972-48ff-ab7b-3771ba7b9683/view?access_token=317644327d84f5d75b4782f97499146c78d029651a7c7ace050f4a7656033c30">this notebook</a> for examples. There is also an improved version called <a href="https://huggingface.co/datasets/bsmock/FinTabNet.c">FinTabNet.c</a> available on hugging face.</p>
 <p>On first look, it doesn’t seem that either dataset includes a class for the kinds of notes that often appear in lab test reports (<a href="https://www.researchgate.net/profile/John-Flach/publication/267494297/figure/fig1/AS:392037380706311@1470480403318/An-example-of-a-typical-format-used-to-report-results-of-blood-analysis-to-the-physician.png">example 1</a>, <a href="https://i.pinimg.com/736x/8e/a6/ef/8ea6efe0d12a1a580e8d1b3390a3e066.jpg">example 2</a>). These kinds of notes often disrupt table recognition, as the same column headers apply above and below the note. I’ve had trouble in the past where table identifiers either considered the parts of a table separated by a note to be distinct tables, or else only recognized the part of the table that precedes the note, as the remaining parts do not have identifiable column headers.</p>
@@ -120,18 +120,18 @@
 <p>There is also the <a href="https://huggingface.co/datasets/bsmock/ICDAR-2013-Table-Competition-Corrected">ICDAR2013 table competition dataset</a>, which is available in corrected form on hugging face. The dataset is described in <a href="https://corpora.tika.apache.org/base/docs/bug_trackers/tabula/tabula-java-LINK-49-1.pdf">this paper</a>. It contains table location and structure information.</p>
 <p>A summary of these three datasets, as well as interesting commenatry about using them together, can be found <a href="https://arxiv.org/pdf/2303.00716.pdf">here</a>.</p>
 </section>
-<section id="receipts-parsing" class="level5">
-<h5 class="anchored" data-anchor-id="receipts-parsing">Receipts Parsing</h5>
+<section id="receipts-parsing" class="level4">
+<h4 class="anchored" data-anchor-id="receipts-parsing">Receipts Parsing</h4>
 <p>The <a href="https://rrc.cvc.uab.es/?ch=13&amp;com=introduction">SROIE dataset</a> has ~1,000 receipt images. Each receipt is annotated with standard word / bounding box information, as well as a number of key-value pairs (the example keys given are <em>company</em>, <em>date</em>, <em>address</em>, and <em>total</em>).</p>
 <p>The <a href="https://github.com/clovaai/cord">CORD</a> dataset has ~1,0000 receipts. Each receipt is annotated with word / bounding box information, as well as line-level and receipt-level classifications.</p>
 </section>
-<section id="datasets-in-other-languages" class="level5">
-<h5 class="anchored" data-anchor-id="datasets-in-other-languages">Datasets in other languages</h5>
+<section id="datasets-in-other-languages" class="level4">
+<h4 class="anchored" data-anchor-id="datasets-in-other-languages">Datasets in other languages</h4>
 <p>I’ll focus on English datasets for now, both because I can read English and because the documents I’m interested in working with are in English. There are interesting datasets in other languages, especially in Chinese. In particular, the <a href="https://rrc.cvc.uab.es/?ch=21">HUSTL-CELL</a> dataset looks relevant to key information extraction, and is primarily in Chinese.</p>
 </section>
 </section>
-<section id="conclusion" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <p>This post is meant to provide an overview of the kinds of tasks that are currently used to evaluate methods for Document AI. The corresponding datasets can be used for training or fine-tuning as well.</p>
 <p>My overall impression is that there is low availability of large, high-quality annotated datasets, especially for the parsing-based tasks. This seems to be a bottleneck for training, though perhaps less so for evaluation.</p>
 <p>In the next post in the series, we’ll look at unlabeled datasets that can be used for self-supervised pre-training. I will be especially interested in methods for generating synthetic labeled data. For medical document information extraction, it may be relevant to see if plausible documents of varied structures can be created using synthetic FHIR data from <a href="https://github.com/synthetichealth/synthea">Synthea</a>.</p>

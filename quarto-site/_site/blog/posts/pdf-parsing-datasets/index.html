@@ -132,7 +132,15 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pdf-datasets" id="toc-pdf-datasets" class="nav-link active" data-scroll-target="#pdf-datasets">PDF datasets</a></li>
+  <li><a href="#ideas-for-generating-pdf-documents-for-medical-data-extraction" id="toc-ideas-for-generating-pdf-documents-for-medical-data-extraction" class="nav-link" data-scroll-target="#ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -142,8 +150,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This post will aim to provide an overview of real and synthetic datasets available for training Document AI models, with a focus on PDF documents. This is the second post in a <a href="../../../blog/posts/pdf-series-intro">series</a> on document parsing. The <a href="../../../blog/posts/pdf-parsing-tasks">previous post</a> explored a number of datasets used in benchmarking tasks. This post will focus on datasets used to train foundation models, which requires more data than can exist in annotated datasets used in benchmarking.</p>
-<section id="pdf-datasets" class="level4">
-<h4 class="anchored" data-anchor-id="pdf-datasets">PDF datasets</h4>
+<section id="pdf-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="pdf-datasets">PDF datasets</h3>
 <p>There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is that someone else has gone through the effort of collecting them in one place. Some PDF datasets are grouped by type.</p>
 <p>PDFs can be either scanned or native. Native PDFs contain digital information about characters and other visual markings. Scanned PDFs can be thought of as images, in the sense that they encode pixel-level data, but no higher-level information about the contents of the document. Native PDFs can easily be converted into “scanned” PDFs by applying visual filters that replicate artifacts from the scanning process. <a href="https://github.com/sparkfish/augraphy">Augraphy</a> is a great tool for this.</p>
 <p>This idea is illustrated by the <a href="https://github.com/sparkfish/shabby-pages">shabby pages</a> dataset, which contains about ~6,000 native documents that have been artificially altered to simulate scanning or faxing. The advantage of this kind of manipulation is that the ground truth is available. The manipulations were done with Augraphy, linked above.</p>
@@ -155,8 +163,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The <a href="https://huggingface.co/datasets?sort=downloads&amp;search=PDF">hugging face dataset collection</a> allows for search by dataset name but not dataset type.</p>
 <p>Finally, the <a href="https://paperswithcode.com/datasets?q=PDF+Document&amp;v=lst&amp;o=match">papers with code</a> dataset list has similar functionality.</p>
 <p>All three of those dataset collections seem to have relevant datasets, though they are mostly on the smaller side. Unlike the other two, papers with code does not host the datasets it lists.</p>
-<section id="synthetic-pdf-pipelines" class="level5">
-<h5 class="anchored" data-anchor-id="synthetic-pdf-pipelines">Synthetic PDF pipelines</h5>
+<section id="synthetic-pdf-pipelines" class="level4">
+<h4 class="anchored" data-anchor-id="synthetic-pdf-pipelines">Synthetic PDF pipelines</h4>
 <p>As mentioned above, <a href="https://github.com/sparkfish/augraphy">Augraphy</a> can synthetically generate “scanned” or otherwise distorted PDFs from existing PDFs.</p>
 <p><a href="https://github.com/clovaai/donut/tree/master/synthdog">SynthDoG</a> was developed as part of the <a href="https://arxiv.org/pdf/2111.15664.pdf">OCR-free Document Understanding Transformer</a> paper. It produces synthetic documents by taking the following steps:</p>
 <ul>
@@ -172,14 +180,14 @@ ul.task-list li input[type="checkbox"] {
 <p>SynthDoG seems to be a more advanced version of <a href="https://github.com/clovaai/synthtiger">synthtiger</a>, which takes many of the same steps.</p>
 </section>
 </section>
-<section id="ideas-for-generating-pdf-documents-for-medical-data-extraction" class="level4">
-<h4 class="anchored" data-anchor-id="ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</h4>
+<section id="ideas-for-generating-pdf-documents-for-medical-data-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</h3>
 <p>At this point, I’m thinking about extracting medical data from PDFs as a mix of two kinds of tasks. The first is <a href="../../../blog/posts/pdf-parsing-tasksd#forms-parsing">form parsing</a>, which will be relevant when the PDF has distinct entry fields for specific pieces of information. This is often the case with demographic information, lab test results, vital signs, prescriptions, etc. The second is closer to <a href="../../../blog/posts/pdf-parsing-tasks#document-question-answering">question answering</a>, which will be relevant when the information is contained in free-text clinical notes. This often happens when we’re interested in medical histories, the specifics of a procedure or radiology diagnosis, or patient symptoms.</p>
 <p>Regardless of how or whence we extract the information, the task is variation of Key Information Extraction (KIE). For each potential FHIR field, we would like to know if the field is present in the document, and if so what its value is.</p>
 <p>Generating realistic medical PDFs will involve creating randomly generated plausible layouts for structured medical information of the type that can be generated by <a href="https://github.com/synthetichealth/synthea">Synthea</a>, and using LLMs to to generate plausible clinical notes that encode known pieces of information. Combining these elements with the synthetic data generation pipelines linked above, I think it might be possible to train a Document AI model for medical KIE.</p>
 </section>
-<section id="next-steps" class="level4">
-<h4 class="anchored" data-anchor-id="next-steps">Next steps</h4>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next steps</h3>
 <p>In the next post, we’ll take a look at evaluating some pre-trained OCR and Document AI models on medical information extraction tasks. Depending on the results, we might explore creating realistic synthetic medical documents for improved medical KIE training.</p>
 
 
