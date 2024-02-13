@@ -56,6 +56,7 @@ mkdir "${HOME}/venvs"
 
 # For each post that has a requirements.txt file, create the corresponding kernel
 find "quarto-site/blog/posts" -type f -name "requirements.txt" | while read requirements_file; do
+
     # Get the directory of the found requirements.txt file
     dir_path=$(dirname "${requirements_file}")
 
