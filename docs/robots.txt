@@ -1,1 +1,1 @@
-Sitemap: https://noamf.ink/blog/sitemap.xml
+Sitemap: https://noamf.ink/sitemap.xml

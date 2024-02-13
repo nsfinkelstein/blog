@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Noam Finkelstein</title>
-<link>https://noamf.ink/blog/blog/</link>
-<atom:link href="https://noamf.ink/blog/blog/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://noamf.ink/blog/</link>
+<atom:link href="https://noamf.ink/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.549</generator>
 <lastBuildDate>Tue, 13 Feb 2024 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Isolated Python Environments for Quarto Blogs</title>
-  <link>https://noamf.ink/blog/blog/posts/quarto-isolated-python-envs/</link>
+  <link>https://noamf.ink/blog/posts/quarto-isolated-python-envs/</link>
   <description><![CDATA[ 
 
 
@@ -206,12 +206,12 @@ font-style: inherit;">done</span></span></code></pre></div>
 
 
  ]]></description>
-  <guid>https://noamf.ink/blog/blog/posts/quarto-isolated-python-envs/</guid>
+  <guid>https://noamf.ink/blog/posts/quarto-isolated-python-envs/</guid>
   <pubDate>Tue, 13 Feb 2024 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Datasets for Document AI</title>
-  <link>https://noamf.ink/blog/blog/posts/pdf-parsing-datasets/</link>
+  <link>https://noamf.ink/blog/posts/pdf-parsing-datasets/</link>
   <description><![CDATA[ 
 
 
@@ -263,12 +263,12 @@ font-style: inherit;">done</span></span></code></pre></div>
 </section>
 
  ]]></description>
-  <guid>https://noamf.ink/blog/blog/posts/pdf-parsing-datasets/</guid>
+  <guid>https://noamf.ink/blog/posts/pdf-parsing-datasets/</guid>
   <pubDate>Fri, 09 Feb 2024 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Benchmarking Tasks for Document Analysis</title>
-  <link>https://noamf.ink/blog/blog/posts/pdf-parsing-tasks/</link>
+  <link>https://noamf.ink/blog/posts/pdf-parsing-tasks/</link>
   <description><![CDATA[ 
 
 
@@ -338,12 +338,12 @@ font-style: inherit;">done</span></span></code></pre></div>
 </section>
 
  ]]></description>
-  <guid>https://noamf.ink/blog/blog/posts/pdf-parsing-tasks/</guid>
+  <guid>https://noamf.ink/blog/posts/pdf-parsing-tasks/</guid>
   <pubDate>Wed, 07 Feb 2024 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A Series of posts about PDF Parsing with AI</title>
-  <link>https://noamf.ink/blog/blog/posts/pdf-series-intro/</link>
+  <link>https://noamf.ink/blog/posts/pdf-series-intro/</link>
   <description><![CDATA[ 
 
 
@@ -396,7 +396,7 @@ font-style: inherit;">done</span></span></code></pre></div>
 </section>
 
  ]]></description>
-  <guid>https://noamf.ink/blog/blog/posts/pdf-series-intro/</guid>
+  <guid>https://noamf.ink/blog/posts/pdf-series-intro/</guid>
   <pubDate>Tue, 06 Feb 2024 05:00:00 GMT</pubDate>
 </item>
 </channel>

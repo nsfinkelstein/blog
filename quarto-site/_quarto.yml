@@ -3,7 +3,7 @@ project:
 
 website:
   title: "Noam Finkelstein"
-  site-url: https://noamf.ink/blog
+  site-url: https://noamf.ink/
   favicon: icon.png
   navbar:
     left:

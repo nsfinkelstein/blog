@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://noamf.ink/blog/blog/posts/pdf-parsing-datasets/index.html</loc>
+    <loc>https://noamf.ink/blog/posts/pdf-parsing-datasets/index.html</loc>
     <lastmod>2024-02-13T18:15:44.456Z</lastmod>
   </url>
   <url>
-    <loc>https://noamf.ink/blog/blog/posts/pdf-parsing-tasks/index.html</loc>
+    <loc>https://noamf.ink/blog/posts/pdf-parsing-tasks/index.html</loc>
     <lastmod>2024-02-13T18:15:35.600Z</lastmod>
   </url>
   <url>
-    <loc>https://noamf.ink/blog/index.html</loc>
+    <loc>https://noamf.ink/index.html</loc>
     <lastmod>2024-02-13T20:59:40.426Z</lastmod>
   </url>
   <url>
-    <loc>https://noamf.ink/blog/blog/index.html</loc>
+    <loc>https://noamf.ink/blog/index.html</loc>
     <lastmod>2024-02-12T21:09:01.697Z</lastmod>
   </url>
   <url>
-    <loc>https://noamf.ink/blog/blog/posts/pdf-series-intro/index.html</loc>
+    <loc>https://noamf.ink/blog/posts/pdf-series-intro/index.html</loc>
     <lastmod>2024-02-13T18:15:14.215Z</lastmod>
   </url>
   <url>
-    <loc>https://noamf.ink/blog/blog/posts/quarto-isolated-python-envs/index.html</loc>
+    <loc>https://noamf.ink/blog/posts/quarto-isolated-python-envs/index.html</loc>
     <lastmod>2024-02-13T21:04:13.163Z</lastmod>
   </url>
 </urlset>
