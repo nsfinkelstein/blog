@@ -11,7 +11,7 @@ integrate relevant pieces of code into a few upcoming posts. Quarto files integr
 executable code. The resulting documents are a bit like Jupyter notebooks in the sense that they
 interleave code and commentary. Unlike Jupyter notebooks, they can be edited in any text editor,
 which is an important feature for me as a long time Vim user. Quarto also has native support for
-blogging and better support for compilation to multiple formats. So far, I've had a good experience
+blogging and better support for compilation to multiple formats. So far, I've had a good experience.
 
 The one issue I've come across has to do with Quarto's handling of Python environments.
 Quarto provides some documentation about using it alongside 
