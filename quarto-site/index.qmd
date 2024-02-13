@@ -24,7 +24,7 @@ I've spent the past decade working as a research scientist and engineer, primari
 biological data. Most recently, I was Head of Machine Learning at
 [Delfina](https://www.delfina.com).
 
-I hold a PhD in Computer Science and an ScM in Biostatistics from Johns Hopkins University, a
+I hold a PhD in Computer Science and an ScM in Biostatistics from the Johns Hopkins University, a
 Bachelor's degree in Politics, Philosophy and Economics from the University of Oxford, and an
 Associate's degree from Deep Springs College.
 
