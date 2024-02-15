@@ -31,7 +31,7 @@ Below are three sample reports from three different labs.
 ![](report-images/labcorp-002.png){.lightbox width=200px group="unmarked"}
 ![](report-images/quest-000.png){.lightbox width=200px group="unmarked"}
 
-The reports are basically tables, but they have a two interesting features that will make them
+The reports are basically tables, but they have two interesting features that will make them
 difficult to parse. 
 
 First, the tables sometimes include sub-headers, which specify the name of the lab panel that the
@@ -39,7 +39,7 @@ test falls under. This is in evidence in the third report, but it's a bit of an 
 each panel has only one test. In some cases, some but not all tests are associated with panels.
 
 Second, the tables contain comments. In the second document, the comments actually sometimes contain
-the result of the lab test. In the third document, in the comments apply to the lab test procedure
+the result of the lab test. In the third document, the comments apply to the lab test procedure
 itself, not to the result for an individual patient. In both cases, the comments warp the structure
 of the table.
 
@@ -65,11 +65,11 @@ The first task is to identify tables in a document.
 ![](tatr-report-images/labcorp-002.png){.lightbox width=200px group="tatr"}
 ![](tatr-report-images/quest-000.png){.lightbox width=200px group="tatr"}
 
-In a two cases, the model has a hard time distinguishing between structured information at the top
-of the document, and the structured lab results. In the second document, the model seems to be
-tricked by the space in the table introduced by the longest comment. It may also be relevant that
-the records below that table have more spacing between them than those above, as they each have
-their own (short) comment. It's also interesting that the model has high confidence for the third
+In two cases, the model has a hard time distinguishing between structured information at the top of
+the document, and the structured lab results. In the second document, the model seems to be tricked
+by the space in the table introduced by the longest comment. It may also be relevant that the
+records below that table have more spacing between them than those above, as they each have their
+own (short) comment. It's also interesting that the model has high confidence for the third
 document, but relatively low confidence for the first two.
 
 #### Table structure identification
@@ -112,7 +112,7 @@ spanning cell or a header row.
 
 The first document is pretty much exactly right. In the second document, they miss the last lab
 test, and also separate the `REFERENCE INTERVAL` column into two columns, which would cause problems
-downstream. In the third document, they also miss the last lab, but otherwise do will. Because
+downstream. In the third document, they also miss the last lab, but otherwise do well. Because
 they're missing a concept for a spanning cell, in the last two documents the comments are being
 sliced up. This might be addressable in post-processing.
 
@@ -128,12 +128,12 @@ synthetic data, because there is not enough open lab-report data out there.
 Here are a few considerations for generating this kind of data set:
 
 - Reports should have structured text at the top that looks like it _might_ be part of the lab
-result table but is not, to help the model distinguish between form fields and lab results.
+  result table but is not, to help the model distinguish between form fields and lab results.
 - The lab results table should include header row columns for lab tests, with representation of the
-    cases in which all, some, or no labs have associated panels, and a good distribution over the
-    number of tests per panel.
+  cases in which all, some, or no labs have associated panels, and a good distribution over the
+  number of tests per panel.
 - The lab results rows should sometimes span multiple lines, with overflow wrapping at both the
-column and row level (this caused issues in lab reports not shown in this post).
+  column and row level (this caused issues in lab reports not shown in this post).
 - The lab results table should have both inline and stand-alone comments.
 - Ideally the lab names, reference ranges, values, units, etc. used in the generated document should
   all be plausible. Depending on how the model is trained, this might help with text recognition.
@@ -149,6 +149,6 @@ first visually identify the table and its structure, and then run OCR on each ce
 there is a more direct approach, where the input is the lab report document, and the output is one
 or more CSV files containing the results.
 
-Overall, I don't think general purposes table parsing tools will be effective for reading labs off
+Overall, I don't think general purpose table parsing tools will be effective for reading labs off
 of PDFs. I do think they've raised some interesting modeling and data-generation avenues to explore,
 as time allows.
