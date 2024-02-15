@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-07">
+<meta name="dcterms.date" content="2024-02-15">
 
-<title>Noam Finkelstein - Benchmarking Tasks for Document Analysis</title>
+<title>Noam Finkelstein - Trying out Table Parsing Models on Labwork Reports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -146,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Benchmarking Tasks for Document Analysis</h1>
+      <h1 class="title">Trying out Table Parsing Models on Labwork Reports</h1>
                       </div>
   </div>
     
@@ -157,16 +123,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 7, 2024</p>
+        <p class="date">February 15, 2024</p>
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">February 9, 2024</p>
-      </div>
-    </div>
       
     </div>
     
@@ -179,7 +139,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#table-parsing" id="toc-table-parsing" class="nav-link active" data-scroll-target="#table-parsing">Table parsing</a></li>
+  <li><a href="#structure-of-lab-reports" id="toc-structure-of-lab-reports" class="nav-link active" data-scroll-target="#structure-of-lab-reports">Structure of lab reports</a></li>
+  <li><a href="#table-transformer-model" id="toc-table-transformer-model" class="nav-link" data-scroll-target="#table-transformer-model">Table Transformer Model</a></li>
+  <li><a href="#commercial-options" id="toc-commercial-options" class="nav-link" data-scroll-target="#commercial-options">Commercial options</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul>
 </nav>
     </div>
@@ -190,40 +153,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="overview" class="level4">
-<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>This post is part of a <a href="../../../blog/posts/pdf-series-intro">series</a> about Document AI, specifically with an eye towards parsing medical documents. In this post, we’ll take a quick look at how a few <a href="../../../blog/posts/pdf-parsing-tasks#table-parsing">table parsing</a> tools do when applied to lab test reports.</p>
+<section id="structure-of-lab-reports" class="level3">
+<h3 class="anchored" data-anchor-id="structure-of-lab-reports">Structure of lab reports</h3>
+<p>Below are three sample reports from three different labs.</p>
+<p><a href="report-images/accesa-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-002.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="report-images/quest-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/quest-000.png" class="img-fluid" width="100"></a></p>
+<p>The reports are basically tables, but they have a two interesting features that will make them difficult to parse.</p>
+<p>First, the tables sometimes include sub-headers, which specify the name of the lab panel that the test falls under. This is in evidence in the third report, but it’s a bit of an unusual case because each panel has only one test. In some cases, some but not all tests are associated with panels.</p>
+<p>Second, the tables contain comments. In the second document, the comments actually sometimes contain the result of the lab test. In the third document, in the comments apply to the lab test procedure itself, not to the result for an individual patient. In both cases, the comments warp the structure of the table.</p>
+<p>As far as I know, there isn’t a great open dataset of lab reports, primarily because the include private health information. That said, a number of people have uploaded their own reports to the internet, and I used many of them in these checks. I didn’t include them in the post due to privacy considerations. Running table parsing models on those reports didn’t reveal anything unexpected, but they did show that the models have a much harder time with noisy, scanned documents.</p>
 </section>
-<section id="table-parsing" class="level3">
-<h3 class="anchored" data-anchor-id="table-parsing">Table parsing</h3>
-<p>Microsoft has a “table transformer” that they trained on each of the two table parsing datasets, and then also on the combination of the two.</p>
-<p><a href="https://github.com/microsoft/table-transformer#news" class="uri">https://github.com/microsoft/table-transformer#news</a></p>
-<p>Try these both on a lab test report. In particular, see how they account for “notes”.</p>
-<p><a href="report-images/accesa-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-000.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-001.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-001.png" class="img-fluid" width="100"></a> <a href="report-images/labcorp-002.png" class="lightbox" data-gallery="unmarked"><img src="report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="report-images/meditech-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/meditech-000.png" class="img-fluid" width="100"></a> <a href="report-images/quest-000.png" class="lightbox" data-gallery="unmarked"><img src="report-images/quest-000.png" class="img-fluid" width="100"></a> <a href="report-images/quest-001.png" class="lightbox" data-gallery="unmarked"><img src="report-images/quest-001.png" class="img-fluid" width="100"></a></p>
-<section id="tasks" class="level5">
-<h5 class="anchored" data-anchor-id="tasks">Tasks</h5>
-<p><a href="nanonets-report-images/accesa-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-001.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-001.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-002.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/meditech-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/meditech-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/quest-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/quest-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/quest-001.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/quest-001.png" class="img-fluid" width="100"></a></p>
-<p>Questio</p>
-<p>Model Taxonomy &amp; Specific Models</p>
-<section id="docllm-httpsarxiv.orgabs2401.00908" class="level6">
-<h6 class="anchored" data-anchor-id="docllm-httpsarxiv.orgabs2401.00908">DocLLM: <a href="https://arxiv.org/abs/2401.00908" class="uri">https://arxiv.org/abs/2401.00908</a></h6>
-<p>Takes OCR outputs as inputs. Operates on words, blocks and bounding boxes. Attention heads attend to spatial and textual context. abc</p>
+<section id="table-transformer-model" class="level3">
+<h3 class="anchored" data-anchor-id="table-transformer-model">Table Transformer Model</h3>
+<p>The open-source <a href="https://huggingface.co/docs/transformers/main/en/model_doc/table-transformer">Table Transformer</a> is trained on detecting tables and identifying their structure. The model and training data are described in <a href="https://arxiv.org/abs/2110.00061">this paper</a>. The same base model is trained on two separate tasks, described below.</p>
+<section id="table-detection" class="level4">
+<h4 class="anchored" data-anchor-id="table-detection">Table detection</h4>
+<p>The first task is to identify tables in a document.</p>
+<p><a href="tatr-report-images/accesa-000.png" class="lightbox" data-gallery="tatr"><img src="tatr-report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="tatr-report-images/labcorp-002.png" class="lightbox" data-gallery="tatr"><img src="tatr-report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="tatr-report-images/quest-000.png" class="lightbox" data-gallery="tatr"><img src="tatr-report-images/quest-000.png" class="img-fluid" width="100"></a></p>
+<p>In a two cases, the model has a hard time distinguishing between structured information at the top of the document, and the structured lab results. In the second document, the model seems to be tricked by the space in the table introduced by the longest comment. It may also be relevant that the records below that table have more spacing between them than those above, as they each have their own (short) comment. It’s also interesting that the model has high confidence for the third document, but relatively low confidence for the first two.</p>
 </section>
-<section id="rationale-distillation-httpsarxiv.orgabs2311.09612" class="level6">
-<h6 class="anchored" data-anchor-id="rationale-distillation-httpsarxiv.orgabs2311.09612">Rationale Distillation: <a href="https://arxiv.org/abs/2311.09612" class="uri">https://arxiv.org/abs/2311.09612</a></h6>
-<p>Datasets g b</p>
-<div id="a32eabfe" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> labs</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>labs.test()</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ablc'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>HALLO
-ablc</code></pre>
-</div>
-</div>
+<section id="table-structure-identification" class="level4">
+<h4 class="anchored" data-anchor-id="table-structure-identification">Table structure identification</h4>
+<p>To run the structure identification model, we first pull the highest-confidence table identified by the detection model above. The structure identification model is very sensitive to the amount of padding around the table it receives as input. This is a noted issue with the pre-trained model, and can likely be resolved by fine-tuning with an augmented dataset. For the purposes of using the pre-trained model, I had to add padding around the tables identified above to get reasonable predictions. It’s possible that adding more or less padding would result in better predictions, but because that would be a superficial solution to the problem, I didn’t take the time to find out.</p>
+<p>Running this model produces the following results.</p>
+<p><a href="tatr-structure-report-images/accesa-000.png" class="lightbox" data-gallery="tatr-segmented"><img src="tatr-structure-report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="tatr-structure-report-images/labcorp-002.png" class="lightbox" data-gallery="tatr-segmented"><img src="tatr-structure-report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="tatr-structure-report-images/quest-000.png" class="lightbox" data-gallery="tatr-segmented"><img src="tatr-structure-report-images/quest-000.png" class="img-fluid" width="100"></a></p>
+<p>The model does a relatively good job with the first document, though not as good as I would have expected given how structured the table is. In the second document, it seems to be exactly correct for the part of the table identified by the table detection model, but has no change on the rest of the table (I did not separately extract the rest of the table to see how it would have done). In the third document, the model doesn’t recognize the rows corresponding to the antibody tests. This might have something to do with the fact the test names extend past what it has identified as the relevant column. The size of the column seems to have to do with the front-matter, rather than the lab tests.</p>
+</section>
+</section>
+<section id="commercial-options" class="level3">
+<h3 class="anchored" data-anchor-id="commercial-options">Commercial options</h3>
+<p>There are a few commercial options for table parsing. The easiest to try out was Nanonets, which produced the outputs below.</p>
+<p><a href="nanonets-report-images/accesa-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/accesa-000.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/labcorp-002.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/labcorp-002.png" class="img-fluid" width="100"></a> <a href="nanonets-report-images/quest-000.png" class="lightbox" data-gallery="nanonets"><img src="nanonets-report-images/quest-000.png" class="img-fluid" width="100"></a></p>
+<p>The first striking part of this result is that none of the table cells overlap. I don’t know if this is due to post-processing or because of how they trained their model, but it’s nice. Their structure detection seems to be better, by and large, but also less flexible, as there is no notion of a spanning cell or a header row.</p>
+<p>The first document is pretty much exactly right. In the second document, they miss the last lab test, and also separate the <code>REFERENCE INTERVAL</code> column into two columns, which would cause problems downstream. In the third document, they also miss the last lab, but otherwise do will. Because they’re missing a concept for a spanning cell, in the last two documents the comments are being sliced up. This might be addressable in post-processing.</p>
+</section>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next steps</h3>
+<p>The two models both had difficulty with the kinds of things I expected they might have difficulty with, discussed above. Additionally, the open source model had difficulty distinguishing between the lab test results and structured text at the top of the document, which I did not anticipate.</p>
+<p>Any training or fine-tuning to get around these kinds of problems would have to be based on synthetic data, because there is not enough open lab-report data out there.</p>
+<p>Here are a few considerations for generating this kind of data set:</p>
+<ul>
+<li>Reports should have structured text at the top that looks like it <em>might</em> be part of the lab result table but is not, to help the model distinguish between form fields and lab results.</li>
+<li>The lab results table should include header row columns for lab tests, with representation of the cases in which all, some, or no labs have associated panels, and a good distribution over the number of tests per panel.</li>
+<li>The lab results rows should sometimes span multiple lines, with overflow wrapping at both the column and row level (this caused issues in lab reports not shown in this post).</li>
+<li>The lab results table should have both inline and stand-alone comments.</li>
+<li>Ideally the lab names, reference ranges, values, units, etc. used in the generated document should all be plausible. Depending on how the model is trained, this might help with text recognition.</li>
+</ul>
+<p>I don’t think it would be difficult to create a dataset with these properties that also contains enough variety to train for every lab report I’ve come across. Because there are lots of little labs out there, and their reports all have different formats, it would be prudent to add even more structural variety than that, even though that will likely increase the required model size and the training burden.</p>
+<p>One other thought is that the approach of these table parsing models seems somewhat indirect. They first visually identify the table and its structure, and then run OCR on each cell. I wonder whether there is a more direct approach, where the input is the lab report document, and the output is one or more CSV files containing the results.</p>
+<p>Overall, I don’t think general purposes table parsing tools will be effective for reading labs off of PDFs. I do think they’ve raised some interesting modeling and data-generation avenues to explore, as time allows.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -615,7 +595,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

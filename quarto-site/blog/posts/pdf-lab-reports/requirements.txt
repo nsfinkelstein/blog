@@ -1,1 +1,6 @@
-sqlglot
+timm
+torch
+numpy
+pillow
+matplotlib
+transformers

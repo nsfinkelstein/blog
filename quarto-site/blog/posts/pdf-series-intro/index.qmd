@@ -1,7 +1,7 @@
 ---
 title: "A Series of posts about PDF Parsing with AI"
 date: "2024-02-06"
-date-modified: "2024-02-08"
+date-modified: "2024-02-15"
 categories: []
 description: " "
 ---
@@ -13,7 +13,8 @@ listed below.
 literature
 - [Datasets](/blog/posts/pdf-parsing-datasets) &mdash; On available labeled and unlabeld
 PDF datasets
-- Models &mdash; On published model architectures and weights
+- [Table Parsing for Bloodwork](/blog/posts/pdf-lab-reports) &mdash; A first look at using existing
+[table parsing](/blog/posts/pdf-parsing-tasks#table-parsing) tools on standard lab reports
 
 This list will be updated as the posts are written.
 

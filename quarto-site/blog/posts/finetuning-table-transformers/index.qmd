@@ -1,0 +1,21 @@
+---
+title: "Finetuning Table Transformers for Lab Test Reports"
+date: "2024-02-07"
+date-modified: "2024-02-09"
+categories: []
+description: " "
+draft: true
+jupyter: pdf-lab-reports
+---
+
+For speed:
+
+quantize labs to be black and white (one bit per pixel)
+
+quantize weights?
+
+For quality:
+
+generate fake data
+
+add a "notes" annotation ( i don't believe this exists in the current training data)

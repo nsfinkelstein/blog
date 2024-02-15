@@ -1,0 +1,12 @@
+{
+  "hash": "785ab9810e6cedc0be090ae629858504",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Finetuning Table Transformers for Lab Test Reports\ndate: '2024-02-07'\ndate-modified: '2024-02-09'\ncategories: []\ndescription: ' '\ndraft: true\n---\n\nFor speed:\n\nquantize labs to be black and white (one bit per pixel)\n\nquantize weights?\n\nFor quality:\n\ngenerate fake data\n\nadd a \"notes\" annotation ( i don't believe this exists in the current training data)\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
