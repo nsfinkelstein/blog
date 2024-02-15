@@ -27,9 +27,9 @@ reports.
 
 Below are three sample reports from three different labs. 
 
-![](report-images/accesa-000.png){.lightbox width=100px group="unmarked"}
-![](report-images/labcorp-002.png){.lightbox width=100px group="unmarked"}
-![](report-images/quest-000.png){.lightbox width=100px group="unmarked"}
+![](report-images/accesa-000.png){.lightbox width=200px group="unmarked"}
+![](report-images/labcorp-002.png){.lightbox width=200px group="unmarked"}
+![](report-images/quest-000.png){.lightbox width=200px group="unmarked"}
 
 The reports are basically tables, but they have a two interesting features that will make them
 difficult to parse. 
@@ -61,9 +61,9 @@ separate tasks, described below.
 
 The first task is to identify tables in a document.
 
-![](tatr-report-images/accesa-000.png){.lightbox width=100px group="tatr"}
-![](tatr-report-images/labcorp-002.png){.lightbox width=100px group="tatr"}
-![](tatr-report-images/quest-000.png){.lightbox width=100px group="tatr"}
+![](tatr-report-images/accesa-000.png){.lightbox width=200px group="tatr"}
+![](tatr-report-images/labcorp-002.png){.lightbox width=200px group="tatr"}
+![](tatr-report-images/quest-000.png){.lightbox width=200px group="tatr"}
 
 In a two cases, the model has a hard time distinguishing between structured information at the top
 of the document, and the structured lab results. In the second document, the model seems to be
@@ -84,9 +84,9 @@ because that would be a superficial solution to the problem, I didn't take the t
 
 Running this model produces the following results.
 
-![](tatr-structure-report-images/accesa-000.png){.lightbox width=100px group="tatr-segmented"}
-![](tatr-structure-report-images/labcorp-002.png){.lightbox width=100px group="tatr-segmented"}
-![](tatr-structure-report-images/quest-000.png){.lightbox width=100px group="tatr-segmented"}
+![](tatr-structure-report-images/accesa-000.png){.lightbox width=200px group="tatr-segmented"}
+![](tatr-structure-report-images/labcorp-002.png){.lightbox width=200px group="tatr-segmented"}
+![](tatr-structure-report-images/quest-000.png){.lightbox width=200px group="tatr-segmented"}
 
 The model does a relatively good job with the first document, though not as good as I would have
 expected given how structured the table is. In the second document, it seems to be exactly correct
@@ -101,9 +101,9 @@ column. The size of the column seems to have to do with the front-matter, rather
 There are a few commercial options for table parsing. The easiest to try out was Nanonets, which
 produced the outputs below.
 
-![](nanonets-report-images/accesa-000.png){.lightbox width=100px group="nanonets"}
-![](nanonets-report-images/labcorp-002.png){.lightbox width=100px group="nanonets"}
-![](nanonets-report-images/quest-000.png){.lightbox width=100px group="nanonets"}
+![](nanonets-report-images/accesa-000.png){.lightbox width=200px group="nanonets"}
+![](nanonets-report-images/labcorp-002.png){.lightbox width=200px group="nanonets"}
+![](nanonets-report-images/quest-000.png){.lightbox width=200px group="nanonets"}
 
 The first striking part of this result is that none of the table cells overlap. I don't know if this
 is due to post-processing or because of how they trained their model, but it's nice. Their structure
