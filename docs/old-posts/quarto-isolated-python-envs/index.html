@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-13">
 
-<title>Noam Finkelstein -</title>
+<title>Noam Finkelstein - Isolated Python Environments for Quarto Blogs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,17 +104,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Noam Finkelstein</span>
     </a>
   </div>
@@ -89,11 +125,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -107,41 +143,73 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content">
-  <div class="about-entity">
-    <img src="profile.jpg" class="about-image
-  rounded " style="width: 20em;">
-    <div class="about-links">
-  <a href="https://linkedin.com/in/noam-finkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/nsfinkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://gitlab.com/nsfinkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-gitlab"></i>
-     <span class="about-link-text">Gitlab</span>
-  </a>
-  <a href="mailto:noamf.ink@proton.me" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Isolated Python Environments for Quarto Blogs</h1>
 </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 13, 2024</p>
+    </div>
   </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Welcome to my website!</p>
-<p>I’ve spent the past decade working as a research scientist and engineer, primarily with clinical and biological data. Most recently, I was Head of Machine Learning at Delfina. In April, I’ll join the machine learning team at Flatiron Health.</p>
-<p>I hold a PhD in Computer Science and an ScM in Biostatistics from the Johns Hopkins University, a Bachelor’s degree in Politics, Philosophy and Economics from the University of Oxford, and an Associate’s degree from Deep Springs College.</p>
-<p>Please feel free to get in touch.</p>
+  
+    
+  </div>
+  
 
 
-</main></div>
-</div>
- <!-- /main -->
+</header>
+
+
+<p>I recently moved this blog over to <a href="https://quarto.org/">Quarto</a>, mostly to make it easier to integrate relevant pieces of code into a few upcoming posts. Quarto files integrate markdown with executable code. The resulting documents are a bit like Jupyter notebooks in the sense that they interleave code and commentary. Unlike Jupyter notebooks, they can be edited in any text editor, which is an important feature for me as a long time Vim user. Quarto also has native support for blogging and better support for compilation to multiple formats. So far, I’ve had a good experience.</p>
+<p>The one issue I’ve come across has to do with Quarto’s handling of Python environments. Quarto provides some documentation about using it alongside <a href="https://quarto.org/docs/projects/virtual-environments.html">virtual environments</a>, but the documentation seems to assume one virtual environment per project. For the purposes of a blog, I’d like one virtual environment per post; otherwise changing the environment can break rendering of an earlier post.</p>
+<p>Helpfully, Quarto documents support <a href="https://quarto.org/docs/computations/python.html#kernel-selection">specifying a Jupyter kernel</a> to use for rendering. Without a bit more structure, though, this option can lead to loose ends. Kernels dependencies can be altered iteratively, which can make them very difficult to reproduce. Even if they are created programmatically from environment specifications, manually recreating environments and kernels can be tedious.</p>
+<p>In Quarto blogs, each post lives in <a href="https://quarto.org/docs/websites/website-blog.html#posts-directory">its own directory</a> For my purposes, I wanted it to be clear exactly what’s needed for each post’s code. I also wanted to be able to trivially reconstruct all the relevant kernels from their corresponding <code>requirements.txt</code> files. This is primarily because I believe in the principle of reproducibility and want others to be able to run the code easily. A secondary reason is that I edit this blog on two computers, and don’t want to have to worry about keeping environments up-to-date between them.</p>
+<p>The result I landed on has two steps. The first is two include a <code>requirements.txt</code> file in the directory of each post that has executable python code. This puts the environment spec close to the relevant code, and makes it clear how to construct an environment that can run the code in that specific post. On its own, though, this leaves the problem of having to manually register and update kernels with Jupyter.</p>
+<p>This leads to the second step, which is a bash script, copied below. The script searches for <code>requirements.txt</code> files in the posts directory, automatically creates a corresponding venv from each one, and registers that venv as a Jupyter kernel under the same name as the blog post’s directory. This reduces the setup for isolated python environments to running a single script. Now, we just need to specify the Jupyter kernel for the post, as linked above, in each post.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install jupyter into the current enviornment if not already present</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyter</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create directory for virtualenvs</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="st">"</span><span class="va">${HOME}</span><span class="st">/venvs"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For each post that has a requirements.txt file, create the corresponding kernel</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="st">"quarto-site/blog/posts"</span> <span class="at">-type</span> f <span class="at">-name</span> <span class="st">"requirements.txt"</span> <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">requirements_file</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the name of the post corresponding to this requirements.txt file</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="va">dir_path</span><span class="op">=</span><span class="va">$(</span><span class="fu">dirname</span> <span class="st">"</span><span class="va">${requirements_file}</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">dir_name</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">${dir_path}</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create, activate, and install requirements for the venv</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">venv_path</span><span class="op">=</span><span class="st">"</span><span class="va">${HOME}</span><span class="st">/venvs/</span><span class="va">${dir_name}</span><span class="st">"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python</span> <span class="at">-m</span> venv <span class="st">"</span><span class="va">${venv_path}</span><span class="st">"</span> <span class="at">--clear</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">source</span> <span class="st">"</span><span class="va">${venv_path}</span><span class="st">/bin/activate"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pip</span> install <span class="at">-r</span> <span class="st">"</span><span class="va">${requirements_file}</span><span class="st">"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Register the venv as a Jupyter kernel</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pip</span> install ipykernel</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> <span class="st">"</span><span class="va">${dir_name}</span><span class="st">"</span> <span class="at">--display-name</span> <span class="st">"</span><span class="va">${dir_name}</span><span class="st">"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Deactivate the venv</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">deactivate</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -162,6 +230,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

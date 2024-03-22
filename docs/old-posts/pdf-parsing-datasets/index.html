@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-09">
 
-<title>Noam Finkelstein -</title>
+<title>Noam Finkelstein - Datasets for Document AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,17 +70,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Noam Finkelstein</span>
     </a>
   </div>
@@ -89,11 +91,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -107,41 +109,90 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pdf-datasets" id="toc-pdf-datasets" class="nav-link active" data-scroll-target="#pdf-datasets">PDF datasets</a></li>
+  <li><a href="#ideas-for-generating-pdf-documents-for-medical-data-extraction" id="toc-ideas-for-generating-pdf-documents-for-medical-data-extraction" class="nav-link" data-scroll-target="#ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content">
-  <div class="about-entity">
-    <img src="profile.jpg" class="about-image
-  rounded " style="width: 20em;">
-    <div class="about-links">
-  <a href="https://linkedin.com/in/noam-finkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/nsfinkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://gitlab.com/nsfinkelstein" class="about-link" rel="" target="">
-    <i class="bi bi-gitlab"></i>
-     <span class="about-link-text">Gitlab</span>
-  </a>
-  <a href="mailto:noamf.ink@proton.me" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Datasets for Document AI</h1>
 </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 9, 2024</p>
+    </div>
   </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Welcome to my website!</p>
-<p>I’ve spent the past decade working as a research scientist and engineer, primarily with clinical and biological data. Most recently, I was Head of Machine Learning at Delfina. In April, I’ll join the machine learning team at Flatiron Health.</p>
-<p>I hold a PhD in Computer Science and an ScM in Biostatistics from the Johns Hopkins University, a Bachelor’s degree in Politics, Philosophy and Economics from the University of Oxford, and an Associate’s degree from Deep Springs College.</p>
-<p>Please feel free to get in touch.</p>
+  
+    
+  </div>
+  
 
 
-</main></div>
-</div>
- <!-- /main -->
+</header>
+
+
+<p>This post will aim to provide an overview of real and synthetic datasets available for training Document AI models, with a focus on PDF documents. This is the second post in a <a href="../../blog/posts/pdf-series-intro">series</a> on document parsing. The <a href="../../blog/posts/pdf-parsing-tasks">previous post</a> explored a number of datasets used in benchmarking tasks. This post will focus on datasets used to train foundation models, which requires more data than can exist in annotated datasets used in benchmarking.</p>
+<section id="pdf-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="pdf-datasets">PDF datasets</h3>
+<p>There are a lot of easily-accessible PDFs in the world, so the main benefit of these datasets is that someone else has gone through the effort of collecting them in one place. Some PDF datasets are grouped by type.</p>
+<p>PDFs can be either scanned or native. Native PDFs contain digital information about characters and other visual markings. Scanned PDFs can be thought of as images, in the sense that they encode pixel-level data, but no higher-level information about the contents of the document. Native PDFs can easily be converted into “scanned” PDFs by applying visual filters that replicate artifacts from the scanning process. <a href="https://github.com/sparkfish/augraphy">Augraphy</a> is a great tool for this.</p>
+<p>This idea is illustrated by the <a href="https://github.com/sparkfish/shabby-pages">shabby pages</a> dataset, which contains about ~6,000 native documents that have been artificially altered to simulate scanning or faxing. The advantage of this kind of manipulation is that the ground truth is available. The manipulations were done with Augraphy, linked above.</p>
+<p>The <a href="https://github.com/machine-intelligence-laboratory/DDI-100">DDI-100</a> dataset began with ~6,500 real document pages, and constructed various altered versions to arrive at ~100,000 page images.</p>
+<p>The <a href="https://www.nist.gov/srd/nist-special-database-2">SFRS</a> dataset has ~5,500 document images of tax forms from 1988. “The document images in this database appear to be real forms prepared by individuals, but the images have been automatically derived and synthesized using a computer.” In other words, the real original filled-in values seem to have been overwritten by synthetically generated values. This dataset can be thought of as a synthetic <a href="../../blog/posts/pdf-parsing-tasks#forms-parsing">form parsing</a> dataset. I haven’t been able to find a direct download link; I’ll update here when I hear back from the NIST “scientific contact” for the database.</p>
+<p>The <a href="https://github.com/tpn/pdfs/">pdfs</a> repository on github is a collection of ~1,700 “technically-oriented” PDFs. They seem to be mostly native PDFs, which could similarly be digitally altered.</p>
+<p>The <a href="https://data.nist.gov/od/id/mds2-2531">IIT CDIP</a> dataset has a large number of legal documents from the state of Illinois’ “lawsuits against tobacco companies in the 1990s”. The website says there are ~7,000,000 documents, but other sources (such as the <a href="https://arxiv.org/pdf/2111.15664.pdf">DONUT paper</a>) put the number at ~11,000,000.</p>
+<p>The <a href="https://www.kaggle.com/search?q=PDF+data+datasetFileTypes%3Apdf+datasetSize%3Amedium+datasetSize%3Alarge">kaggle dataset collection</a> has a number of PDF datasets, most have in the hundreds of files. Note that the preceding link filters to datasets that have at least one PDF, but that PDF is sometimes a user agreement or a data dictionary. There is no way to filter to datasets that contain only PDF files.</p>
+<p>The <a href="https://huggingface.co/datasets?sort=downloads&amp;search=PDF">hugging face dataset collection</a> allows for search by dataset name but not dataset type.</p>
+<p>Finally, the <a href="https://paperswithcode.com/datasets?q=PDF+Document&amp;v=lst&amp;o=match">papers with code</a> dataset list has similar functionality.</p>
+<p>All three of those dataset collections seem to have relevant datasets, though they are mostly on the smaller side. Unlike the other two, papers with code does not host the datasets it lists.</p>
+<section id="synthetic-pdf-pipelines" class="level4">
+<h4 class="anchored" data-anchor-id="synthetic-pdf-pipelines">Synthetic PDF pipelines</h4>
+<p>As mentioned above, <a href="https://github.com/sparkfish/augraphy">Augraphy</a> can synthetically generate “scanned” or otherwise distorted PDFs from existing PDFs.</p>
+<p><a href="https://github.com/clovaai/donut/tree/master/synthdog">SynthDoG</a> was developed as part of the <a href="https://arxiv.org/pdf/2111.15664.pdf">OCR-free Document Understanding Transformer</a> paper. It produces synthetic documents by taking the following steps:</p>
+<ul>
+<li>randomly select background images from imagenet</li>
+<li>randomly select “paper texture” from photos of paper</li>
+<li>apply random distortion to paper texture</li>
+<li>generate a random grid-based layout of text boxes of differing sizes and locations</li>
+<li>randomly select font, style, and size of text</li>
+<li>fill the text boxes with text from wikipedia</li>
+<li>post-process the image</li>
+</ul>
+<p>See appendix A.2 of the linked paper for more details. This seems like a neat pipeline.</p>
+<p>SynthDoG seems to be a more advanced version of <a href="https://github.com/clovaai/synthtiger">synthtiger</a>, which takes many of the same steps.</p>
+</section>
+</section>
+<section id="ideas-for-generating-pdf-documents-for-medical-data-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="ideas-for-generating-pdf-documents-for-medical-data-extraction">Ideas for generating PDF documents for medical data extraction</h3>
+<p>At this point, I’m thinking about extracting medical data from PDFs as a mix of two kinds of tasks. The first is <a href="../../blog/posts/pdf-parsing-tasksd#forms-parsing">form parsing</a>, which will be relevant when the PDF has distinct entry fields for specific pieces of information. This is often the case with demographic information, lab test results, vital signs, prescriptions, etc. The second is closer to <a href="../../blog/posts/pdf-parsing-tasks#document-question-answering">question answering</a>, which will be relevant when the information is contained in free-text clinical notes. This often happens when we’re interested in medical histories, the specifics of a procedure or radiology diagnosis, or patient symptoms.</p>
+<p>Regardless of how or whence we extract the information, the task is variation of Key Information Extraction (KIE). For each potential FHIR field, we would like to know if the field is present in the document, and if so what its value is.</p>
+<p>Generating realistic medical PDFs will involve creating randomly generated plausible layouts for structured medical information of the type that can be generated by <a href="https://github.com/synthetichealth/synthea">Synthea</a>, and using LLMs to to generate plausible clinical notes that encode known pieces of information. Combining these elements with the synthetic data generation pipelines linked above, I think it might be possible to train a Document AI model for medical KIE.</p>
+</section>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next steps</h3>
+<p>In the next post, we’ll take a look at evaluating some pre-trained OCR and Document AI models on medical information extraction tasks. Depending on the results, we might explore creating realistic synthetic medical documents for improved medical KIE training.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -162,6 +213,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

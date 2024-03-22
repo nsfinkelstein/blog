@@ -2,11 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/posts/pdf-lab-reports/index.html",
-      "/blog/posts/quarto-isolated-python-envs/index.html",
-      "/blog/posts/pdf-parsing-datasets/index.html",
-      "/blog/posts/pdf-parsing-tasks/index.html",
-      "/blog/posts/pdf-series-intro/index.html"
+      "/blog/posts/quarto-isolated-python-envs/index.html"
     ]
   }
 ]
