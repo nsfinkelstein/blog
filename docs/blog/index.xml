@@ -10,204 +10,38 @@
 <atom:link href="https://noamf.ink/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.549</generator>
-<lastBuildDate>Tue, 13 Feb 2024 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 22 Mar 2024 04:00:00 GMT</lastBuildDate>
 <item>
-  <title>Isolated Python Environments for Quarto Blogs</title>
-  <link>https://noamf.ink/blog/posts/quarto-isolated-python-envs/</link>
+  <title>When you should look for a new hammer</title>
+  <link>https://noamf.ink/blog/posts/when-to-switch-hammers/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p>I recently moved this blog over to <a href="https://quarto.org/">Quarto</a>, mostly to make it easier to integrate relevant pieces of code into a few upcoming posts. Quarto files integrate markdown with executable code. The resulting documents are a bit like Jupyter notebooks in the sense that they interleave code and commentary. Unlike Jupyter notebooks, they can be edited in any text editor, which is an important feature for me as a long time Vim user. Quarto also has native support for blogging and better support for compilation to multiple formats. So far, I’ve had a good experience.</p>
-<p>The one issue I’ve come across has to do with Quarto’s handling of Python environments. Quarto provides some documentation about using it alongside <a href="https://quarto.org/docs/projects/virtual-environments.html">virtual environments</a>, but the documentation seems to assume one virtual environment per project. For the purposes of a blog, I’d like one virtual environment per post; otherwise changing the environment can break rendering of an earlier post.</p>
-<p>Helpfully, Quarto documents support <a href="https://quarto.org/docs/computations/python.html#kernel-selection">specifying a Jupyter kernel</a> to use for rendering. Without a bit more structure, though, this option can lead to loose ends. Kernels dependencies can be altered iteratively, which can make them very difficult to reproduce. Even if they are created programmatically from environment specifications, manually recreating environments and kernels can be tedious.</p>
-<p>In Quarto blogs, each post lives in <a href="https://quarto.org/docs/websites/website-blog.html#posts-directory">its own directory</a> For my purposes, I wanted it to be clear exactly what’s needed for each post’s code. I also wanted to be able to trivially reconstruct all the relevant kernels from their corresponding <code>requirements.txt</code> files. This is primarily because I believe in the principle of reproducibility and want others to be able to run the code easily. A secondary reason is that I edit this blog on two computers, and don’t want to have to worry about keeping environments up-to-date between them.</p>
-<p>The result I landed on has two steps. The first is two include a <code>requirements.txt</code> file in the directory of each post that has executable python code. This puts the environment spec close to the relevant code, and makes it clear how to construct an environment that can run the code in that specific post. On its own, though, this leaves the problem of having to manually register and update kernels with Jupyter.</p>
-<p>This leads to the second step, which is a bash script, copied below. The script searches for <code>requirements.txt</code> files in the posts directory, automatically creates a corresponding venv from each one, and registers that venv as a Jupyter kernel under the same name as the blog post’s directory. This reduces the setup for isolated python environments to running a single script. Now, we just need to specify the Jupyter kernel for the post, as linked above, in each post.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Install jupyter into the current enviornment if not already present</span></span>
-<span id="cb1-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pip</span> install jupyter</span>
-<span id="cb1-3"></span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create directory for virtualenvs</span></span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mkdir</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/venvs"</span></span>
-<span id="cb1-6"></span>
-<span id="cb1-7"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># For each post that has a requirements.txt file, create the corresponding kernel</span></span>
-<span id="cb1-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">find</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"quarto-site/blog/posts"</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-type</span> f <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-name</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"requirements.txt"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">|</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">while</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">read</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">requirements_file</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">do</span></span>
-<span id="cb1-9"></span>
-<span id="cb1-10">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Get the name of the post corresponding to this requirements.txt file</span></span>
-<span id="cb1-11">    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">dir_path</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">dirname</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${requirements_file}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb1-12">    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">dir_name</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">basename</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${dir_path}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb1-13"></span>
-<span id="cb1-14">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create, activate, and install requirements for the venv</span></span>
-<span id="cb1-15">    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">venv_path</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/venvs/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${dir_name}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb1-16">    <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">python</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-m</span> venv <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${venv_path}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--clear</span> </span>
-<span id="cb1-17">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">source</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${venv_path}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/bin/activate"</span></span>
-<span id="cb1-18">    <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pip</span> install <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-r</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${requirements_file}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb1-19">    </span>
-<span id="cb1-20">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Register the venv as a Jupyter kernel</span></span>
-<span id="cb1-21">    <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pip</span> install ipykernel</span>
-<span id="cb1-22">    <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">python</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-m</span> ipykernel install <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--user</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${dir_name}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--display-name</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${dir_name}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb1-23">    </span>
-<span id="cb1-24">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Deactivate the venv</span></span>
-<span id="cb1-25">    <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">deactivate</span></span>
-<span id="cb1-26"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">done</span></span></code></pre></div>
+<p>There’s an old expression that gets a lot of use in engineering and research circles; I’m sure you’ve heard it:</p>
+<blockquote class="blockquote">
+<p>When all you have is a hammer, everything looks like a nail.</p>
+</blockquote>
+<p>If you’ve spent your career studying control theory, everything looks like a dynamical system. If you’re an ardent TDD pracitioner, every bug looks like a failure of testing. If you’re a machine learning engineer<img src="https://latex.codecogs.com/png.latex?%5Cdots"> you get the idea.</p>
+<p>There’s a lot of value in using tools you know well to solve problems quickly. It gives you a framing that you can use to get traction fast. If you ask 5 people with different hammers about the same problem, you’ll get 5 different diagnoses and 5 different solutions. Some will be better than others. Considered together, you’ll get 5 perspectives on the same problem, and some ability to evaluate which fits best.</p>
+<p>Sometimes, when you’re deep in a problem, you can’t collect 5 people with different hammers to quiz. Maybe the problem would take too long to explain, maybe all your friends have the same hammer you do.</p>
+<p>You start by hitting the problem with your hammer. If you’re lucky, you’ll have two or three hammers you can try out. The problem with hammers is that you can keep swinging them all day long. Nothing will ever stop you. Usually they’ll even keep working, a bit. That makes it hard to realize that you need a new hammer.</p>
+<p>For some problems, the gains you get from using a hammer that you’re extremely skilled with are outweighed by the inefficiencies of using the wrong tool for the job. If you hammer on a screw long enough, you’ll eventually sink it (don’t ask me how I know). But it will take a lot of effort, and it won’t hold very well.</p>
+<p>Recognizing those situations isn’t easy. You can’t know from the beginning. But once you start swinging that hammer, how do you know when to stop and look for a better tool?</p>
+<p>I like to visualize a space with “How hard is this” along one axis, and “How hard do I think this should be” along the other axis. It’s helpful to know where you are in this space at all times.</p>
+<p><img src="https://noamf.ink/blog/posts/when-to-switch-hammers/plot.png" class="img-fluid"></p>
+<p>If it’s easy and it should be easy, you’re fine. If it’s hard and should be hard, you’re fine. If it’s easier than it should be, then you’ve either misunderstood the problem or your solution doesn’t work the way you think it does. If it’s harder than you should be, you’re not using the right tool for the job. You need a new hammer.</p>
+<p>When you start, you don’t know how hard the problem is. With experience, it becomes easier to make good guesses about how hard something should be ahead of time, and how hard your solution will be ahead of time. But you never really know.</p>
+<p>As you work, you get a better sense for where you are along both axes. The problem is that you can easily slip into that bottom right quadrant without ever noticing. It’s a good idea to develop the practice of checking in with yourself about how you understand the problem, and how you understand the solution.</p>
+<p>Once you realize you need a new hammer, there’s a whole host of other questions to face. Which hammer? How do you find out? If you find one, how do you figure out if it will work? Questions for another time.</p>
 
 
 
  ]]></description>
-  <guid>https://noamf.ink/blog/posts/quarto-isolated-python-envs/</guid>
-  <pubDate>Tue, 13 Feb 2024 05:00:00 GMT</pubDate>
+  <guid>https://noamf.ink/blog/posts/when-to-switch-hammers/</guid>
+  <pubDate>Fri, 22 Mar 2024 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
