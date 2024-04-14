@@ -129,7 +129,7 @@ there was a systematic explanation for the invalid moves, etc.
 
 I also want to point out that the available data matters quite a bit. It's been shown that LLMs
 trained on internet-scale data fail at basic tasks of logical reasoning. The internet is full of
-examples of invalid logical moves, for reasons of humor, scarcasm, and illogic. My strong suspicion
+examples of invalid logical moves, for reasons of humor, sarcasm, and illogic. My strong suspicion
 is that an LLM trained exclusively on text representing valid reasoning would learn the rules of
 logic. Identification, in this case as in Othello, follows from the presence of all and only valid
 logical moves.
