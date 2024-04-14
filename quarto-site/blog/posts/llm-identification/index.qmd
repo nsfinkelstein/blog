@@ -199,9 +199,9 @@ At the same time, it's clear that grand claims about what LLMs "understand" are 
 little to back them up. 
 
 My suggestion is to develop an identification theory of what is even learnable about the world
-through text, under which implicit assumptions, and so on. Unlike in the case of causal inference, I
-don't think this theory would be purely mathematical, but it would have a strong mathematical
-component. I've tried to show above how such a theory might make sense of the evidence we've seen so
-far about where and how LLMs have succeeded in building "world models". I would hope that
-establishing such a theory would make it easier to figure out where we should land on the spectrum
-between the LLM skeptics and the LLM optimists.
+through text, under which assumptions, and so on. Unlike in the case of causal inference, I don't
+think this theory would be purely mathematical, but it would have a strong mathematical component.
+I've tried to show above how such a theory might make sense of the evidence we've seen so far about
+where and how LLMs have succeeded in building "world models". I would hope that establishing such a
+theory would make it easier to figure out where we should land on the spectrum between the LLM
+skeptics and the LLM optimists.
