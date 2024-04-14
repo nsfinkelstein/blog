@@ -178,10 +178,10 @@ steps, and likewise different understandings of their experiences. In the same w
 human could have very different subjective experiences of executing an algorithm. To say that the
 machine can't have a subjective experience at all is begging the question.
 
-The thought experiment, to me, shows that a human can't understand the way in which an LLM might
+The thought experiment, to me, shows that a human can't understand Chinese in the way an LLM might
 understand Chinese. But it doesn't show that an LLM can't understand Chinese, for some reasonable
 definition of understanding. And actually, it doesn't even show that an LLM can't understand Chinese
-in the same way a human does (just the inverse).
+in the same way a human does (it just shows the inverse).
 
 ## Conclusion
 
@@ -192,7 +192,7 @@ I don't think the idea that there is a necessary disconnect between text and the
 more convincing than the idea that there's a necessary disconnect between sense and the world. 
 If facts or rules in the true world are identified from text, then an LLM can in theory reconstruct
 relevant parts of the world, and use that knowledge to interpret text. This seems structurally
-similar to the sway that humans infer facts and rules about the world from our senses, and then use
+similar to the way that humans infer facts and rules about the world from our senses, and then use
 what we've inferred to interpret future inputs.
 
 At the same time, it's clear that grand claims about what LLMs "understand" are being made with
